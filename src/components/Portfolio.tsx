@@ -66,7 +66,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
   };
 
   return (
-    <section id="portfolio" className="relative py-20 lg:py-32 bg-[#071B35] overflow-hidden">
+    <section id="projetos" className="relative py-20 lg:py-32 bg-[#071B35] overflow-hidden scroll-mt-20 lg:scroll-mt-24">
       <div className="absolute inset-0 z-0 opacity-[0.03] steel-brushed" />
       <div className="absolute right-0 bottom-1/4 w-[500px] h-[500px] bg-[#1A5296]/5 rounded-full blur-[140px]" />
 
@@ -114,8 +114,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
           ))}
         </div>
 
-        {/* ── Masonry Gallery ── */}
-        <motion.div layout className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+        {/* ── Grid Gallery (Responsive: 2 items on mobile, 3 on tablet/desktop) ── */}
+        <motion.div layout className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -125,7 +125,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`group relative ${getMasonryHeight(index)} rounded-xl overflow-hidden border border-[#B8C4D0]/10 hover:border-[#1A5296]/45 transition-all shadow-xl bg-[#050f1e] cursor-pointer break-inside-avoid mb-5`}
+                className="group relative h-[160px] sm:h-[240px] md:h-[280px] lg:h-[340px] rounded-xl overflow-hidden border border-[#B8C4D0]/10 hover:border-[#1A5296]/45 transition-all shadow-xl bg-[#050f1e] cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Image with zoom on hover */}
@@ -141,30 +141,30 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
 
                 {/* Hover overlay zoom icon */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
-                    <IconRenderer name="ZoomIn" size={22} className="text-white" />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center">
+                    <IconRenderer name="ZoomIn" size={16} className="text-white sm:scale-125" />
                   </div>
                 </div>
 
                 {/* Badges */}
-                <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
-                  <span className="px-2.5 py-1 text-[10px] font-mono font-bold text-white uppercase tracking-widest bg-[#1A5296]/85 backdrop-blur-md rounded border border-white/20">
+                <div className="absolute top-2 inset-x-2 sm:top-4 sm:inset-x-4 flex items-center justify-between z-10 gap-1">
+                  <span className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[10px] font-mono font-bold text-white uppercase tracking-widest bg-[#1A5296]/85 backdrop-blur-md rounded border border-white/20 truncate">
                     {project.category}
                   </span>
-                  <span className="px-2.5 py-1 text-[10px] font-mono font-bold text-[#F59E0B] tracking-wider uppercase bg-black/80 backdrop-blur-md rounded border border-[#F59E0B]/30">
+                  <span className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[10px] font-mono font-bold text-[#F59E0B] tracking-wider uppercase bg-black/80 backdrop-blur-md rounded border border-[#F59E0B]/30 truncate">
                     {project.keySpec}
                   </span>
                 </div>
 
                 {/* Title + CTA */}
-                <div className="absolute inset-x-0 bottom-0 p-5 flex flex-col justify-end z-10">
-                  <span className="text-[10px] font-mono text-[#B8C4D0]/55 uppercase tracking-widest block mb-1">
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5 flex flex-col justify-end z-10 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/85 to-transparent">
+                  <span className="text-[8px] sm:text-[10px] font-mono text-[#B8C4D0]/55 uppercase tracking-widest block mb-0.5 sm:mb-1">
                     {project.client}
                   </span>
-                  <h3 className="font-display font-extrabold text-base sm:text-lg text-white group-hover:text-[#3B82F6] transition-colors leading-tight mb-3">
+                  <h3 className="font-display font-extrabold text-[10px] sm:text-base md:text-lg text-white group-hover:text-[#3B82F6] transition-colors leading-tight mb-1 sm:mb-3 line-clamp-2">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-1.5 text-xs text-[#1A5296] font-semibold tracking-wider uppercase group-hover:text-white transition-colors">
+                  <div className="flex items-center gap-1.5 text-[9px] sm:text-xs text-[#1A5296] font-semibold tracking-wider uppercase group-hover:text-white transition-colors hidden sm:flex">
                     <span>Ver Ficha Técnica</span>
                     <IconRenderer name="ArrowRight" size={12} className="group-hover:translate-x-1 transition-transform" />
                   </div>

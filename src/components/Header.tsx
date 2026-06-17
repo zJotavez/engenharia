@@ -20,10 +20,10 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
   // Menu reduzido — sem Diferenciais e Depoimentos
   const navItems = [
-    { id: 'inicio', label: 'Home', href: '#inicio' },
+    { id: 'home', label: 'Home', href: '#home' },
     { id: 'sobre', label: 'Sobre Nós', href: '#sobre' },
     { id: 'servicos', label: 'Serviços', href: '#servicos' },
-    { id: 'portfolio', label: 'Projetos', href: '#portfolio' },
+    { id: 'projetos', label: 'Projetos', href: '#projetos' },
     { id: 'contato', label: 'Contato', href: '#contato' },
   ];
 
@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#inicio" id="nav-brand-logo" className="flex items-center gap-3 group select-none">
+        <a href="#home" id="nav-brand-logo" className="flex items-center gap-3 group select-none">
           <div className="w-10 h-10 bg-[#1A5296] flex items-center justify-center border border-white/10 relative overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
             <div className="w-6 h-6 border-2 border-white rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-135">
               <div className="w-2 h-2 bg-white animate-pulse"></div>

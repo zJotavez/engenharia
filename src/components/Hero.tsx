@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
 
   return (
     <section
-      id="inicio"
+      id="home"
       ref={sectionRef}
       className="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-[#050f1e] pt-24"
     >

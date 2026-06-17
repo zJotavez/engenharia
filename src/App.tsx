@@ -12,12 +12,12 @@ import { Contact } from './components/Contact.tsx';
 import { Footer } from './components/Footer.tsx';
 
 export default function App() {
-  const [activeSection, setActiveSection] = useState<string>('inicio');
+  const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedServicePreset, setSelectedServicePreset] = useState<string>('');
 
   // Implement Intersection Observer or scroll spy to highlight current menu section
   useEffect(() => {
-    const sections = ['inicio', 'sobre', 'servicos', 'portfolio', 'contato'];
+    const sections = ['home', 'sobre', 'servicos', 'projetos', 'contato'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
