@@ -1,0 +1,25 @@
+# MV Engenharia & Construções Industriais — robots.txt
+# https://mvengenharia.com
+
+User-agent: *
+Allow: /
+
+# Bloquear recursos internos desnecessários para crawlers
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /vite.config.ts
+
+# Sitemap
+Sitemap: https://mvengenharia.com/sitemap.xml
+
+# Crawl-delay para bots menos prioritários
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /

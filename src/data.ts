@@ -1,0 +1,314 @@
+import { Service, Project, TimelineItem, Testimonial, Differential, StatItem } from './types.ts';
+
+export const SERVICES: Service[] = [
+  {
+    id: 'estruturas-metalicas',
+    title: 'Estruturas Metálicas de Alta Performance',
+    description: 'Cálculo, detalhamento, fabricação avançada e montagem rigorosa de galpões industriais, silos, mezaninos e superestruturas de aço de alta resistência.',
+    detailedDescription: 'Oferecemos soluções integrais em engenharia de estruturas metálicas de grande porte. Nossa produção é submetida a rígidos ensaios não destrutivos (ultrassom, partícula magnética e líquidos penetrantes), garantindo montagem cirúrgica e resistência estrutural sob condições extremas de carga e intempéries.',
+    features: [
+      'Galpões logísticos e industriais de vão livre otimizado',
+      'Plataformas marinhas e terrestres para cargas dinâmicas',
+      'Estruturas de suporte de tubagens de processo (Pipe Racks)',
+      'Ensaios estruturais (NDT) e engenharia de soldagem qualificada'
+    ],
+    iconName: 'Layers',
+    image: '/assets/images/estruturas-metalicas.png'
+  },
+  {
+    id: 'construcao-naval',
+    title: 'Construção e Reparação Naval',
+    description: 'Estruturas de convés, caldeiraria pesada, montagem de turcos, portas estanques e serviços especializados de manutenção e reforço naval.',
+    detailedDescription: 'Com excelência técnica herdada dos maiores estaleiros, nossa equipe executa reparos estruturais em cascos sob normas de sociedades classificadoras internacionais. Disponibilizamos soldadores homologados por entidades reguladoras exigentes para estruturas de alta responsabilidade.',
+    features: [
+      'Substituição de chapeamento estrutural e cavernas',
+      'Sistemas de amarração, portões e acessos estanques de alta pressão',
+      'Serviços offshore com equipes móveis altamente capacitadas',
+      'Conformidade rígida com sociedades de classificação naval'
+    ],
+    iconName: 'Anchor',
+    image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
+    id: 'tubagem-industrial',
+    title: 'Tubagem Industrial de Processo',
+    description: 'Montagem de linhas de fluidos industriais sob pressão, tubagens térmicas e redes especializadas em aço carbono, inox e ligas especiais.',
+    detailedDescription: 'Desenvolvimento e execução de linhas de processo sofisticadas para refinarias, indústrias químicas, alimentícias e de celulose. Trabalhamos com processos certificados de soldadura TIG, MIG/MAG e Elétrodo Revestido, de acordo com diretrizes ASME / EN.',
+    features: [
+      'Tubagens de alta e baixa pressão para fluidos químicos e vapor',
+      'Isolamento térmico e revestimento de proteção anticorrosiva',
+      'Instrumentação industrial e soldadura com 100% de radiografia',
+      'Construção de coletores estruturados de alta especificação'
+    ],
+    iconName: 'Cpu',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
+    id: 'serralheria-ferro-inox',
+    title: 'Serralheria Especializada Ferro e Inox',
+    description: 'Guardas articuladas, guarda-corpos industriais normatizados, escadas marinheiro com guarda de segurança e mezaninos customizados.',
+    detailedDescription: 'Produzimos serralharia técnica e de precisão sob medida para plantas fabris. Projetamos todos os acessos visando à plena segurança operacional contra quedas de nível, atendendo integralmente as normativas de ergonomia e prevenção de acidentes na indústria.',
+    features: [
+      'Escadas de segurança marinheiro e lances industriais robustos',
+      'Guarda-corpos modulares industriais e linhas de vida integradas',
+      'Portas estanques acústicas e painéis metálicos protetores',
+      'Acabamento em inox escovado cirúrgico para indústrias farmacêuticas e alimentares'
+    ],
+    iconName: 'Shield',
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
+    id: 'serralheria-civil',
+    title: 'Serralheria para Engenharia Civil',
+    description: 'Estruturas decorativas e funcionais de altíssima resistência para projetos corporativos e prédios de alto padrão.',
+    detailedDescription: 'Fusão de design moderno e resistência mecânica para o setor da construção civil. Fabricamos caixilhos, portões automáticos industriais de alta cadência, fachadas em painéis metálicos perfurados e coberturas translúcidas autoportantes.',
+    features: [
+      'Fachadas metálicas exclusivas em aço corten ou alumínio estrutural',
+      'Portões de correr automatizados de alto ciclo operacional',
+      'Estruturas de fechamento envidraçado e pergolados robustos',
+      'Componentes termoacústicos sob especificação de arquitetura premium'
+    ],
+    iconName: 'Home',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200'
+  },
+  {
+    id: 'construcao-civil',
+    title: 'Construção Civil Industrial Pesada',
+    description: 'Bases de máquinas de grande rotação, fundações complexas de concreto e construções prediais corporativas integradas às fábricas.',
+    detailedDescription: 'Executamos fundações profundas e bases de concreto armado de alta estabilidade mecânica em ambientes fabris consolidados. Dominamos métodos modernos de controle de vibrações estruturais para instalação de compressores, turbinas e prensas industriais de alto torque.',
+    features: [
+      'Fundações de alta precisão para fornos e turbogeradores',
+      'Pisos industriais de alta resistência a cargas de empilhadores',
+      'Obras prediais de suporte (refeitórios, vestiários e prédios administrativos)',
+      'Intervenções civis estruturadas sem interrupção de processos fabris'
+    ],
+    iconName: 'Hammer',
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200'
+  }
+];
+
+export const PROJECTS: Project[] = [
+  {
+    id: 'p1',
+    title: 'Superestrutura Logística & Pipe Racks Portuários',
+    category: 'Estruturas Metálicas',
+    description: 'Projeto integral de engenharia para fabricação e montagem de 1200 metros lineares de galpões e pipe-racks treliçados de transporte de minério de alta tonelagem. Montagem realizada com suporte a ventos de até 150 km/h.',
+    client: 'TransOcean Logística S.A.',
+    service: 'Fabricação e montagem de pipe racks metálicos integrados',
+    location: 'Porto de Pecém - CE',
+    year: '2025',
+    gallery: [
+      '/assets/images/pipe-racks-portuarios.png',
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
+    ],
+    keySpec: '1.450 Toneladas de Aço'
+  },
+  {
+    id: 'p2',
+    title: 'Manutenção Estrutural e Reforma de Deck de Plataforma',
+    category: 'Naval',
+    description: 'Corte e substituição ultrarrápida de 120 toneladas de chapeamento estrutural desgastado em embarcação petroleira e convés sob exigibilidade máxima da marinha e registro Lloyds.',
+    client: 'Atlantic Drilling Corp.',
+    service: 'Reparação Naval Pesada e Substituição Pluvial',
+    location: 'Estaleiro Almirante - RJ',
+    year: '2025',
+    gallery: [
+      'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200'
+    ],
+    keySpec: '120 Toneladas Substituídas'
+  },
+  {
+    id: 'p3',
+    title: 'Ramais de Vapor e Alta Pressão Complexo C-45',
+    category: 'Tubagem',
+    description: 'Implantação completa de tubulação industrial para transporte de óleos combustíveis e linhas de vapor de alta pressão em aço cromo-molibdênio. Radiografia total de soldas realizada com índice zero de retrabalho.',
+    client: 'Indústria Química Nordesca',
+    service: 'Montagem de linhas de processo a alta pressão',
+    location: 'Polo Industrial Camaçari - BA',
+    year: '2024',
+    gallery: [
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
+    ],
+    keySpec: '3.200 Metros de Linhas'
+  },
+  {
+    id: 'p4',
+    title: 'Bases de concreto anti-vibração para Turbina de Geração',
+    category: 'Civil',
+    description: 'Projeto estrutural desafiador de fundações de blocos de altíssima rigidez sobre estacas escavadas com inserção amortecedora especial, reduzindo ressonâncias no solo fabril a próximo de zero.',
+    client: 'TermoPower Energia',
+    service: 'Fundações Pesadas e Base Anti-vibração de Equipamentos',
+    location: 'Polo Industrial de Betim - MG',
+    year: '2024',
+    gallery: [
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200'
+    ],
+    keySpec: '850m³ Concreto Especial'
+  },
+  {
+    id: 'p5',
+    title: 'Serralharia Técnica de Proteção de Elevado Fluxo',
+    category: 'Serralheria',
+    description: 'Implementação de sistemas de acessos modulares, gradis zincados a fogo em caracol de alta resistência e guarda-corpos normatizados para escoamento de reatores petroquímicos.',
+    client: 'BioFuel Sementes Grupo',
+    service: 'Serralheria em Aço de Alta Resistência à Corrosão',
+    location: 'Cubatão - SP',
+    year: '2023',
+    gallery: [
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200'
+    ],
+    keySpec: '42 Escadas de Segurança'
+  },
+  {
+    id: 'p6',
+    title: 'Terminal Logístico de Embarque com Perfis Esbeltos',
+    category: 'Estruturas Metálicas',
+    description: 'Modelagem paramétrica e montagem rápida de cobertura de alta claridade para silos agrícolas com alta durabilidade sob poluição de pó abrasivo de soja.',
+    client: 'Agrícola Global Trading',
+    service: 'Estruturas Metálicas de Grande Vão Livre',
+    location: 'Rondonópolis - MT',
+    year: '2023',
+    gallery: [
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1513828742140-ccaa2ecf32e9?auto=format&fit=crop&q=80&w=1200'
+    ],
+    keySpec: '18.000 m² de Cobertura'
+  }
+];
+
+export const TIMELINE_ITEMS: TimelineItem[] = [
+  {
+    year: '2011',
+    title: 'Fundação da MV Engenharia',
+    description: 'Nascemos em um modesto pavilhão focado em caldeiraria e serralheria de precisão, prestando serviços mecânicos de apoio à indústria naval local.',
+    milestone: true
+  },
+  {
+    year: '2015',
+    title: 'Primeiros Projetos Estrutuais Pesados',
+    description: 'Homologação e expansão para estruturas metálicas completas e pipe racks industriais de média porte. Conquistamos os primeiros contratos com o setor portuário.',
+    milestone: false
+  },
+  {
+    year: '2019',
+    title: 'Certificação ISO e Divisão Naval Especializada',
+    description: 'Consolidação de processos executivos, contratação de inspetores qualificados AWS/SNQC e grande aporte tecnológico em maquinário pesado de usinagem e dobra automática.',
+    milestone: false
+  },
+  {
+    year: '2022',
+    title: 'Expansão Nacional e Atuação Turn-key/EPC',
+    description: 'Estruturação do departamento civil para assumir obras completas integradas, permitindo a entrega de contratos EPC globais (engenharia, compras e construção civis integradas).',
+    milestone: true
+  },
+  {
+    year: '2026',
+    title: 'Liderança Tecnológica em Engenharia de Precisão',
+    description: 'Hoje, a MV executa projetos para as maiores empresas industriais do Brasil, reconhecida pela excelência em prazos, segurança do trabalho impecável e acabamento industrial primoroso.',
+    milestone: true
+  }
+];
+
+export const DIFFERENTIALS: Differential[] = [
+  {
+    id: 'd1',
+    title: 'Equipe de Engenharia Altamente Qualificada',
+    description: 'Profissionais especialistas em metodologias BIM, cálculo estrutural sob normas internacionais (ASME, AWS, ABNT) e prontos para superar complexidades técnicas desafiadoras.',
+    iconName: 'Users'
+  },
+  {
+    id: 'd2',
+    title: 'Segurança Operacional Absoluta',
+    description: 'Rigorosa política de Acidente Zero. Auditoria contínua de procedimentos, equipamentos certificados e certificações completas integradas (NR-34, NR-35 e NR-10).',
+    iconName: 'ShieldAlert'
+  },
+  {
+    id: 'd3',
+    title: 'Sistemas de Controle de Qualidade (Auditoria Total)',
+    description: 'Todas as peças saem de nossa fábrica com o Certificado de Rastreabilidade de Matéria-Prima e prontuário completo de ensaios físicos não-destrutivos.',
+    iconName: 'CheckCircle2'
+  },
+  {
+    id: 'd4',
+    title: 'Entrega Cumprida sob Cronograma Rígido',
+    description: 'Gestão ágil de canteiros, logística e controle total do ritmo de produção. Garantimos a implantação rigorosa da data planejada com multas de atraso estipuladas.',
+    iconName: 'CalendarRange'
+  },
+  {
+    id: 'd5',
+    title: 'Atendimento Consultivo Personalizado',
+    description: 'Criamos canais ágeis diretos de feedback engenharia-cliente. Atendimento com transparência extrema, relatórios diários com mídia HD da evolução de sua obra.',
+    iconName: 'Speech'
+  },
+  {
+    id: 'd6',
+    title: 'Mobilização em Território Nacional',
+    description: 'Estruturação logística eficiente e célere para mobilizar plantas fabris compactas internas, canteiros de trabalho inteligentes e equipes móveis em qualquer estado brasileiro.',
+    iconName: 'Globe2'
+  }
+];
+
+export const STATS: StatItem[] = [
+  {
+    id: 's1',
+    value: 500,
+    suffix: '+',
+    label: 'Projetos Entregues',
+    subLabel: 'Complexos industriais e marítimos'
+  },
+  {
+    id: 's2',
+    value: 15,
+    suffix: '+',
+    label: 'Anos de Atuação Rígida',
+    subLabel: 'Sem acidentes de trabalho graves'
+  },
+  {
+    id: 's3',
+    value: 100,
+    suffix: '+',
+    label: 'Clientes Corporativos Atendidos',
+    subLabel: 'Relações comerciais de longo prazo'
+  },
+  {
+    id: 's4',
+    value: 100,
+    suffix: '%',
+    label: 'Qualidade Homologada',
+    subLabel: 'De acordo com normas classificadoras'
+  }
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    id: 't1',
+    name: 'Eng. Roberto Vasconcelos',
+    role: 'Diretor de Expansão e Infraestrutura',
+    company: 'TransOcean Logística S.A.',
+    feedback: 'O prazo para montagem dos Pipe Racks do porto era curtíssimo, e a tolerância a atrasos, zero. A equipe da MV instalou 1.200 metros de infraestrutura de aço pesada com precisão cirúrgica, cumprindo o cronograma dois dias antes do programado. Absolutamente recomendados por sua competência técnica irrepreensível.',
+    avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=120&h=120',
+    rating: 5
+  },
+  {
+    id: 't2',
+    name: 'Dra. Sandra de Medeiros',
+    role: 'Coordenadora Geral de Engenharia de Fábricas',
+    company: 'Indústria Química Nordesca',
+    feedback: 'Fomos surpreendidos positivamente pelo nível de documentação e controle de qualidade apresentado na manutenção das linhas de vapor e alta pressão. Inspetores da MV forneceram ensaios NDT digitais em tempo real. Essa transparência nos permitiu reportar com precisão ao nosso compliance global.',
+    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120',
+    rating: 5
+  },
+  {
+    id: 't3',
+    name: 'Comandante Heitor S. Peixoto',
+    role: 'Gerente Executivo de Frotas Offshore',
+    company: 'Star Ocean Shipping Group',
+    feedback: 'A engenharia naval da MV resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da MV, a navio reestabeleceu sua operação em tempo recorde.',
+    avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120',
+    rating: 5
+  }
+];

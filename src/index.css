@@ -1,0 +1,432 @@
+/**
+ * ╔══════════════════════════════════════════════════════════════╗
+ * ║          ANTIGRAVITY PREMIUM DESIGN SYSTEM v1.0             ║
+ * ║          Built for MV Engenharia & Construções Industriais  ║
+ * ╚══════════════════════════════════════════════════════════════╝
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   ANTIGRAVITY DESIGN TOKENS
+───────────────────────────────────────────── */
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Brand Color Palette — Industrial Navy Premium */
+  --color-brand-void:       #010913;
+  --color-brand-deep:       #050f1e;
+  --color-brand-navy:       #071B35;
+  --color-brand-industrial: #0D3561;
+  --color-brand-metallic:   #1A5296;
+  --color-brand-electric:   #2563EB;
+  --color-brand-glow:       #3B82F6;
+  --color-brand-silver:     #B8C4D0;
+  --color-brand-mist:       #7B8EA3;
+  --color-brand-dark:       #1E2328;
+
+  /* Accent Colors */
+  --color-accent-gold:      #F59E0B;
+  --color-accent-emerald:   #10B981;
+  --color-accent-crimson:   #EF4444;
+
+  /* Antigravity Gradients */
+  --gradient-brand:         linear-gradient(135deg, #1A5296 0%, #2563EB 50%, #3B82F6 100%);
+  --gradient-dark:          linear-gradient(180deg, #050f1e 0%, #010913 100%);
+  --gradient-glow:          radial-gradient(ellipse at top, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+
+  /* Animations */
+  --animate-pulse-slow:     pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float:          float 6s ease-in-out infinite;
+  --animate-shimmer:        shimmer 2.5s linear infinite;
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL BASE STYLES
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-void);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-brand-void);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ─────────────────────────────────────────────
+   PREMIUM SCROLLBAR
+───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-void);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1A5296, #2563EB);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563EB, #3B82F6);
+}
+
+/* ─────────────────────────────────────────────
+   ANTIGRAVITY GLASS COMPONENTS
+───────────────────────────────────────────── */
+
+/* Primary Glass Panel */
+.glass-panel {
+  background: rgba(5, 15, 30, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(183, 196, 208, 0.07);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Light Glass Panel */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Premium Elevated Card */
+.glass-card-premium {
+  background: linear-gradient(145deg, rgba(7, 27, 53, 0.8), rgba(5, 15, 30, 0.95));
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 0 1px rgba(37, 99, 235, 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.glass-card-premium:hover {
+  border-color: rgba(37, 99, 235, 0.28);
+  box-shadow:
+    0 16px 56px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(37, 99, 235, 0.08),
+    inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────────
+   GLOW EFFECTS
+───────────────────────────────────────────── */
+
+.glow-industrial-blue {
+  box-shadow:
+    0 0 20px rgba(26, 82, 150, 0.18),
+    0 0 60px rgba(37, 99, 235, 0.08);
+}
+
+.glow-electric {
+  box-shadow:
+    0 0 30px rgba(59, 130, 246, 0.25),
+    0 0 80px rgba(37, 99, 235, 0.12);
+}
+
+/* Glow Border Effect */
+.glow-border {
+  position: relative;
+}
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.45),
+    rgba(59, 130, 246, 0.2),
+    rgba(13, 53, 97, 0.5),
+    rgba(37, 99, 235, 0.45)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Electric Line Accent */
+.electric-line {
+  position: relative;
+  overflow: hidden;
+}
+.electric-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────
+   TEXTURE OVERLAYS
+───────────────────────────────────────────── */
+
+/* Steel Brushed Grid */
+.steel-brushed {
+  background-image: radial-gradient(rgba(37, 99, 235, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Fine Dot Matrix */
+.dot-matrix {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Technical Grid Lines */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─────────────────────────────────────────────
+   ANTIGRAVITY BUTTON STYLES
+───────────────────────────────────────────── */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #1A5296 0%, #2563EB 100%);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: none;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.07));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 32px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ─────────────────────────────────────────────
+   BADGE / TAG COMPONENTS
+───────────────────────────────────────────── */
+
+.badge-tech {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(184, 196, 208, 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.badge-certified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(184, 196, 208, 0.8);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────
+   ANTIGRAVITY ANIMATIONS
+───────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); opacity: 0.7; }
+  50%  { transform: scale(1.05); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+@keyframes scan-line {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
+
+@keyframes data-stream {
+  0%   { opacity: 0; transform: translateY(-8px); }
+  50%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+/* Utility classes for animations */
+.animate-float       { animation: float 6s ease-in-out infinite; }
+.animate-pulse-ring  { animation: pulse-ring 3s ease-in-out infinite; }
+.animate-pulse-slow  { animation: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-shimmer     { animation: shimmer 2.5s linear infinite; }
+
+/* ─────────────────────────────────────────────
+   SECTION UTILITIES
+───────────────────────────────────────────── */
+
+.section-container {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(184, 196, 208, 0.85);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #2563EB, #3B82F6);
+  border-radius: 2px;
+  margin: 1.5rem auto 0;
+}
+
+/* ─────────────────────────────────────────────
+   FORM INPUT PREMIUM STYLES
+───────────────────────────────────────────── */
+
+.input-premium {
+  width: 100%;
+  background: rgba(5, 15, 30, 0.85);
+  border: 1px solid rgba(26, 82, 150, 0.2);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: all 0.25s ease;
+  -webkit-appearance: none;
+}
+.input-premium::placeholder {
+  color: rgba(184, 196, 208, 0.18);
+}
+.input-premium:focus {
+  border-color: rgba(37, 99, 235, 0.7);
+  background: rgba(5, 15, 30, 0.95);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.input-premium.error {
+  border-color: rgba(239, 68, 68, 0.7);
+}
+
+/* ─────────────────────────────────────────────
+   ANTIGRAVITY SELECTION COLOR
+───────────────────────────────────────────── */
+::selection {
+  background: rgba(37, 99, 235, 0.4);
+  color: #ffffff;
+}
+
+/* ─────────────────────────────────────────────
+   BUILT BY ANTIGRAVITY — SIGNATURE
+───────────────────────────────────────────── */
+/* This codebase was crafted by Antigravity AI • antigravity.dev */

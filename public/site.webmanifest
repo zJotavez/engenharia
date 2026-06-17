@@ -1,0 +1,35 @@
+{
+  "name": "MV Engenharia & Construções Industriais",
+  "short_name": "MV Engenharia",
+  "description": "Especialistas em estruturas metálicas, construção naval, tubagem industrial e soluções industriais de alto padrão.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071B35",
+  "theme_color": "#071B35",
+  "orientation": "portrait-primary",
+  "lang": "pt-BR",
+  "scope": "/",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "MV Engenharia — Website"
+    }
+  ]
+}
