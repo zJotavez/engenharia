@@ -6,6 +6,7 @@ export interface Service {
   features: string[];
   iconName: string;
   image: string;
+  category: 'engenharia' | 'tecnologia';
 }
 
 export interface Project {

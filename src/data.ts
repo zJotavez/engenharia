@@ -13,7 +13,8 @@ export const SERVICES: Service[] = [
       'Ensaios estruturais (NDT) e engenharia de soldagem qualificada'
     ],
     iconName: 'Layers',
-    image: '/assets/images/estruturas-metalicas.png'
+    image: '/assets/images/estruturas-metalicas.png',
+    category: 'engenharia'
   },
   {
     id: 'construcao-naval',
@@ -27,7 +28,8 @@ export const SERVICES: Service[] = [
       'Conformidade rígida com sociedades de classificação naval'
     ],
     iconName: 'Anchor',
-    image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200'
+    image: '/assets/images/construcao-naval-reparacao.png',
+    category: 'engenharia'
   },
   {
     id: 'tubagem-industrial',
@@ -41,7 +43,8 @@ export const SERVICES: Service[] = [
       'Construção de coletores estruturados de alta especificação'
     ],
     iconName: 'Cpu',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
+    category: 'engenharia'
   },
   {
     id: 'serralheria-ferro-inox',
@@ -55,7 +58,8 @@ export const SERVICES: Service[] = [
       'Acabamento em inox escovado cirúrgico para indústrias farmacêuticas e alimentares'
     ],
     iconName: 'Shield',
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200',
+    category: 'engenharia'
   },
   {
     id: 'serralheria-civil',
@@ -69,7 +73,8 @@ export const SERVICES: Service[] = [
       'Componentes termoacústicos sob especificação de arquitetura premium'
     ],
     iconName: 'Home',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200',
+    category: 'engenharia'
   },
   {
     id: 'construcao-civil',
@@ -83,7 +88,72 @@ export const SERVICES: Service[] = [
       'Intervenções civis estruturadas sem interrupção de processos fabris'
     ],
     iconName: 'Hammer',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200',
+    category: 'engenharia'
+  },
+  {
+    id: 'seguranca-eletronica',
+    title: 'Segurança Eletrônica',
+    description: 'Projetamos e implementamos soluções completas de segurança eletrônica para empresas, indústrias e empreendimentos de grande porte.',
+    detailedDescription: 'Oferecemos projetos e integração de sistemas de vigilância e segurança sob medida para grandes ativos industriais e corporativos. Focamos em soluções robustas de alta disponibilidade, com tecnologias de inteligência artificial aplicadas à detecção de intrusão, segurança perimetral e monitoramento centralizado.',
+    features: [
+      'Câmeras HD e IP',
+      'Sistemas de monitoramento remoto',
+      'Vigilância por vídeo',
+      'Gravação e armazenamento seguro',
+      'Integração com sistemas de segurança'
+    ],
+    iconName: 'Video',
+    image: '/assets/images/seguranca-eletronica.png',
+    category: 'tecnologia'
+  },
+  {
+    id: 'controle-acesso',
+    title: 'Controle de Acesso',
+    description: 'Soluções modernas para controle e gerenciamento de acesso de pessoas e colaboradores.',
+    detailedDescription: 'Implementação de sistemas avançados para a gestão e restrição de tráfego de pessoas e veículos em ambientes corporativos e industriais restritos. Soluções integradas com softwares de gerenciamento de presença, controle de ponto e identificação biométrica avançada.',
+    features: [
+      'Biometria',
+      'Cartões RFID',
+      'Controle de presença',
+      'Gestão de acessos',
+      'Integração com sistemas corporativos'
+    ],
+    iconName: 'Fingerprint',
+    image: '/assets/images/controle-acesso.png',
+    category: 'tecnologia'
+  },
+  {
+    id: 'sistema-incendio',
+    title: 'Sistema Eletrônico de Incêndio',
+    description: 'Projetos e implantação de sistemas inteligentes de prevenção e combate a incêndios.',
+    detailedDescription: 'Soluções inteligentes voltadas para a detecção precoce de focos de incêndio, sinalização acústica e visual e acionamento de sistemas de combate automáticos. Alinhado integralmente com as normas nacionais e internacionais de segurança e as exigências do corpo de bombeiros.',
+    features: [
+      'Alarmes de incêndio',
+      'Sensores de fumaça',
+      'Sensores de calor',
+      'Monitoramento contínuo',
+      'Conformidade com normas de segurança'
+    ],
+    iconName: 'Flame',
+    image: '/assets/images/sistema-incendio.png',
+    category: 'tecnologia'
+  },
+  {
+    id: 'redes-computadores',
+    title: 'Redes de Computadores',
+    description: 'Implantação, manutenção e monitoramento de redes corporativas para ambientes empresariais e industriais.',
+    detailedDescription: 'Engenharia de infraestrutura de rede corporativa e industrial estruturada para assegurar alta performance, redundância física, conectividade de baixa latência e segurança de dados contra invasões ou instabilidades operacionais em ambientes críticos.',
+    features: [
+      'Redes LAN',
+      'Redes WAN',
+      'Cabeamento estruturado',
+      'Configuração de equipamentos',
+      'Monitoramento e suporte técnico'
+    ],
+    iconName: 'Network',
+    image: '/assets/images/redes-computadores.png',
+    category: 'tecnologia'
   }
 ];
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES } from '../data.ts';
 import { Service } from '../types.ts';
@@ -71,6 +71,17 @@ const DiagonalTicker: React.FC<{ direction?: 'left' | 'right'; angle?: number }>
 export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedService]);
+
   const handleCtaRequest = (serviceTitle: string) => {
     setSelectedService(null);
     onSelectService(serviceTitle);
@@ -123,54 +134,120 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
           <div className="w-16 h-1 bg-gradient-to-r from-[#1A5296] to-[#3B82F6] mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* Responsive Grid (2 columns on mobile, 3 on tablet/desktop) */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
-          {SERVICES.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => setSelectedService(service)}
-              className="group relative h-[170px] sm:h-[250px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl border border-[#B8C4D0]/10 hover:border-[#1A5296]/50 transition-all duration-300 shadow-xl hover:shadow-[#1A5296]/10 cursor-pointer"
-            >
-              {/* Card Image */}
-              <div className="absolute inset-0 z-0">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.4] group-hover:brightness-[0.35]"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/70 to-transparent" />
-              </div>
+        {/* Categoria 1: Engenharia & Construções Industriais */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-1.5 h-6 bg-[#2563EB] rounded-full" />
+            <h3 className="font-['Helvetica_Neue',_sans-serif] font-black text-lg sm:text-xl md:text-2xl text-white tracking-wider uppercase">
+              Engenharia &amp; Construções Industriais
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
+            {SERVICES.filter((s) => s.category === 'engenharia').map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                onClick={() => setSelectedService(service)}
+                className="group relative h-[170px] sm:h-[250px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl border border-[#B8C4D0]/10 hover:border-[#1A5296]/50 transition-all duration-300 shadow-xl hover:shadow-[#1A5296]/10 cursor-pointer"
+              >
+                {/* Card Image */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.4] group-hover:brightness-[0.35]"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/70 to-transparent" />
+                </div>
 
-              {/* Icon */}
-              <div className="absolute top-2.5 left-2.5 sm:top-6 sm:left-6 z-10 w-7 h-7 sm:w-12 sm:h-12 rounded-lg bg-[#050f1e]/80 backdrop-blur-md border border-[#B8C4D0]/20 flex items-center justify-center text-[#1A5296] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110">
-                <IconRenderer name={service.iconName} size={14} className="sm:scale-150" />
-              </div>
+                {/* Icon */}
+                <div className="absolute top-2.5 left-2.5 sm:top-6 sm:left-6 z-10 w-7 h-7 sm:w-12 sm:h-12 rounded-lg bg-[#050f1e]/80 backdrop-blur-md border border-[#B8C4D0]/20 flex items-center justify-center text-[#1A5296] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110">
+                  <IconRenderer name={service.iconName} size={14} className="sm:scale-150" />
+                </div>
 
-              {/* Content */}
-              <div className="absolute inset-x-0 bottom-0 z-10 p-2.5 sm:p-6 flex flex-col justify-end h-full bg-gradient-to-t from-[#050f1e] via-[#050f1e]/90 to-transparent">
-                <h3 className="font-display font-extrabold text-[10px] sm:text-base md:text-xl text-white mb-0.5 sm:mb-3 group-hover:text-[#3B82F6] transition-colors duration-300 line-clamp-2">
-                  {service.title}
-                </h3>
-                <p className="font-sans text-[#B8C4D0]/80 text-[10px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-3 mb-4 hidden sm:block">
-                  {service.description}
-                </p>
-                <button
-                  id={`service-trigger-${service.id}`}
-                  className="w-full py-3 bg-white/5 hover:bg-[#2563EB] hover:text-white text-[#B8C4D0] font-sans font-semibold text-xs rounded-md transition-all duration-300 flex items-center justify-center gap-2 border border-[#B8C4D0]/10 hover:border-[#2563EB] shadow-sm hidden sm:flex"
-                >
-                  <span>MÉTRICAS &amp; DETALHES</span>
-                  <IconRenderer name="ArrowRight" size={12} />
-                </button>
-              </div>
+                {/* Content */}
+                <div className="absolute inset-x-0 bottom-0 z-10 p-2.5 sm:p-6 flex flex-col justify-end h-full bg-gradient-to-t from-[#050f1e] via-[#050f1e]/90 to-transparent">
+                  <h3 className="font-display font-extrabold text-[10px] sm:text-base md:text-xl text-white mb-0.5 sm:mb-3 group-hover:text-[#3B82F6] transition-colors duration-300 line-clamp-2">
+                    {service.title}
+                  </h3>
+                  <p className="font-sans text-[#B8C4D0]/80 text-[10px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-3 mb-4 hidden sm:block">
+                    {service.description}
+                  </p>
+                  <button
+                    id={`service-trigger-${service.id}`}
+                    className="w-full py-3 bg-white/5 hover:bg-[#2563EB] hover:text-white text-[#B8C4D0] font-sans font-semibold text-xs rounded-md transition-all duration-300 flex items-center justify-center gap-2 border border-[#B8C4D0]/10 hover:border-[#2563EB] shadow-sm hidden sm:flex"
+                  >
+                    <span>MÉTRICAS &amp; DETALHES</span>
+                    <IconRenderer name="ArrowRight" size={12} />
+                  </button>
+                </div>
 
-              <div className="absolute inset-0 z-0 bg-[#1A5296]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-          ))}
+                <div className="absolute inset-0 z-0 bg-[#1A5296]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Categoria 2: Tecnologia & Sistemas */}
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="w-1.5 h-6 bg-[#2563EB] rounded-full" />
+            <h3 className="font-['Helvetica_Neue',_sans-serif] font-black text-lg sm:text-xl md:text-2xl text-white tracking-wider uppercase">
+              Tecnologia &amp; Sistemas
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
+            {SERVICES.filter((s) => s.category === 'tecnologia').map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                onClick={() => setSelectedService(service)}
+                className="group relative h-[170px] sm:h-[250px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl border border-[#B8C4D0]/10 hover:border-[#1A5296]/50 transition-all duration-300 shadow-xl hover:shadow-[#1A5296]/10 cursor-pointer"
+              >
+                {/* Card Image */}
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.4] group-hover:brightness-[0.35]"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/70 to-transparent" />
+                </div>
+
+                {/* Icon */}
+                <div className="absolute top-2.5 left-2.5 sm:top-6 sm:left-6 z-10 w-7 h-7 sm:w-12 sm:h-12 rounded-lg bg-[#050f1e]/80 backdrop-blur-md border border-[#B8C4D0]/20 flex items-center justify-center text-[#1A5296] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110">
+                  <IconRenderer name={service.iconName} size={14} className="sm:scale-150" />
+                </div>
+
+                {/* Content */}
+                <div className="absolute inset-x-0 bottom-0 z-10 p-2.5 sm:p-6 flex flex-col justify-end h-full bg-gradient-to-t from-[#050f1e] via-[#050f1e]/90 to-transparent">
+                  <h3 className="font-display font-extrabold text-[10px] sm:text-base md:text-xl text-white mb-0.5 sm:mb-3 group-hover:text-[#3B82F6] transition-colors duration-300 line-clamp-2">
+                    {service.title}
+                  </h3>
+                  <p className="font-sans text-[#B8C4D0]/80 text-[10px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-3 mb-4 hidden sm:block">
+                    {service.description}
+                  </p>
+                  <button
+                    id={`service-trigger-${service.id}`}
+                    className="w-full py-3 bg-white/5 hover:bg-[#2563EB] hover:text-white text-[#B8C4D0] font-sans font-semibold text-xs rounded-md transition-all duration-300 flex items-center justify-center gap-2 border border-[#B8C4D0]/10 hover:border-[#2563EB] shadow-sm hidden sm:flex"
+                  >
+                    <span>MÉTRICAS &amp; DETALHES</span>
+                    <IconRenderer name="ArrowRight" size={12} />
+                  </button>
+                </div>
+
+                <div className="absolute inset-0 z-0 bg-[#1A5296]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Modal Drawer */}

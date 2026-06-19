@@ -26,7 +26,11 @@ import {
   Menu,
   X,
   ExternalLink,
-  Info
+  Info,
+  Video,
+  Fingerprint,
+  Flame,
+  Network
 } from 'lucide-react';
 
 const iconMap = {
@@ -56,7 +60,11 @@ const iconMap = {
   Menu,
   X,
   ExternalLink,
-  Info
+  Info,
+  Video,
+  Fingerprint,
+  Flame,
+  Network
 };
 
 export type IconName = keyof typeof iconMap;

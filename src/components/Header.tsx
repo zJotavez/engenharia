@@ -18,6 +18,32 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (targetId === 'home') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      const isLargeScreen = window.innerWidth >= 1024;
+      const calculatedHeaderHeight = isLargeScreen ? 96 : 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - calculatedHeaderHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   // Menu reduzido — sem Diferenciais e Depoimentos
   const navItems = [
     { id: 'home', label: 'Home', href: '#home' },
@@ -62,6 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               <a
                 key={item.id}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.id)}
                 className={`relative px-4 py-2 font-sans font-semibold text-xs uppercase tracking-widest transition-colors duration-300 rounded-md ${
                   isActive ? 'text-[#2563EB]' : 'text-[#B8C4D0] hover:text-white'
                 }`}
@@ -94,6 +121,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
           <a
             href="#contato"
+            onClick={(e) => handleNavClick(e, 'contato')}
             id="nav-cta-button"
             className="px-6 py-2.5 border border-[#2563EB] text-white bg-[#2563EB]/10 hover:bg-[#2563EB] text-[12px] font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2"
           >
@@ -128,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <a
                   key={item.id}
                   href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.id)}
                   className={`py-3.5 border-b border-[#1A5296]/10 font-sans font-semibold text-sm uppercase tracking-widest flex justify-between items-center ${
                     activeSection === item.id ? 'text-[#2563EB]' : 'text-[#B8C4D0]'
                   }`}
@@ -149,7 +177,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 </a>
                 <a
                   href="#contato"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, 'contato')}
                   className="w-full py-3 bg-[#2563EB] hover:bg-[#1A5296] text-white font-sans font-bold text-xs uppercase tracking-wider transition-all text-center flex items-center justify-center gap-2"
                 >
                   <span>Solicitar Orçamento</span>

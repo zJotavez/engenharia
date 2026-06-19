@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
           className="absolute inset-[-6%] bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920')",
+              "url('/assets/images/hero-metalomecanica.png')",
             y: bgY,
             scale: bgScale,
             willChange: 'transform',

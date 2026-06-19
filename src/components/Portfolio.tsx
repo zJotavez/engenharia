@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECTS } from '../data.ts';
 import { Project } from '../types.ts';
@@ -47,6 +47,17 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
   const [activeFilter, setActiveFilter] = useState<string>('Todos');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string } | null>(null);
+
+  useEffect(() => {
+    if (selectedProject || lightboxImg) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedProject, lightboxImg]);
 
   const filters = ['Todos', 'Estruturas Metálicas', 'Naval', 'Tubagem', 'Civil', 'Serralheria'];
 
@@ -189,7 +200,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
                 initial={{ scale: 0.95, opacity: 0, y: 30 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.95, opacity: 0, y: 30 }}
-                className="relative w-full max-w-4xl bg-[#071324] border border-[#1A5296]/30 shadow-2xl rounded-xl z-20 overflow-hidden"
+                className="relative w-full max-w-4xl max-h-[90vh] md:max-h-[85vh] bg-[#071324] border border-[#1A5296]/30 shadow-2xl rounded-xl z-20 overflow-y-auto"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                   {/* Image + lightbox trigger */}
