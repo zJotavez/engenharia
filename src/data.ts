@@ -253,7 +253,7 @@ export const PROJECTS: Project[] = [
 export const TIMELINE_ITEMS: TimelineItem[] = [
   {
     year: '2011',
-    title: 'Fundação da MV Engenharia',
+    title: 'Fundação da Metaloworld',
     description: 'Nascemos em um modesto pavilhão focado em caldeiraria e serralheria de precisão, prestando serviços mecânicos de apoio à indústria naval local.',
     milestone: true
   },
@@ -278,7 +278,7 @@ export const TIMELINE_ITEMS: TimelineItem[] = [
   {
     year: '2026',
     title: 'Liderança Tecnológica em Engenharia de Precisão',
-    description: 'Hoje, a MV executa projetos para as maiores empresas industriais do Brasil, reconhecida pela excelência em prazos, segurança do trabalho impecável e acabamento industrial primoroso.',
+    description: 'Hoje, a Metaloworld executa projetos para as maiores empresas industriais do Brasil, reconhecida pela excelência em prazos, segurança do trabalho impecável e acabamento industrial primoroso.',
     milestone: true
   }
 ];
@@ -359,7 +359,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Eng. Roberto Vasconcelos',
     role: 'Diretor de Expansão e Infraestrutura',
     company: 'TransOcean Logística S.A.',
-    feedback: 'O prazo para montagem dos Pipe Racks do porto era curtíssimo, e a tolerância a atrasos, zero. A equipe da MV instalou 1.200 metros de infraestrutura de aço pesada com precisão cirúrgica, cumprindo o cronograma dois dias antes do programado. Absolutamente recomendados por sua competência técnica irrepreensível.',
+    feedback: 'O prazo para montagem dos Pipe Racks do porto era curtíssimo, e a tolerância a atrasos, zero. A equipe da Metaloworld instalou 1.200 metros de infraestrutura de aço pesada com precisão cirúrgica, cumprindo o cronograma dois dias antes do programado. Absolutamente recomendados por sua competência técnica irrepreensível.',
     avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=120&h=120',
     rating: 5
   },
@@ -368,7 +368,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Dra. Sandra de Medeiros',
     role: 'Coordenadora Geral de Engenharia de Fábricas',
     company: 'Indústria Química Nordesca',
-    feedback: 'Fomos surpreendidos positivamente pelo nível de documentação e controle de qualidade apresentado na manutenção das linhas de vapor e alta pressão. Inspetores da MV forneceram ensaios NDT digitais em tempo real. Essa transparência nos permitiu reportar com precisão ao nosso compliance global.',
+    feedback: 'Fomos surpreendidos positivamente pelo nível de documentação e controle de qualidade apresentado na manutenção das linhas de vapor e alta pressão. Inspetores da Metaloworld forneceram ensaios NDT digitais em tempo real. Essa transparência nos permitiu reportar com precisão ao nosso compliance global.',
     avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120',
     rating: 5
   },
@@ -377,7 +377,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Comandante Heitor S. Peixoto',
     role: 'Gerente Executivo de Frotas Offshore',
     company: 'Star Ocean Shipping Group',
-    feedback: 'A engenharia naval da MV resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da MV, a navio reestabeleceu sua operação em tempo recorde.',
+    feedback: 'A engenharia naval da Metaloworld resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da Metaloworld, o navio reestabeleceu sua operação em tempo recorde.',
     avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120',
     rating: 5
   }

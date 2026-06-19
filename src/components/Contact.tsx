@@ -145,7 +145,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
           >
             <div className="space-y-4">
               <h3 className="font-display font-extrabold text-2xl text-white">
-                MV Engenharia & Construções Industriais Ltda.
+                Metaloworld & Construções Industriais Ltda.
               </h3>
               <p className="font-sans text-brand-silver/80 text-sm sm:text-base leading-relaxed">
                 Nossa diretoria e equipe comercial técnica estão preparadas para realizar reuniões presenciais ou videoconferências ágeis de escopo.
@@ -225,7 +225,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
                     <div className="w-3.5 h-3.5 rounded-full bg-brand-metallic border border-white" />
                   </motion.div>
                   <span className="font-mono text-[9px] text-white bg-brand-deep border border-brand-silver/20 px-2 py-0.5 rounded leading-none font-bold uppercase tracking-wider">
-                    MV ENGENHARIA Sede
+                    METALOWORLD Sede
                   </span>
                 </div>
               </div>

@@ -51,7 +51,7 @@ export const About: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-brand-silver/10 glow-industrial-blue group">
               <img
                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200"
-                alt="MV Engenharia Corporativo"
+                alt="Metaloworld Corporativo"
                 className="w-full h-[350px] sm:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -86,7 +86,7 @@ export const About: React.FC = () => {
             </h3>
             
             <p className="font-sans text-brand-silver/90 leading-relaxed text-sm sm:text-base">
-              A <strong>MV Engenharia & Construções Industriais</strong> consolidou sua marca no mercado desenvolvendo soluções sob medida para setores de alta exigibilidade técnica, como o logístico portuário, petroquímico, químico, naval e offshore.
+              A <strong>Metaloworld & Construções Industriais</strong> consolidou sua marca no mercado desenvolvendo soluções sob medida para setores de alta exigibilidade técnica, como o logístico portuário, petroquímico, químico, naval e offshore.
             </p>
             
             <p className="font-sans text-brand-silver/80 leading-relaxed text-sm sm:text-base">

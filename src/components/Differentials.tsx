@@ -193,7 +193,7 @@ export const Differentials: React.FC = () => {
             className="font-mono text-[10px] tracking-[0.28em] uppercase"
             style={{ color: 'rgba(59, 130, 246, 0.55)' }}
           >
-            Por que a MV Engenharia?
+            Por que a Metaloworld?
           </span>
 
           {/* Heading */}

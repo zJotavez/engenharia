@@ -65,14 +65,14 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Brand Logo */}
         <a href="#home" id="nav-brand-logo" className="flex items-center gap-3 group select-none">
-          <div className="w-10 h-10 bg-[#1A5296] flex items-center justify-center border border-white/10 relative overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-            <div className="w-6 h-6 border-2 border-white rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-135">
-              <div className="w-2 h-2 bg-white animate-pulse"></div>
-            </div>
-          </div>
+          <img 
+            src="/assets/images/logo-icon.png" 
+            alt="Metaloworld Logo" 
+            className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
           <div className="flex flex-col">
             <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-xl tracking-tight leading-none text-white">
-              MV ENGENHARIA
+              METALOWORLD
             </span>
             <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-[#B8C4D0]/70 mt-1">
               Construções Industriais

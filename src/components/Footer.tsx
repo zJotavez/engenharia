@@ -37,14 +37,14 @@ export const Footer: React.FC = () => {
         {/* Brand Information Column */}
         <div className="lg:col-span-4 space-y-6">
           <a href="#inicio" className="flex items-center gap-3 group select-none">
-            <div className="w-10 h-10 bg-[#1D5A9E] flex items-center justify-center border border-white/10 relative overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105">
-              <div className="w-6 h-6 border-2 border-white rotate-45 flex items-center justify-center transition-transform duration-500 group-hover:rotate-135">
-                <div className="w-2 h-2 bg-white animate-pulse"></div>
-              </div>
-            </div>
+            <img 
+              src="/assets/images/logo-icon.png" 
+              alt="Metaloworld Logo" 
+              className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
+            />
             <div className="flex flex-col">
               <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-xl tracking-tight leading-none text-white">
-                MV ENGENHARIA
+                METALOWORLD
               </span>
               <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-[#C4CCD4]/70 mt-1">
                 Construções Industriais
@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
       <div className="relative z-10 py-6 border-t border-brand-metallic/5 bg-[#01060e] px-6 text-left">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-sans text-[11px] sm:text-xs text-[#B8C4D0]/40">
-            &copy; {currentYear} MV Engenharia &amp; Construções Industriais Ltda. CNPJ: 14.120.002/0001-35. Todos os direitos reservados.
+            &copy; {currentYear} Metaloworld &amp; Construções Industriais Ltda. CNPJ: 14.120.002/0001-35. Todos os direitos reservados.
           </p>
         </div>
       </div>
