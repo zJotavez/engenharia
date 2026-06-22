@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { STATS } from '../data.ts';
+import { StatItem } from '../types.ts';
 import { IconRenderer } from './IconRenderer.tsx';
+
+interface StatsNumbersProps {
+  stats?: StatItem[];
+}
 
 // Animated Count component powered by Intersection Observer
 export const ActiveCounter: React.FC<{ value: number; suffix: string }> = ({ value, suffix }) => {
@@ -57,7 +62,7 @@ export const ActiveCounter: React.FC<{ value: number; suffix: string }> = ({ val
   );
 };
 
-export const StatsNumbers: React.FC = () => {
+export const StatsNumbers: React.FC<StatsNumbersProps> = ({ stats = STATS }) => {
   return (
     <section className="relative py-20 bg-[#071B35] overflow-hidden">
       {/* Heavy mesh grid background with custom radial center lighting */}
@@ -70,7 +75,7 @@ export const StatsNumbers: React.FC = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
-          {STATS.map((stat, idx) => (
+          {stats.map((stat, idx) => (
             <motion.div
               key={stat.id}
               initial={{ opacity: 0, y: 30 }}

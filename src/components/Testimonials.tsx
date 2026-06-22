@@ -1,16 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TESTIMONIALS } from '../data.ts';
+import { Testimonial } from '../types.ts';
 import { IconRenderer } from './IconRenderer.tsx';
 
-export const Testimonials: React.FC = () => {
+interface TestimonialsProps {
+  testimonials?: Testimonial[];
+}
+
+export const Testimonials: React.FC<TestimonialsProps> = ({ testimonials = TESTIMONIALS }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [testimonials]);
+
   const startAutoRotation = () => {
     stopAutoRotation();
+    if (testimonials.length <= 1) return;
     intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     }, 7000);
   };
   const stopAutoRotation = () => {
@@ -20,20 +30,20 @@ export const Testimonials: React.FC = () => {
   useEffect(() => {
     startAutoRotation();
     return () => stopAutoRotation();
-  }, []);
+  }, [testimonials]);
 
   const handlePrev = () => {
     stopAutoRotation();
-    setCurrentIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     startAutoRotation();
   };
   const handleNext = () => {
     stopAutoRotation();
-    setCurrentIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     startAutoRotation();
   };
 
-  const currentTestimonial = TESTIMONIALS[currentIndex];
+  const currentTestimonial = testimonials[currentIndex] || testimonials[0] || { name: '', role: '', company: '', feedback: '', avatarUrl: '', rating: 5 };
 
   return (
     <section id="depoimentos" className="relative py-20 lg:py-32 bg-[#071B35] overflow-hidden">

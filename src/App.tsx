@@ -10,10 +10,53 @@ import { Testimonials } from './components/Testimonials.tsx';
 import { CtaSection } from './components/CtaSection.tsx';
 import { Contact } from './components/Contact.tsx';
 import { Footer } from './components/Footer.tsx';
+import { AdminPanel } from './components/AdminPanel.tsx';
+
+// Data types and defaults
+import { Service, Project, TimelineItem, StatItem, Testimonial } from './types.ts';
+import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS } from './data.ts';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedServicePreset, setSelectedServicePreset] = useState<string>('');
+  
+  // Admin view toggle
+  const [isAdminView, setIsAdminView] = useState(window.location.hash === '#admin');
+
+  // Dynamic states
+  const [services, setServices] = useState<Service[]>(SERVICES);
+  const [projects, setProjects] = useState<Project[]>(PROJECTS);
+  const [timeline, setTimeline] = useState<TimelineItem[]>(TIMELINE_ITEMS);
+  const [stats, setStats] = useState<StatItem[]>(STATS);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>(TESTIMONIALS);
+
+  // Fetch dynamic content on mount
+  useEffect(() => {
+    fetch('/data.json')
+      .then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Fallback to static data');
+      })
+      .then(data => {
+        if (data.services) setServices(data.services);
+        if (data.projects) setProjects(data.projects);
+        if (data.timeline) setTimeline(data.timeline);
+        if (data.stats) setStats(data.stats);
+        if (data.testimonials) setTestimonials(data.testimonials);
+      })
+      .catch(err => {
+        console.log('Using static local fallback data:', err);
+      });
+  }, []);
+
+  // Sync hash for admin view
+  useEffect(() => {
+    const handleHashChange = () => {
+      setIsAdminView(window.location.hash === '#admin');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Implement Intersection Observer or scroll spy to highlight current menu section
   useEffect(() => {
@@ -53,6 +96,10 @@ export default function App() {
     }
   };
 
+  if (isAdminView) {
+    return <AdminPanel onClose={() => window.location.hash = ''} />;
+  }
+
   return (
     <div className="relative min-h-screen bg-[#050f1e] text-white selection:bg-[#2563EB]/40 selection:text-white overflow-x-hidden">
       {/* ── Antigravity Ambient Background System ── */}
@@ -76,22 +123,22 @@ export default function App() {
       <Hero />
 
       {/* About Section */}
-      <About />
+      <About timeline={timeline} />
 
       {/* Services Section */}
-      <Services onSelectService={handlePreSelectService} />
+      <Services services={services} onSelectService={handlePreSelectService} />
 
       {/* Differentials Section */}
       <Differentials />
 
       {/* Portfolio Section */}
-      <Portfolio onSelectProject={handlePreSelectService} />
+      <Portfolio projects={projects} onSelectProject={handlePreSelectService} />
 
       {/* Stats Numbers Block */}
-      <StatsNumbers />
+      <StatsNumbers stats={stats} />
 
       {/* Testimonials Section */}
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
 
       {/* Final Call to Action Section */}
       <CtaSection />

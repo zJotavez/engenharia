@@ -5,6 +5,7 @@ import { Service } from '../types.ts';
 import { IconRenderer } from './IconRenderer.tsx';
 
 interface ServicesProps {
+  services?: Service[];
   onSelectService: (serviceTitle: string) => void;
 }
 
@@ -68,7 +69,7 @@ const DiagonalTicker: React.FC<{ direction?: 'left' | 'right'; angle?: number }>
   );
 };
 
-export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
+export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelectService }) => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
 
   useEffect(() => {
@@ -143,7 +144,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </h3>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
-            {SERVICES.filter((s) => s.category === 'engenharia').map((service, index) => (
+            {services.filter((s) => s.category === 'engenharia').map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, scale: 0.95, y: 30 }}
@@ -201,7 +202,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectService }) => {
             </h3>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
-            {SERVICES.filter((s) => s.category === 'tecnologia').map((service, index) => (
+            {services.filter((s) => s.category === 'tecnologia').map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, scale: 0.95, y: 30 }}

@@ -5,6 +5,7 @@ import { Project } from '../types.ts';
 import { IconRenderer } from './IconRenderer.tsx';
 
 interface PortfolioProps {
+  projects?: Project[];
   onSelectProject: (serviceTitle: string) => void;
 }
 
@@ -43,7 +44,7 @@ const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({
   </AnimatePresence>
 );
 
-export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
+export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSelectProject }) => {
   const [activeFilter, setActiveFilter] = useState<string>('Todos');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [lightboxImg, setLightboxImg] = useState<{ src: string; alt: string } | null>(null);
@@ -62,8 +63,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onSelectProject }) => {
   const filters = ['Todos', 'Estruturas Metálicas', 'Naval', 'Tubagem', 'Civil', 'Serralheria'];
 
   const filteredProjects = activeFilter === 'Todos'
-    ? PROJECTS
-    : PROJECTS.filter((project) => project.category === activeFilter);
+    ? projects
+    : projects.filter((project) => project.category === activeFilter);
 
   const handleConsultProject = (p: Project) => {
     setSelectedProject(null);

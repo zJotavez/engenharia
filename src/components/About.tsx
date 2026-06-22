@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { TIMELINE_ITEMS } from '../data.ts';
+import { TimelineItem } from '../types.ts';
 import { IconRenderer } from './IconRenderer.tsx';
 
-export const About: React.FC = () => {
-  const [activeStep, setActiveStep] = useState<number>(TIMELINE_ITEMS.length - 1);
+interface AboutProps {
+  timeline?: TimelineItem[];
+}
+
+export const About: React.FC<AboutProps> = ({ timeline = TIMELINE_ITEMS }) => {
+  const [activeStep, setActiveStep] = useState<number>(timeline.length - 1);
+
+  // If timeline changes (e.g. loaded dynamically), reset activeStep to last element
+  useEffect(() => {
+    if (timeline.length > 0) {
+      setActiveStep(timeline.length - 1);
+    }
+  }, [timeline]);
+
+  const currentStep = timeline[activeStep] || timeline[timeline.length - 1] || { year: '', title: '', description: '', milestone: false };
 
   return (
     <section id="sobre" className="relative py-20 lg:py-32 bg-[#071B35] overflow-hidden">
@@ -58,87 +72,86 @@ export const About: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-deep via-brand-deep/20 to-transparent" />
               
               {/* Overlay Glass Badge inside Image */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-xl border border-brand-silver/15">
-                <span className="font-mono text-xs text-brand-metallic font-bold uppercase tracking-wider block mb-1">
-                  Capacidade Instalada
-                </span>
-                <span className="text-sm font-sans font-medium text-white block">
-                  Pátio fabril moderno de 12.000m² equipado com pontes rolantes de 30 toneladas.
-                </span>
+              <div className="absolute bottom-6 left-6 right-6 glass-panel-light p-4 rounded-xl border border-white/10 flex items-center gap-4">
+                <div className="w-12 h-12 bg-brand-metallic rounded-lg flex items-center justify-center text-white shadow-md">
+                  <IconRenderer name="Building" size={22} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-xs text-white uppercase tracking-wider">Qualidade Homologada</h4>
+                  <p className="text-[10px] text-brand-silver/80 mt-0.5">Certificação sob padrões exigidos</p>
+                </div>
               </div>
             </div>
-
-            {/* Industrial design frame corners */}
-            <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-brand-metallic pointer-events-none rounded-tl-lg" />
-            <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-brand-metallic pointer-events-none rounded-br-lg" />
           </motion.div>
-
-          {/* Right Column: Narrative Texts */}
+          
+          {/* Right Column: Mission and Industrial Statement */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 flex flex-col gap-6"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-7 space-y-6"
           >
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
-              De uma serralharia de precisão para a liderança em Engenharia EPC e Estruturas de Grande Porte.
+            <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white uppercase leading-snug tracking-tight">
+              Construindo os alicerces físicos da indústria pesada moderna
             </h3>
             
-            <p className="font-sans text-brand-silver/90 leading-relaxed text-sm sm:text-base">
-              A <strong>Metaloworld & Construções Industriais</strong> consolidou sua marca no mercado desenvolvendo soluções sob medida para setores de alta exigibilidade técnica, como o logístico portuário, petroquímico, químico, naval e offshore.
+            <p className="font-sans text-sm sm:text-base text-brand-silver/85 leading-relaxed">
+              Desde 2011, atuamos como parceiros estratégicos no fornecimento de soluções complexas em estruturas de aço, caldeiraria e construção civil industrial. Nossa trajetória é pautada pelo compromisso indissolúvel com a segurança operacional, rastreabilidade completa de insumos e exatidão geométrica.
             </p>
             
-            <p className="font-sans text-brand-silver/80 leading-relaxed text-sm sm:text-base">
-              Nosso compromisso consiste em fundir <strong>engenharia de cálculo avançada</strong> à prática de manufatura rigorosa. Entregamos projetos completamente em conformidade com as exigentes normas AWS, ASME e ABNT. Seja no desenvolvimento de uma superestrutura logística de dezenas de toneladas ou na soldadura de tubagem de alta pressão, a precisão e a segurança absoluta são os nossos pilares imutáveis.
+            <p className="font-sans text-sm sm:text-base text-brand-silver/70 leading-relaxed">
+              Investimos constantemente em engenharia própria de alto nível (BIM e modelagem paramétrica) e tecnologia fabril automatizada. Isso nos permite encurtar cronogramas de montagem de campo sem jamais comprometer os coeficientes de segurança estrutural.
             </p>
-
-            {/* Core commitments checkboxes row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+            
+            {/* Checklist of core pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-brand-metallic/15">
               <div className="flex items-center gap-3">
-                <IconRenderer name="CheckCircle2" className="text-brand-metallic" size={18} />
-                <span className="font-sans text-sm text-white font-medium">Equipes 100% Próprias e CLT</span>
+                <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
+                  <IconRenderer name="Check" size={10} />
+                </div>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Soldadores Certificados</span>
               </div>
               <div className="flex items-center gap-3">
-                <IconRenderer name="CheckCircle2" className="text-brand-metallic" size={18} />
-                <span className="font-sans text-sm text-white font-medium">Seguro Garantia e Responsabilidade Civil</span>
+                <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
+                  <IconRenderer name="Check" size={10} />
+                </div>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Rastreabilidade Total</span>
               </div>
               <div className="flex items-center gap-3">
-                <IconRenderer name="CheckCircle2" className="text-brand-metallic" size={18} />
-                <span className="font-sans text-sm text-white font-medium">Rastreabilidade Total de Matérias-Primas</span>
+                <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
+                  <IconRenderer name="Check" size={10} />
+                </div>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">ISO 9001:2015 em Curso</span>
               </div>
               <div className="flex items-center gap-3">
-                <IconRenderer name="CheckCircle2" className="text-brand-metallic" size={18} />
-                <span className="font-sans text-sm text-white font-medium">Engenharia Digital 3D (BIM) Integrada</span>
+                <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
+                  <IconRenderer name="Check" size={10} />
+                </div>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Segurança NR-34 / NR-35</span>
               </div>
             </div>
           </motion.div>
+          
         </div>
 
-        {/* Interactive Milestone Timeline */}
-        <div className="mt-20 lg:mt-32">
-          <div className="text-center mb-10">
-            <h4 className="font-display font-extrabold text-sm tracking-widest text-brand-metallic uppercase">
-              NOSSOS PRINCIPAIS MARCOS DE CRESCIMENTO
-            </h4>
-            <p className="text-xs text-brand-silver/60 mt-1">
-              Clique nos nós correspondentes para explorar a nossa jornada evolutiva
-            </p>
+        {/* Timeline block */}
+        <div className="mt-16 border-t border-brand-metallic/10 pt-16">
+          <div className="text-center mb-12">
+            <h4 className="font-mono text-xs font-bold text-brand-silver/60 uppercase tracking-widest">Nossa Jornada de Evolução</h4>
           </div>
 
-          {/* Timeline Nodes Row */}
-          <div className="relative max-w-5xl mx-auto py-8">
-            {/* Main horizontal connector line */}
-            <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-brand-metallic/20 -translate-y-1/2 z-0 hidden md:block" />
-            
-            {/* Active horizontal highlighted progression line */}
+          {/* Stepper Timeline Navigation */}
+          <div className="relative max-w-4xl mx-auto px-4 mb-8">
+            {/* Timeline Progress Bar Line */}
+            <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-brand-metallic/25 -translate-y-1/2 z-0 hidden md:block" />
             <div 
               className="absolute top-1/2 left-4 h-0.5 bg-gradient-to-r from-brand-metallic to-brand-silver -translate-y-1/2 z-0 hidden md:block transition-all duration-500" 
-              style={{ width: `${(activeStep / (TIMELINE_ITEMS.length - 1)) * 96}%` }} 
+              style={{ width: `${(activeStep / (timeline.length - 1)) * 96}%` }} 
             />
 
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10">
-              {TIMELINE_ITEMS.map((item, index) => {
+              {timeline.map((item, index) => {
                 const isActive = activeStep === index;
                 return (
                   <div
@@ -181,12 +194,12 @@ export const About: React.FC = () => {
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-brand-metallic/15 pb-4 mb-4">
               <div className="flex items-center gap-3">
-                <span className="font-mono text-2xl font-black text-brand-metallic">{TIMELINE_ITEMS[activeStep].year}</span>
+                <span className="font-mono text-2xl font-black text-brand-metallic">{currentStep.year}</span>
                 <h5 className="font-display font-extrabold text-base sm:text-lg text-white">
-                  {TIMELINE_ITEMS[activeStep].title}
+                  {currentStep.title}
                 </h5>
               </div>
-              {TIMELINE_ITEMS[activeStep].milestone && (
+              {currentStep.milestone && (
                 <span className="px-2.5 py-0.5 rounded bg-brand-metallic/20 text-brand-silver border border-brand-metallic/30 font-mono text-[10px] font-bold uppercase tracking-wider">
                   Marco Histórico
                 </span>
@@ -194,7 +207,7 @@ export const About: React.FC = () => {
             </div>
             
             <p className="font-sans text-sm sm:text-base text-brand-silver leading-relaxed">
-              {TIMELINE_ITEMS[activeStep].description}
+              {currentStep.description}
             </p>
           </motion.div>
         </div>
