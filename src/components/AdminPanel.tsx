@@ -10,12 +10,109 @@ import {
   BarChart2, 
   MessageSquare,
   Lock,
-  Settings
+  Settings,
+  Upload,
+  Image as ImageIcon
 } from 'lucide-react';
 import { Service, Project, TimelineItem, StatItem, Testimonial, GeneralSettings } from '../types.ts';
 
 // Initial data as fallback
 import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS, GENERAL_SETTINGS } from '../data.ts';
+
+interface ImageUploaderProps {
+  currentValue: string;
+  onUploadSuccess: (url: string) => void;
+  password: string;
+  label?: string;
+}
+
+const ImageUploader: React.FC<ImageUploaderProps> = ({ currentValue, onUploadSuccess, password, label }) => {
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    setError('');
+    setSuccess(false);
+
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('password', password);
+
+    try {
+      const response = await fetch('/api/upload.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.status === 'success') {
+        onUploadSuccess(result.url);
+        setSuccess(true);
+        setTimeout(() => setSuccess(false), 3000);
+      } else {
+        setError(result.message || 'Erro ao fazer upload da imagem.');
+      }
+    } catch (err) {
+      console.error('Upload error:', err);
+      setError('Erro de rede ou permissão ao tentar enviar a imagem.');
+    } finally {
+      setIsUploading(false);
+      e.target.value = '';
+    }
+  };
+
+  return (
+    <div className="space-y-1.5 mt-1">
+      {label && <span className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">{label}</span>}
+      <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
+        {currentValue ? (
+          <div className="relative w-12 h-12 rounded border border-blue-500/20 bg-[#0a1e3c]/40 overflow-hidden flex-shrink-0 flex items-center justify-center">
+            <img 
+              src={currentValue} 
+              alt="Preview" 
+              className="w-full h-full object-cover" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }} 
+            />
+          </div>
+        ) : (
+          <div className="w-12 h-12 rounded border border-dashed border-blue-500/20 bg-[#0a1e3c]/20 flex items-center justify-center flex-shrink-0">
+            <ImageIcon className="text-blue-500/40" size={18} />
+          </div>
+        )}
+        <div className="flex-1 flex gap-2 items-center">
+          <label className="flex items-center gap-1.5 bg-[#0a1e3c]/60 border border-blue-500/20 hover:border-blue-500/40 text-blue-400 hover:text-white px-3 py-2 rounded text-xs font-bold uppercase cursor-pointer transition-all select-none flex-shrink-0">
+            <Upload size={12} />
+            {isUploading ? 'Enviando...' : 'Carregar'}
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={handleFileChange} 
+              className="hidden" 
+              disabled={isUploading}
+            />
+          </label>
+          <input
+            type="text"
+            value={currentValue}
+            onChange={(e) => onUploadSuccess(e.target.value)}
+            placeholder="URL ou caminho relativo"
+            className="flex-1 min-w-0 bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+          />
+        </div>
+      </div>
+      {error && <p className="text-red-500 text-[10px] font-semibold mt-1">{error}</p>}
+      {success && <p className="text-emerald-500 text-[10px] font-semibold mt-1">Upload concluído!</p>}
+    </div>
+  );
+};
 
 interface AdminPanelProps {
   onClose: () => void;
@@ -444,12 +541,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Imagem do Hero (Caminho da Imagem)</label>
-                    <input
-                      type="text"
-                      value={general.heroImage || ''}
-                      onChange={(e) => updateGeneralField('heroImage', e.target.value)}
-                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                    <ImageUploader
+                      label="Imagem do Hero (Dobra Inicial)"
+                      currentValue={general.heroImage || ''}
+                      onUploadSuccess={(url) => updateGeneralField('heroImage', url)}
+                      password={password}
                     />
                   </div>
                 </div>
@@ -654,14 +750,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                       <div>
-                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Imagem URL / Caminho</label>
-                        <input
-                          type="text"
-                          value={service.image}
-                          onChange={(e) => updateService(index, 'image', e.target.value)}
-                          className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                        <ImageUploader
+                          label="Imagem do Serviço"
+                          currentValue={service.image || ''}
+                          onUploadSuccess={(url) => updateService(index, 'image', url)}
+                          password={password}
                         />
                       </div>
                       <div>
@@ -823,15 +918,27 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Imagens da Galeria (uma URL por linha)</label>
-                      <textarea
-                        value={proj.gallery.join('\n')}
-                        onChange={(e) => updateProject(index, 'gallery', e.target.value.split('\n'))}
-                        rows={2}
-                        className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
-                        placeholder="https://imagem1.jpg&#10;https://imagem2.jpg"
+                    <div className="space-y-3">
+                      <ImageUploader
+                        label="Imagem Principal da Obra (Capa)"
+                        currentValue={proj.gallery[0] || ''}
+                        onUploadSuccess={(url) => {
+                          const updatedGallery = [...proj.gallery];
+                          updatedGallery[0] = url;
+                          updateProject(index, 'gallery', updatedGallery);
+                        }}
+                        password={password}
                       />
+                      <div>
+                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Outras Imagens da Galeria (uma URL por linha)</label>
+                        <textarea
+                          value={proj.gallery.join('\n')}
+                          onChange={(e) => updateProject(index, 'gallery', e.target.value.split('\n'))}
+                          rows={2}
+                          className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+                          placeholder="https://imagem1.jpg&#10;https://imagem2.jpg"
+                        />
+                      </div>
                     </div>
                   </div>
                 ))}
