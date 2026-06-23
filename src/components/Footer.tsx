@@ -1,7 +1,12 @@
 import React from 'react';
 import { IconRenderer } from './IconRenderer.tsx';
+import { GeneralSettings } from '../types.ts';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  settings: GeneralSettings;
+}
+
+export const Footer: React.FC<FooterProps> = ({ settings }) => {
   const currentYear = new Date().getFullYear();
 
   const links = {
@@ -38,7 +43,7 @@ export const Footer: React.FC = () => {
         <div className="lg:col-span-4 space-y-6">
           <a href="#inicio" className="flex items-center gap-3 group select-none">
             <img 
-              src="/assets/images/logo-icon.png" 
+              src="/assets/images/logo-icon.webp" 
               alt="Metaloworld Logo" 
               className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
             />
@@ -58,7 +63,7 @@ export const Footer: React.FC = () => {
 
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono font-bold text-brand-silver tracking-widest uppercase">
-              CREA REGISTRO: N-41002
+              CREA REGISTRO: {settings.crea}
             </span>
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono font-bold text-brand-silver tracking-widest uppercase">
               ISO 9001:2015
@@ -133,7 +138,7 @@ export const Footer: React.FC = () => {
       <div className="relative z-10 py-6 border-t border-brand-metallic/5 bg-[#01060e] px-6 text-left">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-sans text-[11px] sm:text-xs text-[#B8C4D0]/40">
-            &copy; {currentYear} Metaloworld &amp; Construções Industriais Ltda. CNPJ: 14.120.002/0001-35. Todos os direitos reservados.
+            &copy; {currentYear} Metaloworld &amp; Construções Industriais Ltda. CNPJ: {settings.cnpj}. Todos os direitos reservados.
           </p>
         </div>
       </div>

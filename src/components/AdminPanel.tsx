@@ -9,22 +9,25 @@ import {
   Clock, 
   BarChart2, 
   MessageSquare,
-  Lock
+  Lock,
+  Settings
 } from 'lucide-react';
-import { Service, Project, TimelineItem, StatItem, Testimonial } from '../types.ts';
+import { Service, Project, TimelineItem, StatItem, Testimonial, GeneralSettings } from '../types.ts';
 
 // Initial data as fallback
-import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS } from '../data.ts';
+import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS, GENERAL_SETTINGS } from '../data.ts';
 
 interface AdminPanelProps {
   onClose: () => void;
+  generalSettings: GeneralSettings;
+  setGeneralSettings: (settings: GeneralSettings) => void;
 }
 
-export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
+export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings, setGeneralSettings }) => {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loginError, setLoginError] = useState('');
-  const [activeTab, setActiveTab] = useState<'services' | 'projects' | 'timeline' | 'stats' | 'testimonials'>('services');
+  const [activeTab, setActiveTab] = useState<'general' | 'services' | 'projects' | 'timeline' | 'stats' | 'testimonials'>('general');
   
   // App states for editing
   const [services, setServices] = useState<Service[]>([]);
@@ -32,6 +35,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
   const [timeline, setTimeline] = useState<TimelineItem[]>([]);
   const [stats, setStats] = useState<StatItem[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [general, setGeneral] = useState<GeneralSettings>(generalSettings);
 
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<{ type: 'success' | 'error' | ''; message: string }>({ type: '', message: '' });
@@ -49,6 +53,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         setTimeline(data.timeline || TIMELINE_ITEMS);
         setStats(data.stats || STATS);
         setTestimonials(data.testimonials || TESTIMONIALS);
+        setGeneral(data.general || GENERAL_SETTINGS);
       })
       .catch(err => {
         console.warn('Could not fetch data.json, using local static data:', err);
@@ -96,7 +101,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         projects,
         timeline,
         stats,
-        testimonials
+        testimonials,
+        general
       }
     };
 
@@ -113,6 +119,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
 
       if (response.ok && result.status === 'success') {
         setSaveStatus({ type: 'success', message: 'Todas as alterações foram publicadas com sucesso na Hostinger!' });
+        setGeneralSettings(general); // Atualiza o estado global no App.tsx
         setTimeout(() => setSaveStatus({ type: '', message: '' }), 5000);
       } else {
         setSaveStatus({ type: 'error', message: result.message || 'Erro ao publicar dados no servidor.' });
@@ -126,6 +133,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
   };
 
   // Helper functions to manage items
+  const updateGeneralField = (field: keyof GeneralSettings, value: string) => {
+    setGeneral(prev => ({ ...prev, [field]: value }));
+  };
+
   const updateService = (index: number, field: keyof Service, value: any) => {
     const updated = [...services];
     updated[index] = { ...updated[index], [field]: value };
@@ -336,6 +347,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         {/* Menu Lateral */}
         <aside className="w-full lg:w-64 bg-[#071b35]/30 border-r border-blue-500/5 p-6 flex flex-col gap-2">
           <button
+            onClick={() => setActiveTab('general')}
+            className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${activeTab === 'general' ? 'bg-blue-600/15 border border-blue-500/35 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'}`}
+          >
+            <Settings size={16} />
+            Configurações Gerais
+          </button>
+          <button
             onClick={() => setActiveTab('services')}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${activeTab === 'services' ? 'bg-blue-600/15 border border-blue-500/35 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'}`}
           >
@@ -380,6 +398,208 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose }) => {
         {/* Área de Edição */}
         <main className="flex-1 p-6 sm:p-10 max-h-[calc(100vh-73px)] overflow-y-auto">
           
+          {/* TAB 0: CONFIGURAÇÕES GERAIS */}
+          {activeTab === 'general' && (
+            <div className="space-y-6">
+              <div className="border-b border-blue-500/10 pb-4 mb-6">
+                <h3 className="font-extrabold text-lg uppercase">Configurações Gerais do Site</h3>
+                <p className="text-xs text-gray-400">Edite as informações básicas do site, como textos do Hero (Dobra inicial), dados de contato e informações institucionais.</p>
+              </div>
+
+              {/* Seção 1: Dobra Inicial (Hero) */}
+              <div className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
+                <h4 className="font-mono text-xs tracking-wider text-blue-500 font-bold uppercase border-b border-blue-500/5 pb-2">1. Dobra Inicial (Hero)</h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Título do Hero (Início)</label>
+                    <input
+                      type="text"
+                      value={general.heroTitle || ''}
+                      onChange={(e) => updateGeneralField('heroTitle', e.target.value)}
+                      placeholder="Ex: Engenharia e"
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Destaque do Hero (Texto Azul)</label>
+                    <input
+                      type="text"
+                      value={general.heroHighlight || ''}
+                      onChange={(e) => updateGeneralField('heroHighlight', e.target.value)}
+                      placeholder="Ex: Estruturas Metálicas"
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Texto do Botão (CTA)</label>
+                    <input
+                      type="text"
+                      value={general.heroCtaText || ''}
+                      onChange={(e) => updateGeneralField('heroCtaText', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Imagem do Hero (Caminho da Imagem)</label>
+                    <input
+                      type="text"
+                      value={general.heroImage || ''}
+                      onChange={(e) => updateGeneralField('heroImage', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Subtítulo do Hero</label>
+                  <textarea
+                    value={general.heroSubtitle || ''}
+                    onChange={(e) => updateGeneralField('heroSubtitle', e.target.value)}
+                    rows={3}
+                    className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                  />
+                </div>
+              </div>
+
+              {/* Seção 2: Contatos de Negócios */}
+              <div className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
+                <h4 className="font-mono text-xs tracking-wider text-blue-500 font-bold uppercase border-b border-blue-500/5 pb-2">2. Canais de Contato</h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Telefone Exibido (Header/Footer/Contato)</label>
+                    <input
+                      type="text"
+                      value={general.phone || ''}
+                      onChange={(e) => updateGeneralField('phone', e.target.value)}
+                      placeholder="Ex: +55 (85) 99999-0000"
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Telefone Apenas Números (WhatsApp / Links tel:)</label>
+                    <input
+                      type="text"
+                      value={general.phoneRaw || ''}
+                      onChange={(e) => updateGeneralField('phoneRaw', e.target.value)}
+                      placeholder="Ex: +5585999990000"
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">E-mail Principal (Projetos)</label>
+                    <input
+                      type="email"
+                      value={general.email || ''}
+                      onChange={(e) => updateGeneralField('email', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">E-mail Secundário (Comercial)</label>
+                    <input
+                      type="email"
+                      value={general.emailComercial || ''}
+                      onChange={(e) => updateGeneralField('emailComercial', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Seção 3: Localização e Endereço */}
+              <div className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
+                <h4 className="font-mono text-xs tracking-wider text-blue-500 font-bold uppercase border-b border-blue-500/5 pb-2">3. Endereço e Localização</h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Logradouro / Avenida / Número</label>
+                    <input
+                      type="text"
+                      value={general.address || ''}
+                      onChange={(e) => updateGeneralField('address', e.target.value)}
+                      placeholder="Ex: Av. Francisco Sá, 5100 — Barra do Ceará"
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Cidade, Estado e CEP</label>
+                    <input
+                      type="text"
+                      value={general.addressCity || ''}
+                      onChange={(e) => updateGeneralField('addressCity', e.target.value)}
+                      placeholder="Ex: Fortaleza - CE, CEP: 60310-002"
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Seção 4: Dados Institucionais e Links de Redes */}
+              <div className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
+                <h4 className="font-mono text-xs tracking-wider text-blue-500 font-bold uppercase border-b border-blue-500/5 pb-2">4. Identificação &amp; Redes Sociais</h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Registro CREA</label>
+                    <input
+                      type="text"
+                      value={general.crea || ''}
+                      onChange={(e) => updateGeneralField('crea', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">CNPJ da Empresa</label>
+                    <input
+                      type="text"
+                      value={general.cnpj || ''}
+                      onChange={(e) => updateGeneralField('cnpj', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Link do Facebook</label>
+                    <input
+                      type="text"
+                      value={general.facebook || ''}
+                      onChange={(e) => updateGeneralField('facebook', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Link do Instagram</label>
+                    <input
+                      type="text"
+                      value={general.instagram || ''}
+                      onChange={(e) => updateGeneralField('instagram', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Link do LinkedIn</label>
+                    <input
+                      type="text"
+                      value={general.linkedin || ''}
+                      onChange={(e) => updateGeneralField('linkedin', e.target.value)}
+                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* TAB 1: SERVIÇOS */}
           {activeTab === 'services' && (
             <div className="space-y-6">

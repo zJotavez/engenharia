@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { IconRenderer } from './IconRenderer.tsx';
 
+import { GeneralSettings } from '../types.ts';
+
 interface ContactProps {
+  settings: GeneralSettings;
   selectedServicePreset: string;
 }
 
-export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
+export const Contact: React.FC<ContactProps> = ({ settings, selectedServicePreset }) => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -97,8 +100,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
   };
 
   // Pre-configured links for direct integration
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=5585999990000&text=Olá!%20Me%20chamo%20${encodeURIComponent(formData.name || 'Cliente')}%20da%20empresa%20${encodeURIComponent(formData.company || 'Investidor')}.%20Gostaria%20de%20solicitar%20um%20orçamento%20especificamente%20para%20${encodeURIComponent(formData.service || 'Projetos%20de%20Engenharia')}.%20Mensagem:%20${encodeURIComponent(formData.message || 'Gostaria%20de%20falar%20com%20nossos%20engenheiros.')}`;
-  const mailtoUrl = `mailto:contato@mvengenharia.com?subject=Solicitação%20de%20Orçamento%20-%20${encodeURIComponent(formData.company)}&body=Nome:%20${encodeURIComponent(formData.name)}%0D%0AEmpresa:%20${encodeURIComponent(formData.company)}%0D%0ATelefone:%20${encodeURIComponent(formData.phone)}%0D%0AServiço:%20${encodeURIComponent(formData.service)}%0D%0AMensagem:%20${encodeURIComponent(formData.message)}`;
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${settings.phoneRaw}&text=Olá!%20Me%20chamo%20${encodeURIComponent(formData.name || 'Cliente')}%20da%20empresa%20${encodeURIComponent(formData.company || 'Investidor')}.%20Gostaria%20de%20solicitar%20um%20orçamento%20especificamente%20para%20${encodeURIComponent(formData.service || 'Projetos%20de%20Engenharia')}.%20Mensagem:%20${encodeURIComponent(formData.message || 'Gostaria%20de%20falar%20com%20nossos%20engenheiros.')}`;
+  const mailtoUrl = `mailto:${settings.email}?subject=Solicitação%20de%20Orçamento%20-%20${encodeURIComponent(formData.company)}&body=Nome:%20${encodeURIComponent(formData.name)}%0D%0AEmpresa:%20${encodeURIComponent(formData.company)}%0D%0ATelefone:%20${encodeURIComponent(formData.phone)}%0D%0AServiço:%20${encodeURIComponent(formData.service)}%0D%0AMensagem:%20${encodeURIComponent(formData.message)}`;
 
   return (
     <section id="contato" className="relative py-20 lg:py-32 bg-[#071B35] overflow-hidden">
@@ -161,10 +164,10 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
                 <div className="text-left space-y-0.5">
                   <span className="block font-mono text-[10px] text-brand-silver/50 uppercase tracking-wider">Complexo Industrial / Matriz</span>
                   <p className="font-sans text-sm text-white">
-                    Av. Francisco Sá, 5100 — Barra do Ceará
+                    {settings.address}
                   </p>
                   <p className="font-sans text-xs text-brand-silver/60">
-                    Fortaleza - CE, CEP: 60310-002
+                    {settings.addressCity}
                   </p>
                 </div>
               </div>
@@ -175,12 +178,14 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
                 </div>
                 <div className="text-left space-y-0.5">
                   <span className="block font-mono text-[10px] text-brand-silver/50 uppercase tracking-wider">E-mail de Projetos</span>
-                  <a href="mailto:projetos@mvconstrucoes.com" className="font-mono text-sm text-brand-silver hover:text-white block transition-colors">
-                    projetos@mvconstrucoes.com
+                  <a href={`mailto:${settings.email}`} className="font-mono text-sm text-brand-silver hover:text-white block transition-colors">
+                    {settings.email}
                   </a>
-                  <a href="mailto:comercial@mvconstrucoes.com" className="font-mono text-xs text-brand-silver/60 hover:text-white block transition-colors">
-                    comercial@mvconstrucoes.com
-                  </a>
+                  {settings.emailComercial && (
+                    <a href={`mailto:${settings.emailComercial}`} className="font-mono text-xs text-brand-silver/60 hover:text-white block transition-colors">
+                      {settings.emailComercial}
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -190,8 +195,8 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
                 </div>
                 <div className="text-left space-y-0.5">
                   <span className="block font-mono text-[10px] text-brand-silver/50 uppercase tracking-wider">Telefone & WhatsApp</span>
-                  <a href="tel:+5585999990000" className="font-sans text-sm text-white font-medium block hover:text-brand-metallic transition-colors">
-                    +55 (85) 99999-0000
+                  <a href={`tel:${settings.phoneRaw}`} className="font-sans text-sm text-white font-medium block hover:text-brand-metallic transition-colors">
+                    {settings.phone}
                   </a>
                   <p className="font-sans text-xs text-brand-silver/60">
                     Segunda a Sexta — 07h30 às 17h30

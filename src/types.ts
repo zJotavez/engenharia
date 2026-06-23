@@ -53,3 +53,22 @@ export interface StatItem {
   label: string;
   subLabel: string;
 }
+
+export interface GeneralSettings {
+  heroTitle: string;
+  heroHighlight: string;
+  heroSubtitle: string;
+  heroCtaText: string;
+  heroImage: string;
+  phone: string;
+  phoneRaw: string;
+  email: string;
+  emailComercial?: string;
+  address: string;
+  addressCity: string;
+  crea: string;
+  cnpj: string;
+  facebook: string;
+  instagram: string;
+  linkedin: string;
+}

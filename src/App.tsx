@@ -13,8 +13,8 @@ import { Footer } from './components/Footer.tsx';
 import { AdminPanel } from './components/AdminPanel.tsx';
 
 // Data types and defaults
-import { Service, Project, TimelineItem, StatItem, Testimonial } from './types.ts';
-import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS } from './data.ts';
+import { Service, Project, TimelineItem, StatItem, Testimonial, GeneralSettings } from './types.ts';
+import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS, GENERAL_SETTINGS } from './data.ts';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -29,6 +29,7 @@ export default function App() {
   const [timeline, setTimeline] = useState<TimelineItem[]>(TIMELINE_ITEMS);
   const [stats, setStats] = useState<StatItem[]>(STATS);
   const [testimonials, setTestimonials] = useState<Testimonial[]>(TESTIMONIALS);
+  const [generalSettings, setGeneralSettings] = useState<GeneralSettings>(GENERAL_SETTINGS);
 
   // Fetch dynamic content on mount
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function App() {
         if (data.timeline) setTimeline(data.timeline);
         if (data.stats) setStats(data.stats);
         if (data.testimonials) setTestimonials(data.testimonials);
+        if (data.general) setGeneralSettings(data.general);
       })
       .catch(err => {
         console.log('Using static local fallback data:', err);
@@ -97,7 +99,13 @@ export default function App() {
   };
 
   if (isAdminView) {
-    return <AdminPanel onClose={() => window.location.hash = ''} />;
+    return (
+      <AdminPanel
+        onClose={() => window.location.hash = ''}
+        generalSettings={generalSettings}
+        setGeneralSettings={setGeneralSettings}
+      />
+    );
   }
 
   return (
@@ -117,10 +125,10 @@ export default function App() {
       </div>
 
       {/* Floating Header */}
-      <Header activeSection={activeSection} />
+      <Header activeSection={activeSection} phone={generalSettings.phone} phoneRaw={generalSettings.phoneRaw} />
 
       {/* Hero Section */}
-      <Hero />
+      <Hero settings={generalSettings} />
 
       {/* About Section */}
       <About timeline={timeline} />
@@ -144,10 +152,10 @@ export default function App() {
       <CtaSection />
 
       {/* Contact Form Section */}
-      <Contact selectedServicePreset={selectedServicePreset} />
+      <Contact settings={generalSettings} selectedServicePreset={selectedServicePreset} />
 
       {/* Footer Section */}
-      <Footer />
+      <Footer settings={generalSettings} />
     </div>
   );
 }

@@ -1,8 +1,13 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { IconRenderer } from './IconRenderer.tsx';
+import { GeneralSettings } from '../types.ts';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  settings: GeneralSettings;
+}
+
+export const Hero: React.FC<HeroProps> = ({ settings }) => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -31,11 +36,13 @@ export const Hero: React.FC = () => {
     >
       {/* ── Background com Parallax + Zoom Cinematográfico ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.div
-          className="absolute inset-[-6%] bg-cover bg-center bg-no-repeat"
+        <motion.img
+          src={settings.heroImage}
+          alt="Metalomecânica"
+          fetchPriority="high"
+          loading="eager"
+          className="absolute inset-[-6%] w-[112%] h-[112%] object-cover object-center"
           style={{
-            backgroundImage:
-              "url('/assets/images/hero-metalomecanica.png')",
             y: bgY,
             scale: bgScale,
             willChange: 'transform',
@@ -79,9 +86,8 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.1 }}
               className="font-['Helvetica_Neue',_sans-serif] font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.06] uppercase"
             >
-              Engenharia e{' '}
-              <span className="text-[#2563EB]">Estruturas Metálicas</span>{' '}
-              de Alto Padrão
+              {settings.heroTitle}{' '}
+              <span className="text-[#2563EB]">{settings.heroHighlight}</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -91,9 +97,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="font-sans text-base sm:text-lg text-[#B8C4D0]/90 leading-relaxed max-w-xl"
             >
-              Atuamos com excelência em projetos industriais, construção naval, tubagem de pressão,
-              serralherias certificadas e canteiros ágeis, garantindo o cumprimento rigoroso de
-              prazos e conformidade técnica global.
+              {settings.heroSubtitle}
             </motion.p>
 
             {/* CTA — apenas Solicitar Orçamento */}
@@ -108,7 +112,7 @@ export const Hero: React.FC = () => {
                 id="hero-cta-quote"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#2563EB] hover:bg-[#1A5296] text-white font-sans font-bold text-xs uppercase tracking-widest shadow-2xl shadow-blue-950/50 border-b-2 border-white/20 transition-all duration-300 hover:-translate-y-0.5"
               >
-                <span>SOLICITAR ORÇAMENTO</span>
+                <span>{settings.heroCtaText}</span>
                 <IconRenderer name="ArrowRight" size={14} />
               </a>
             </motion.div>

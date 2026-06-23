@@ -1,4 +1,22 @@
 {
+  "general": {
+    "heroTitle": "Engenharia e ",
+    "heroHighlight": "Estruturas Metálicas",
+    "heroSubtitle": "Atuamos com excelência em projetos industriais, construção naval, tubagem de pressão, serralherias certificadas e canteiros ágeis, garantindo o cumprimento rigoroso de prazos e conformidade técnica global.",
+    "heroCtaText": "SOLICITAR ORÇAMENTO",
+    "heroImage": "/assets/images/hero-metalomecanica.webp",
+    "phone": "+55 (85) 99999-0000",
+    "phoneRaw": "+5585999990000",
+    "email": "projetos@mvconstrucoes.com",
+    "emailComercial": "comercial@mvconstrucoes.com",
+    "address": "Av. Francisco Sá, 5100 — Barra do Ceará",
+    "addressCity": "Fortaleza - CE, CEP: 60310-002",
+    "crea": "N-41002",
+    "cnpj": "14.120.002/0001-35",
+    "facebook": "https://www.facebook.com/mvengenharia",
+    "instagram": "https://www.instagram.com/mvengenharia",
+    "linkedin": "https://www.linkedin.com/company/mvengenharia"
+  },
   "services": [
     {
       "id": "estruturas-metalicas",
@@ -12,7 +30,7 @@
         "Ensaios estruturais (NDT) e engenharia de soldagem qualificada"
       ],
       "iconName": "Layers",
-      "image": "/assets/images/estruturas-metalicas.png",
+      "image": "/assets/images/estruturas-metalicas.webp",
       "category": "engenharia"
     },
     {
@@ -27,7 +45,7 @@
         "Conformidade rígida com sociedades de classificação naval"
       ],
       "iconName": "Anchor",
-      "image": "/assets/images/construcao-naval-reparacao.png",
+      "image": "/assets/images/construcao-naval-reparacao.webp",
       "category": "engenharia"
     },
     {
@@ -47,7 +65,7 @@
     },
     {
       "id": "serralheria-ferro-inox",
-      "title": "Serralheria Especializada Ferro e Inox",
+      "title": "Serralheria Specialized Ferro e Inox",
       "description": "Guardas articuladas, guarda-corpos industriais normatizados, escadas marinheiro com guarda de segurança e mezaninos customizados.",
       "detailedDescription": "Produzimos serralharia técnica e de precisão sob medida para plantas fabris. Projetamos todos os acessos visando à plena segurança operacional contra quedas de nível, atendendo integralmente as normativas de ergonomia e prevenção de acidentes na indústria.",
       "features": [
@@ -103,7 +121,7 @@
         "Integração com sistemas de segurança"
       ],
       "iconName": "Video",
-      "image": "/assets/images/seguranca-eletronica.png",
+      "image": "/assets/images/seguranca-eletronica.webp",
       "category": "tecnologia"
     },
     {
@@ -119,13 +137,13 @@
         "Integração com sistemas corporativos"
       ],
       "iconName": "Fingerprint",
-      "image": "/assets/images/controle-acesso.png",
+      "image": "/assets/images/controle-acesso.webp",
       "category": "tecnologia"
     },
     {
       "id": "sistema-incendio",
       "title": "Sistema Eletrônico de Incêndio",
-      "description": "Projetos e implantação de sistemas inteligentes de prevenção e combate a incêndio.",
+      "description": "Projetos e implantação de sistemas inteligentes de prevenção e combate a incêndios.",
       "detailedDescription": "Soluções inteligentes voltadas para a detecção precoce de focos de incêndio, sinalização acústica e visual e acionamento de sistemas de combate automáticos. Alinhado integralmente com as normas nacionais e internacionais de segurança e as exigências do corpo de bombeiros.",
       "features": [
         "Alarmes de incêndio",
@@ -135,7 +153,7 @@
         "Conformidade com normas de segurança"
       ],
       "iconName": "Flame",
-      "image": "/assets/images/sistema-incendio.png",
+      "image": "/assets/images/sistema-incendio.webp",
       "category": "tecnologia"
     },
     {
@@ -151,7 +169,7 @@
         "Monitoramento e suporte técnico"
       ],
       "iconName": "Network",
-      "image": "/assets/images/redes-computadores.png",
+      "image": "/assets/images/redes-computadores.webp",
       "category": "tecnologia"
     }
   ],
@@ -166,7 +184,7 @@
       "location": "Porto de Pecém - CE",
       "year": "2025",
       "gallery": [
-        "/assets/images/pipe-racks-portuarios.png",
+        "/assets/images/pipe-racks-portuarios.webp",
         "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200"
       ],
       "keySpec": "1.450 Toneladas de Aço"
@@ -279,44 +297,6 @@
       "milestone": true
     }
   ],
-  "differentials": [
-    {
-      "id": "d1",
-      "title": "Equipe de Engenharia Altamente Qualificada",
-      "description": "Profissionais especialistas em metodologias BIM, cálculo estrutural sob normas internacionais (ASME, AWS, ABNT) e prontos para superar complexidades técnicas desafiadoras.",
-      "iconName": "Users"
-    },
-    {
-      "id": "d2",
-      "title": "Segurança Operacional Absoluta",
-      "description": "Rigorosa política de Acidente Zero. Auditoria contínua de procedimentos, equipamentos certificados e certificações completas integradas (NR-34, NR-35 e NR-10).",
-      "iconName": "ShieldAlert"
-    },
-    {
-      "id": "d3",
-      "title": "Sistemas de Controle de Qualidade (Auditoria Total)",
-      "description": "Todas as peças saem de nossa fábrica com o Certificado de Rastreabilidade de Matéria-Prima e prontuário completo de ensaios físicos não-destrutivos.",
-      "iconName": "CheckCircle2"
-    },
-    {
-      "id": "d4",
-      "title": "Entrega Cumprida sob Cronograma Rígido",
-      "description": "Gestão ágil de canteiros, logística e controle total do ritmo de produção. Garantimos a implantação rigorosa da data planejada com multas de atraso estipuladas.",
-      "iconName": "CalendarRange"
-    },
-    {
-      "id": "d5",
-      "title": "Atendimento Consultivo Personalizado",
-      "description": "Criamos canais ágeis diretos de feedback engenharia-cliente. Atendimento com transparência extrema, relatórios diários com mídia HD da evolução de sua obra.",
-      "iconName": "Speech"
-    },
-    {
-      "id": "d6",
-      "title": "Mobilização em Território Nacional",
-      "description": "Estruturação logística eficiente e célere para mobilizar plantas fabris compactas internas, canteiros de trabalho inteligentes e equipes móveis em qualquer estado brasileiro.",
-      "iconName": "Globe2"
-    }
-  ],
   "stats": [
     {
       "id": "s1",
@@ -371,7 +351,7 @@
       "name": "Comandante Heitor S. Peixoto",
       "role": "Gerente Executivo de Frotas Offshore",
       "company": "Star Ocean Shipping Group",
-      "feedback": "A engenharia naval da Metaloworld resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da Metaloworld, o navio reestabeleceu sua operação em tempo recorde.",
+      "feedback": "A engenharia naval da Metaloworld resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da Metaloworld, o navio reestabeleceu sua operation em tempo recorde.",
       "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120",
       "rating": 5
     }

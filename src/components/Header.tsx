@@ -4,9 +4,11 @@ import { IconRenderer } from './IconRenderer.tsx';
 
 interface HeaderProps {
   activeSection: string;
+  phone: string;
+  phoneRaw: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
+export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -66,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         {/* Brand Logo */}
         <a href="#home" id="nav-brand-logo" className="flex items-center gap-3 group select-none">
           <img 
-            src="/assets/images/logo-icon.png" 
+            src="/assets/images/logo-icon.webp" 
             alt="Metaloworld Logo" 
             className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
           />
@@ -110,11 +112,11 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex flex-col text-right">
             <a
-              href="tel:+5585999990000"
+              href={`tel:${phoneRaw}`}
               className="font-mono text-xs text-[#B8C4D0] hover:text-[#2563EB] transition-colors flex items-center gap-1.5 justify-end"
             >
               <IconRenderer name="Phone" size={11} className="text-[#2563EB]" />
-              +55 (85) 99999-0000
+              {phone}
             </a>
             <span className="text-[10px] text-[#7B8EA3] uppercase tracking-wider">Atendimento Nacional</span>
           </div>
@@ -169,11 +171,11 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               ))}
               <div className="pt-4 pb-2 flex flex-col gap-4">
                 <a
-                  href="tel:+5585999990000"
+                  href={`tel:${phoneRaw}`}
                   className="flex items-center gap-3 font-mono text-sm text-[#B8C4D0] py-2"
                 >
                   <IconRenderer name="Phone" size={16} className="text-[#2563EB]" />
-                  <span>+55 (85) 99999-0000</span>
+                  <span>{phone}</span>
                 </a>
                 <a
                   href="#contato"

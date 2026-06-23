@@ -1,4 +1,4 @@
-import { Service, Project, TimelineItem, Testimonial, Differential, StatItem } from './types.ts';
+import { Service, Project, TimelineItem, Testimonial, Differential, StatItem, GeneralSettings } from './types.ts';
 
 export const SERVICES: Service[] = [
   {
@@ -13,7 +13,7 @@ export const SERVICES: Service[] = [
       'Ensaios estruturais (NDT) e engenharia de soldagem qualificada'
     ],
     iconName: 'Layers',
-    image: '/assets/images/estruturas-metalicas.png',
+    image: '/assets/images/estruturas-metalicas.webp',
     category: 'engenharia'
   },
   {
@@ -28,7 +28,7 @@ export const SERVICES: Service[] = [
       'Conformidade rígida com sociedades de classificação naval'
     ],
     iconName: 'Anchor',
-    image: '/assets/images/construcao-naval-reparacao.png',
+    image: '/assets/images/construcao-naval-reparacao.webp',
     category: 'engenharia'
   },
   {
@@ -104,7 +104,7 @@ export const SERVICES: Service[] = [
       'Integração com sistemas de segurança'
     ],
     iconName: 'Video',
-    image: '/assets/images/seguranca-eletronica.png',
+    image: '/assets/images/seguranca-eletronica.webp',
     category: 'tecnologia'
   },
   {
@@ -120,7 +120,7 @@ export const SERVICES: Service[] = [
       'Integração com sistemas corporativos'
     ],
     iconName: 'Fingerprint',
-    image: '/assets/images/controle-acesso.png',
+    image: '/assets/images/controle-acesso.webp',
     category: 'tecnologia'
   },
   {
@@ -136,7 +136,7 @@ export const SERVICES: Service[] = [
       'Conformidade com normas de segurança'
     ],
     iconName: 'Flame',
-    image: '/assets/images/sistema-incendio.png',
+    image: '/assets/images/sistema-incendio.webp',
     category: 'tecnologia'
   },
   {
@@ -152,7 +152,7 @@ export const SERVICES: Service[] = [
       'Monitoramento e suporte técnico'
     ],
     iconName: 'Network',
-    image: '/assets/images/redes-computadores.png',
+    image: '/assets/images/redes-computadores.webp',
     category: 'tecnologia'
   }
 ];
@@ -168,7 +168,7 @@ export const PROJECTS: Project[] = [
     location: 'Porto de Pecém - CE',
     year: '2025',
     gallery: [
-      '/assets/images/pipe-racks-portuarios.png',
+      '/assets/images/pipe-racks-portuarios.webp',
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
     ],
     keySpec: '1.450 Toneladas de Aço'
@@ -377,8 +377,27 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Comandante Heitor S. Peixoto',
     role: 'Gerente Executivo de Frotas Offshore',
     company: 'Star Ocean Shipping Group',
-    feedback: 'A engenharia naval da Metaloworld resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da Metaloworld, o navio reestabeleceu sua operação em tempo recorde.',
+    feedback: 'A engenharia naval da Metaloworld resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da Metaloworld, o navio reestabeleceu sua operation em tempo recorde.',
     avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120',
     rating: 5
   }
 ];
+
+export const GENERAL_SETTINGS: GeneralSettings = {
+  heroTitle: 'Engenharia e ',
+  heroHighlight: 'Estruturas Metálicas',
+  heroSubtitle: 'Atuamos com excelência em projetos industriais, construção naval, tubagem de pressão, serralherias certificadas e canteiros ágeis, garantindo o cumprimento rigoroso de prazos e conformidade técnica global.',
+  heroCtaText: 'SOLICITAR ORÇAMENTO',
+  heroImage: '/assets/images/hero-metalomecanica.webp',
+  phone: '+55 (85) 99999-0000',
+  phoneRaw: '+5585999990000',
+  email: 'projetos@mvconstrucoes.com',
+  emailComercial: 'comercial@mvconstrucoes.com',
+  address: 'Av. Francisco Sá, 5100 — Barra do Ceará',
+  addressCity: 'Fortaleza - CE, CEP: 60310-002',
+  crea: 'N-41002',
+  cnpj: '14.120.002/0001-35',
+  facebook: 'https://www.facebook.com/mvengenharia',
+  instagram: 'https://www.instagram.com/mvengenharia',
+  linkedin: 'https://www.linkedin.com/company/mvengenharia'
+};
