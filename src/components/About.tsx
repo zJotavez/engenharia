@@ -46,7 +46,7 @@ export const About: React.FC<AboutProps> = ({ timeline = TIMELINE_ITEMS }) => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight uppercase"
           >
-            A Solidez da <span className="text-[#1D5A9E]">Engenharia Industrial</span> Pesada
+            Precisão Técnica e <span className="text-[#1D5A9E]">Eficiência Operacional</span>
           </motion.h2>
           <div className="w-16 h-1 bg-[#1D5A9E] mx-auto mt-6 rounded-full" />
         </div>
@@ -93,15 +93,15 @@ export const About: React.FC<AboutProps> = ({ timeline = TIMELINE_ITEMS }) => {
             className="lg:col-span-7 space-y-6"
           >
             <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white uppercase leading-snug tracking-tight">
-              Construindo os alicerces físicos da indústria pesada moderna
+              Unindo precisão técnica à eficiência operacional
             </h3>
             
             <p className="font-sans text-sm sm:text-base text-brand-silver/85 leading-relaxed">
-              Desde 2011, atuamos como parceiros estratégicos no fornecimento de soluções complexas em estruturas de aço, caldeiraria e construção civil industrial. Nossa trajetória é pautada pelo compromisso indissolúvel com a segurança operacional, rastreabilidade completa de insumos e exatidão geométrica.
+              Somos especializados no fornecimento de profissionais altamente qualificados e na execução de soluções técnicas para os setores industrial, metalomecânico, construção e naval. A METALOWORLD conecta as empresas aos profissionais certos para a execução de cada projeto.
             </p>
             
             <p className="font-sans text-sm sm:text-base text-brand-silver/70 leading-relaxed">
-              Investimos constantemente em engenharia própria de alto nível (BIM e modelagem paramétrica) e tecnologia fabril automatizada. Isso nos permite encurtar cronogramas de montagem de campo sem jamais comprometer os coeficientes de segurança estrutural.
+              Atuamos com foco na qualidade, segurança e produtividade, oferecendo às empresas equipas preparadas para atender projetos de diferentes portes em toda a Europa. Reduzimos a complexidade operacional para que os nossos clientes se possam concentrar nos seus objetivos de negócio principais.
             </p>
             
             {/* Checklist of core pillars */}
@@ -110,25 +110,25 @@ export const About: React.FC<AboutProps> = ({ timeline = TIMELINE_ITEMS }) => {
                 <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
                   <IconRenderer name="Check" size={10} />
                 </div>
-                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Soldadores Certificados</span>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Profissionais Qualificados</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
                   <IconRenderer name="Check" size={10} />
                 </div>
-                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Rastreabilidade Total</span>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Atuação Internacional</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
                   <IconRenderer name="Check" size={10} />
                 </div>
-                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">ISO 9001:2015 em Curso</span>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Flexibilidade Operacional</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-brand-metallic/20 border border-brand-metallic/40 flex items-center justify-center text-white">
                   <IconRenderer name="Check" size={10} />
                 </div>
-                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Segurança NR-34 / NR-35</span>
+                <span className="text-xs font-mono font-bold text-white uppercase tracking-wide">Qualidade & Segurança</span>
               </div>
             </div>
           </motion.div>

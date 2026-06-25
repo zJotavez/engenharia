@@ -11,23 +11,25 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
 
   const links = {
     empresa: [
-      { label: 'Início', href: '#inicio' },
+      { label: 'Início', href: '#home' },
       { label: 'Sobre Nós', href: '#sobre' },
-      { label: 'Diferenciais de Qualidade', href: '#diferenciais' },
-      { label: 'História & Marcos', href: '#sobre' },
+      { label: 'Diferenciais', href: '#diferenciais' },
+      { label: 'Como Funciona', href: '#como-funciona' },
+      { label: 'Banco de Talentos', href: '#talentos' },
     ],
     servicos: [
-      { label: 'Estruturas Metálicas', href: '#servicos' },
-      { label: 'Construção Naval', href: '#servicos' },
-      { label: 'Tubagem Industrial', href: '#servicos' },
-      { label: 'Serralheria Fina', href: '#servicos' },
-      { label: 'Construção Civil Pesada', href: '#servicos' },
+      { label: 'Soldadura Industrial', href: '#servicos' },
+      { label: 'Montagem Industrial', href: '#servicos' },
+      { label: 'Serralharia Mecânica', href: '#servicos' },
+      { label: 'Decapagem e Pintura', href: '#servicos' },
+      { label: 'Instalações de TI', href: '#servicos' },
+      { label: 'Reparação Naval', href: '#servicos' },
     ],
     legal: [
-      { label: 'Termos de Engenharia', href: '#contato' },
-      { label: 'Compliance & Direitos', href: '#contato' },
-      { label: 'Sitemap Geral', href: '#' },
-      { label: 'Garantia de Acidente Zero', href: '#diferenciais' },
+      { label: 'Parcerias Estratégicas', href: '#contato' },
+      { label: 'Compliance & Segurança', href: '#contato' },
+      { label: 'Política de Privacidade', href: '#' },
+      { label: 'Código de Conduta', href: '#' },
     ],
   };
 
@@ -41,7 +43,7 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
         
         {/* Brand Information Column */}
         <div className="lg:col-span-4 space-y-6">
-          <a href="#inicio" className="flex items-center gap-3 group select-none">
+          <a href="#home" className="flex items-center gap-3 group select-none">
             <img 
               src="/assets/images/logo-icon.webp" 
               alt="Metaloworld Logo" 
@@ -52,18 +54,18 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
                 METALOWORLD
               </span>
               <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-[#C4CCD4]/70 mt-1">
-                Construções Industriais
+                Soluções Industriais
               </span>
             </div>
           </a>
 
           <p className="font-sans text-xs sm:text-sm text-brand-silver/70 leading-relaxed">
-            Líderes nacionais na fabricação e montagem de estruturas metálicas complexas, reparos marítimos avançados, serralherias certificadas e bases de concreto de alta rigidez.
+            Conectamos indústrias a equipas altamente qualificadas e soluções técnicas nas áreas de metalomecânica, soldadura, montagem, decapagem e reparação naval em toda a Europa.
           </p>
 
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono font-bold text-brand-silver tracking-widest uppercase">
-              CREA REGISTRO: {settings.crea}
+              Atuação Internacional
             </span>
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono font-bold text-brand-silver tracking-widest uppercase">
               ISO 9001:2015
@@ -101,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
 
         {/* Technical/Compliance Column */}
         <div className="lg:col-span-3 space-y-4">
-          <h4 className="font-display font-bold text-xs uppercase tracking-widest text-brand-silver font-sans">Legal & Rastreabilidade</h4>
+          <h4 className="font-display font-bold text-xs uppercase tracking-widest text-brand-silver font-sans">Legal &amp; Parcerias</h4>
           <ul className="space-y-2.5">
             {links.legal.map((link, i) => (
               <li key={i}>
@@ -119,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
       <div className="relative z-10 border-t border-brand-metallic/10 bg-[#020a14] py-8 px-6 text-left">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <p className="font-sans text-[11px] sm:text-xs text-brand-silver/50 leading-relaxed max-w-2xl">
-            Aviso de Licenciamentos: Todo o chapeamento estrutural, tubagem de processo e ligas estruturais utilizadas são auditados em controle laboratorial antes da solda. Serviços executados por profissionais CLT qualificados de acordo com diretrizes do MTE.
+            Aviso de Conformidade: Todos os serviços são executados por equipas qualificadas sob rígidas diretrizes europeias de segurança no trabalho e normas técnicas aplicáveis de qualidade industrial.
           </p>
           
           {/* Regulatory certifications logos as inline tags */}
@@ -128,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
               ASME CERTIFIED
             </span>
             <span className="px-2 py-1 bg-white/5 rounded border border-white/10 text-[9px] font-mono text-brand-silver tracking-wider uppercase">
-              AWS COMPLIANT
+              EN COMPLIANT
             </span>
           </div>
         </div>
@@ -138,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
       <div className="relative z-10 py-6 border-t border-brand-metallic/5 bg-[#01060e] px-6 text-left">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-sans text-[11px] sm:text-xs text-[#B8C4D0]/40">
-            &copy; {currentYear} Metaloworld &amp; Construções Industriais Ltda. CNPJ: {settings.cnpj}. Todos os direitos reservados.
+            &copy; {currentYear} METALOWORLD. Todos os direitos reservados.
           </p>
         </div>
       </div>

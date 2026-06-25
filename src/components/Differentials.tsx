@@ -4,34 +4,24 @@ import { motion, useAnimationControls } from 'motion/react';
 /* ── Dados dos cards — textos curtos e objetivos ── */
 const CARDS = [
   {
-    code: 'MV-01',
-    title: 'Engenharia Especializada',
-    text: 'Equipe técnica preparada para projetos industriais complexos.',
+    code: 'MW-01',
+    title: 'Mão de Obra Certificada',
+    text: 'Profissionais rigorosamente qualificados e alinhados às normas técnicas, de segurança e qualidade.',
   },
   {
-    code: 'MV-02',
-    title: 'Segurança Operacional',
-    text: 'Processos executados com rigor técnico e controle de risco.',
+    code: 'MW-02',
+    title: 'Flexibilidade Operacional',
+    text: 'Atendimento ágil para demandas temporárias, grandes projetos e paradas industriais.',
   },
   {
-    code: 'MV-03',
-    title: 'Controle de Qualidade',
-    text: 'Materiais, execução e entrega acompanhados em cada etapa.',
+    code: 'MW-03',
+    title: 'Atuação Internacional',
+    text: 'Atendimento em Portugal, Espanha e demais países da Europa.',
   },
   {
-    code: 'MV-04',
-    title: 'Entrega Planejada',
-    text: 'Cronograma claro, gestão eficiente e compromisso com prazos.',
-  },
-  {
-    code: 'MV-05',
-    title: 'Atendimento Estratégico',
-    text: 'Soluções desenvolvidas de acordo com cada projeto.',
-  },
-  {
-    code: 'MV-06',
-    title: 'Atuação Nacional',
-    text: 'Capacidade para atender obras industriais em diferentes regiões.',
+    code: 'MW-04',
+    title: 'Foco na Produtividade',
+    text: 'Reduzimos a complexidade operacional para que nossos clientes possam concentrar esforços em seu negócio principal.',
   },
 ];
 
@@ -291,7 +281,7 @@ export const Differentials: React.FC = () => {
                 letterSpacing: '-0.015em',
               }}
             >
-              Segurança técnica em cada etapa da sua obra.
+              Soluções operacionais completas para a sua indústria.
             </h3>
             <p
               className="font-sans leading-relaxed"
@@ -301,8 +291,7 @@ export const Differentials: React.FC = () => {
                 maxWidth: '500px',
               }}
             >
-              Da análise estrutural à execução final, entregamos soluções industriais com
-              controle, precisão e responsabilidade.
+              Fornecemos as equipas técnicas adequadas e a coordenação necessária para garantir a máxima qualidade, segurança e produtividade na execução do seu projeto.
             </p>
           </div>
 

@@ -4,29 +4,27 @@ import { SERVICES } from '../data.ts';
 import { Service } from '../types.ts';
 import { IconRenderer } from './IconRenderer.tsx';
 
-interface ServicesProps {
-  services?: Service[];
-  onSelectService: (serviceTitle: string) => void;
-}
-
 // Faixas diagonais com texto em movimento infinito
 const tickerWords = [
-  'Engenharia Industrial',
-  'Estruturas Metálicas',
+  'Soluções Industriais',
+  'Soldadura Homologada',
+  'Montagem Industrial',
+  'Equipas Técnicas',
+  'Profissionais Qualificados',
   'Construção Naval',
-  'Tubagem Industrial',
-  'Obras de Grande Porte',
-  'Segurança e Qualidade',
-  'Excelência em Execução',
-  'ISO 9001:2015',
-  'AWS Certified',
-  'Engenharia Industrial',
-  'Estruturas Metálicas',
+  'Serralharia Industrial',
+  'Tratamento de Superfícies',
+  'Instalações de TI',
+  'Atuação na Europa',
+  'Qualidade e Segurança',
+  'Soluções Industriais',
+  'Soldadura Homologada',
+  'Montagem Industrial',
+  'Equipas Técnicas',
+  'Profissionais Qualificados',
   'Construção Naval',
-  'Tubagem Industrial',
-  'Obras de Grande Porte',
-  'Segurança e Qualidade',
-  'Excelência em Execução',
+  'Serralharia Industrial',
+  'Tratamento de Superfícies',
 ];
 
 const DiagonalTicker: React.FC<{ direction?: 'left' | 'right'; angle?: number }> = ({
@@ -117,7 +115,7 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-3 py-1 bg-[#2563EB]/10 rounded-full border border-[#2563EB]/35 text-xs font-mono font-bold text-[#B8C4D0] tracking-wider uppercase mb-4"
           >
-            <span>Portfólio de Serviços</span>
+            <span>Soluções Disponíveis</span>
           </motion.div>
 
           <motion.h2
@@ -127,24 +125,18 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none uppercase"
           >
-            Engenharia e <span className="text-[#2563EB]">Serviços Industrializados</span>
+            Nossas Soluções <span className="text-[#2563EB]">Operacionais e Técnicas</span>
           </motion.h2>
           <p className="font-sans text-[#B8C4D0]/70 text-sm sm:text-base max-w-3xl mx-auto mt-4 leading-relaxed">
-            Nossas soluções contemplam todas as fases da infraestrutura industrial, desde o detalhamento de cálculo estático e dinâmico até a entrega "as-built" da semente operacional.
+            Disponibilizamos profissionais altamente qualificados e equipas estruturadas para atender às demandas técnicas do seu projeto, reduzindo a complexidade logística.
           </p>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1A5296] to-[#3B82F6] mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* Categoria 1: Engenharia & Construções Industriais */}
+        {/* Grid Única com os Serviços */}
         <div className="mb-20">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-1.5 h-6 bg-[#2563EB] rounded-full" />
-            <h3 className="font-['Helvetica_Neue',_sans-serif] font-black text-lg sm:text-xl md:text-2xl text-white tracking-wider uppercase">
-              Engenharia &amp; Construções Industriais
-            </h3>
-          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
-            {services.filter((s) => s.category === 'engenharia').map((service, index) => (
+            {services.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, scale: 0.95, y: 30 }}
@@ -160,66 +152,7 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                     src={service.image}
                     alt={service.title}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.4] group-hover:brightness-[0.35]"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/70 to-transparent" />
-                </div>
-
-                {/* Icon */}
-                <div className="absolute top-2.5 left-2.5 sm:top-6 sm:left-6 z-10 w-7 h-7 sm:w-12 sm:h-12 rounded-lg bg-[#050f1e]/80 backdrop-blur-md border border-[#B8C4D0]/20 flex items-center justify-center text-[#1A5296] transition-all duration-300 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110">
-                  <IconRenderer name={service.iconName} size={14} className="sm:scale-150" />
-                </div>
-
-                {/* Content */}
-                <div className="absolute inset-x-0 bottom-0 z-10 p-2.5 sm:p-6 flex flex-col justify-end h-full bg-gradient-to-t from-[#050f1e] via-[#050f1e]/90 to-transparent">
-                  <h3 className="font-display font-extrabold text-[10px] sm:text-base md:text-xl text-white mb-0.5 sm:mb-3 group-hover:text-[#3B82F6] transition-colors duration-300 line-clamp-2">
-                    {service.title}
-                  </h3>
-                  <p className="font-sans text-[#B8C4D0]/80 text-[10px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-3 mb-4 hidden sm:block">
-                    {service.description}
-                  </p>
-                  <button
-                    id={`service-trigger-${service.id}`}
-                    className="w-full py-3 bg-white/5 hover:bg-[#2563EB] hover:text-white text-[#B8C4D0] font-sans font-semibold text-xs rounded-md transition-all duration-300 flex items-center justify-center gap-2 border border-[#B8C4D0]/10 hover:border-[#2563EB] shadow-sm hidden sm:flex"
-                  >
-                    <span>MÉTRICAS &amp; DETALHES</span>
-                    <IconRenderer name="ArrowRight" size={12} />
-                  </button>
-                </div>
-
-                <div className="absolute inset-0 z-0 bg-[#1A5296]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Categoria 2: Tecnologia & Sistemas */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-8">
-            <span className="w-1.5 h-6 bg-[#2563EB] rounded-full" />
-            <h3 className="font-['Helvetica_Neue',_sans-serif] font-black text-lg sm:text-xl md:text-2xl text-white tracking-wider uppercase">
-              Tecnologia &amp; Sistemas
-            </h3>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-8">
-            {services.filter((s) => s.category === 'tecnologia').map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                onClick={() => setSelectedService(service)}
-                className="group relative h-[170px] sm:h-[250px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl border border-[#B8C4D0]/10 hover:border-[#1A5296]/50 transition-all duration-300 shadow-xl hover:shadow-[#1A5296]/10 cursor-pointer"
-              >
-                {/* Card Image */}
-                <div className="absolute inset-0 z-0">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.4] group-hover:brightness-[0.35]"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.75] group-hover:brightness-[0.7]"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050f1e] via-[#050f1e]/70 to-transparent" />
@@ -298,7 +231,7 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                     </div>
                     <div>
                       <span className="text-[8px] sm:text-[10px] font-mono font-bold text-[#B8C4D0]/80 tracking-widest uppercase block">
-                        Cópia de Engenharia
+                        Solução Técnica
                       </span>
                       <h4 className="font-display font-extrabold text-xs sm:text-2xl text-white leading-tight">
                         {selectedService.title}
@@ -319,7 +252,7 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                   </div>
                   <div className="space-y-2 sm:space-y-4">
                     <h5 className="font-display font-bold text-xs sm:text-sm tracking-wider text-[#B8C4D0] uppercase">
-                      Escopo Técnico &amp; Entregáveis
+                      Escopo Técnico &amp; Capacitações
                     </h5>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                       {selectedService.features.map((feature, index) => (
@@ -342,15 +275,15 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                       <IconRenderer name="ShieldAlert" className="text-[#1A5296] shrink-0" size={18} />
                       <div className="flex flex-col">
                         <span className="font-mono text-[8px] sm:text-[10px] text-[#B8C4D0]/80 font-bold uppercase tracking-wider">
-                          Normas Regulamentares Integradas
+                          Conformidade Técnica e Segurança
                         </span>
                         <span className="font-sans text-[10px] sm:text-xs text-[#B8C4D0]">
-                          Soldadura homologada AWS D1.1, D1.5 e projeto estrutural ABNT NBR 8800.
+                          Soldadura homologada pelas diretrizes EN/ASME e equipas em conformidade com as normas europeias de segurança no trabalho.
                         </span>
                       </div>
                     </div>
                     <span className="shrink-0 px-2.5 py-1 rounded bg-[#010915] text-[8px] sm:text-[10px] font-mono font-bold text-white tracking-widest border border-white/10 uppercase">
-                      Auditoria de Risco Zero
+                      Segurança Absoluta
                     </span>
                   </div>
                 </div>
@@ -358,8 +291,8 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                 {/* Footer Area - Fixed */}
                 <div className="p-4 sm:p-6 bg-[#071B35] border-t border-[#1A5296]/20 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 shrink-0">
                   <div className="flex flex-col text-center sm:text-left">
-                    <span className="text-[8px] sm:text-[10px] font-mono text-[#B8C4D0]/60">Gostaria de falar com nossa engenharia?</span>
-                    <span className="text-[10px] sm:text-xs font-sans text-white font-medium">Orçamentos e escopos técnicos completos</span>
+                    <span className="text-[8px] sm:text-[10px] font-mono text-[#B8C4D0]/60">Necessita destas competências na sua empresa?</span>
+                    <span className="text-[10px] sm:text-xs font-sans text-white font-medium">Contacte-nos para disponibilização de equipas e soluções</span>
                   </div>
                   <div className="flex gap-3 w-full sm:w-auto">
                     <button
@@ -368,7 +301,7 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                       className="w-full sm:w-auto px-5 py-3 bg-[#2563EB] hover:bg-[#1A5296] text-white font-sans font-bold text-xs uppercase rounded-md border-b-2 border-white/20 transition-all tracking-wider flex items-center justify-center gap-2"
                     >
                       <IconRenderer name="Speech" size={13} />
-                      <span>SOLICITAR ORÇAMENTO</span>
+                      <span>SOLICITAR SOLUÇÃO</span>
                     </button>
                   </div>
                 </div>
@@ -380,3 +313,8 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
     </section>
   );
 };
+
+interface ServicesProps {
+  services?: Service[];
+  onSelectService: (serviceTitle: string) => void;
+}

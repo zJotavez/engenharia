@@ -11,6 +11,8 @@ import { CtaSection } from './components/CtaSection.tsx';
 import { Contact } from './components/Contact.tsx';
 import { Footer } from './components/Footer.tsx';
 import { AdminPanel } from './components/AdminPanel.tsx';
+import { HowItWorks } from './components/HowItWorks.tsx';
+import { Talents } from './components/Talents.tsx';
 
 // Data types and defaults
 import { Service, Project, TimelineItem, StatItem, Testimonial, GeneralSettings } from './types.ts';
@@ -62,7 +64,7 @@ export default function App() {
 
   // Implement Intersection Observer or scroll spy to highlight current menu section
   useEffect(() => {
-    const sections = ['home', 'sobre', 'servicos', 'projetos', 'contato'];
+    const sections = ['home', 'sobre', 'servicos', 'como-funciona', 'projetos', 'talentos', 'contato'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -136,6 +138,9 @@ export default function App() {
       {/* Services Section */}
       <Services services={services} onSelectService={handlePreSelectService} />
 
+      {/* How It Works Section */}
+      <HowItWorks />
+
       {/* Differentials Section */}
       <Differentials />
 
@@ -147,6 +152,9 @@ export default function App() {
 
       {/* Testimonials Section */}
       <Testimonials testimonials={testimonials} />
+
+      {/* Talent Pool Section */}
+      <Talents settings={generalSettings} />
 
       {/* Final Call to Action Section */}
       <CtaSection />

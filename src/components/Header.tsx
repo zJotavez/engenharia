@@ -46,12 +46,13 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
     }
   };
 
-  // Menu reduzido — sem Diferenciais e Depoimentos
   const navItems = [
     { id: 'home', label: 'Home', href: '#home' },
     { id: 'sobre', label: 'Sobre Nós', href: '#sobre' },
     { id: 'servicos', label: 'Serviços', href: '#servicos' },
+    { id: 'como-funciona', label: 'Como Funciona', href: '#como-funciona' },
     { id: 'projetos', label: 'Projetos', href: '#projetos' },
+    { id: 'talentos', label: 'Talentos', href: '#talentos' },
     { id: 'contato', label: 'Contato', href: '#contato' },
   ];
 
@@ -77,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
               METALOWORLD
             </span>
             <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-[#B8C4D0]/70 mt-1">
-              Construções Industriais
+              Soluções Industriais
             </span>
           </div>
         </a>
@@ -118,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
               <IconRenderer name="Phone" size={11} className="text-[#2563EB]" />
               {phone}
             </a>
-            <span className="text-[10px] text-[#7B8EA3] uppercase tracking-wider">Atendimento Nacional</span>
+            <span className="text-[10px] text-[#7B8EA3] uppercase tracking-wider">Atendimento na Europa</span>
           </div>
 
           <a

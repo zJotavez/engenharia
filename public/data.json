@@ -1,187 +1,123 @@
 {
   "general": {
-    "heroTitle": "Engenharia e ",
-    "heroHighlight": "Estruturas Metálicas",
-    "heroSubtitle": "Atuamos com excelência em projetos industriais, construção naval, tubagem de pressão, serralherias certificadas e canteiros ágeis, garantindo o cumprimento rigoroso de prazos e conformidade técnica global.",
-    "heroCtaText": "SOLICITAR ORÇAMENTO",
-    "heroImage": "/assets/images/hero-metalomecanica.webp",
-    "phone": "+55 (85) 99999-0000",
-    "phoneRaw": "+5585999990000",
-    "email": "projetos@mvconstrucoes.com",
-    "emailComercial": "comercial@mvconstrucoes.com",
-    "address": "Av. Francisco Sá, 5100 — Barra do Ceará",
-    "addressCity": "Fortaleza - CE, CEP: 60310-002",
-    "crea": "N-41002",
-    "cnpj": "14.120.002/0001-35",
-    "facebook": "https://www.facebook.com/mvengenharia",
-    "instagram": "https://www.instagram.com/mvengenharia",
-    "linkedin": "https://www.linkedin.com/company/mvengenharia"
+    "heroTitle": "Soluções Técnicas e ",
+    "heroHighlight": "Equipas Qualificadas",
+    "heroSubtitle": "Conectamos a sua empresa aos profissionais certos para execução de projetos industriais, metalomecânicos, construção e naval em toda a Europa. Foco em precisão, segurança e produtividade.",
+    "heroCtaText": "Falar com um Especialista",
+    "heroImage": "/assets/images/hero-industrial-team.png",
+    "phone": "+351 912 345 678",
+    "phoneRaw": "+351912345678",
+    "email": "suporte@metaloworld.pt",
+    "emailComercial": "suporte@metaloworld.pt",
+    "address": "Atendimento Comercial e Mobilização Técnica",
+    "addressCity": "Portugal, Espanha e Europa",
+    "crea": "",
+    "cnpj": "",
+    "facebook": "https://www.facebook.com/metaloworld",
+    "instagram": "https://www.instagram.com/metaloworld",
+    "linkedin": "https://www.linkedin.com/company/metaloworld"
   },
   "services": [
     {
-      "id": "estruturas-metalicas",
-      "title": "Estruturas Metálicas de Alta Performance",
-      "description": "Cálculo, detalhamento, fabricação avançada e montagem rigorosa de galpões industriais, silos, mezaninos e superestruturas de aço de alta resistência.",
-      "detailedDescription": "Oferecemos soluções integrais em engenharia de estruturas metálicas de grande porte. Nossa produção é submetida a rígidos ensaios não destrutivos (ultrassom, partícula magnética e líquidos penetrantes), garantindo montagem cirúrgica e resistência estrutural sob condições extremas de carga e intempéries.",
+      "id": "soldadura",
+      "title": "Soldadura Industrial e Homologada",
+      "description": "Profissionais certificados em processos MIG/MAG, TIG e Elétrodo para projetos de elevada exigência mecânica.",
+      "detailedDescription": "Disponibilizamos soldadores altamente experientes e certificados pelas normas EN e ASME. A nossa equipa executa trabalhos de soldadura em tubagens de alta pressão, estruturas metálicas pesadas e componentes navais, com garantia de controlo de qualidade rigoroso (ensaios não destrutivos).",
       "features": [
-        "Galpões logísticos e industriais de vão livre otimizado",
-        "Plataformas marinhas e terrestres para cargas dinâmicas",
-        "Estruturas de suporte de tubagens de processo (Pipe Racks)",
-        "Ensaios estruturais (NDT) e engenharia de soldagem qualificada"
-      ],
-      "iconName": "Layers",
-      "image": "/assets/images/estruturas-metalicas.webp",
-      "category": "engenharia"
-    },
-    {
-      "id": "construcao-naval",
-      "title": "Construção e Reparação Naval",
-      "description": "Estruturas de convés, caldeiraria pesada, montagem de turcos, portas estanques e serviços especializados de manutenção e reforço naval.",
-      "detailedDescription": "Com excelência técnica herdada dos maiores estaleiros, nossa equipe executa reparos estruturais em cascos sob normas de sociedades classificadoras internacionais. Disponibilizamos soldadores homologados por entidades reguladoras exigentes para estruturas de alta responsabilidade.",
-      "features": [
-        "Substituição de chapeamento estrutural e cavernas",
-        "Sistemas de amarração, portões e acessos estanques de alta pressão",
-        "Serviços offshore com equipes móveis altamente capacitadas",
-        "Conformidade rígida com sociedades de classificação naval"
-      ],
-      "iconName": "Anchor",
-      "image": "/assets/images/construcao-naval-reparacao.webp",
-      "category": "engenharia"
-    },
-    {
-      "id": "tubagem-industrial",
-      "title": "Tubagem Industrial de Processo",
-      "description": "Montagem de linhas de fluidos industriais sob pressão, tubagens térmicas e redes especializadas em aço carbono, inox e ligas especiais.",
-      "detailedDescription": "Desenvolvimento e execução de linhas de processo sofisticadas para refinarias, indústrias químicas, alimentícias e de celulose. Trabalhamos com processos certificados de soldadura TIG, MIG/MAG e Elétrodo Revestido, de acordo com diretrizes ASME / EN.",
-      "features": [
-        "Tubagens de alta e baixa pressão para fluidos químicos e vapor",
-        "Isolamento térmico e revestimento de proteção anticorrosiva",
-        "Instrumentação industrial e soldadura com 100% de radiografia",
-        "Construção de coletores estruturados de alta especificação"
+        "Soldadura TIG, MIG/MAG e Elétrodo Revestido",
+        "Profissionais homologados sob normas EN/ASME",
+        "Soldadura de ligas especiais, inox e aço carbono",
+        "Ensaios não destrutivos (NDT) e controlo de qualidade"
       ],
       "iconName": "Cpu",
+      "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200",
+      "category": "engenharia"
+    },
+    {
+      "id": "montagem-industrial",
+      "title": "Montagem Industrial e Mecânica",
+      "description": "Equipas especializadas para montagem de linhas de produção, equipamentos pesados e estruturas industriais.",
+      "detailedDescription": "Fornecemos mecânicos de montagem e técnicos qualificados para montagem de equipamentos industriais, pipe racks, condutas e sistemas de processo. Atuação focada no cumprimento ágil de cronogramas e paradas de manutenção industrial.",
+      "features": [
+        "Montagem de equipamentos de processo e máquinas",
+        "Equipas ágeis para paradas de fábrica",
+        "Montagem de estruturas metálicas e tubagem",
+        "Segurança operacional rigorosa nas intervenções"
+      ],
+      "iconName": "Layers",
       "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
       "category": "engenharia"
     },
     {
-      "id": "serralheria-ferro-inox",
-      "title": "Serralheria Specialized Ferro e Inox",
-      "description": "Guardas articuladas, guarda-corpos industriais normatizados, escadas marinheiro com guarda de segurança e mezaninos customizados.",
-      "detailedDescription": "Produzimos serralharia técnica e de precisão sob medida para plantas fabris. Projetamos todos os acessos visando à plena segurança operacional contra quedas de nível, atendendo integralmente as normativas de ergonomia e prevenção de acidentes na indústria.",
+      "id": "serralharia",
+      "title": "Serralharia Mecânica e Civil",
+      "description": "Profissionais para fabricação e montagem de componentes metálicos, acessos e estruturas sob medida.",
+      "detailedDescription": "Soluções de serralharia para suporte de processos industriais ou construção. Disponibilizamos serralheiros experientes na leitura de desenho técnico, corte, dobra e montagem de tubagens, escadas marinheiro, guarda-corpos e estruturas de proteção.",
       "features": [
-        "Escadas de segurança marinheiro e lances industriais robustos",
-        "Guarda-corpos modulares industriais e linhas de vida integradas",
-        "Portas estanques acústicas e painéis metálicos protetores",
-        "Acabamento em inox escovado cirúrgico para indústrias farmacêuticas e alimentares"
+        "Leitura avançada de esquemas e desenhos técnicos",
+        "Montagem de escadas, guarda-corpos e acessos de segurança",
+        "Trabalhos em aço carbono, inox e alumínio",
+        "Apoio especializado a canteiros de obra"
       ],
-      "iconName": "Shield",
+      "iconName": "Hammer",
       "image": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200",
       "category": "engenharia"
     },
     {
-      "id": "serralheria-civil",
-      "title": "Serralheria para Engenharia Civil",
-      "description": "Estruturas decorativas e funcionais de altíssima resistência para projetos corporativos e prédios de alto padrão.",
-      "detailedDescription": "Fusão de design moderno e resistência mecânica para o setor da construção civil. Fabricamos caixilhos, portões automáticos industriais de alta cadência, fachadas em painéis metálicos perfurados e coberturas translúcidas autoportantes.",
+      "id": "decapagem",
+      "title": "Decapagem e Tratamento de Superfícies",
+      "description": "Especialistas em decapagem a jato abrasivo e aplicação de revestimentos anticorrosivos industriais.",
+      "detailedDescription": "Equipas técnicas focadas na preparação de superfícies de aço para pintura e tratamentos de proteção. Executamos decapagem por jato de areia ou granalha, limpeza química e pintura industrial de alta espessura para estruturas sujeitas a intempéries ou corrosão severa.",
       "features": [
-        "Fachadas metálicas exclusivas em aço corten ou alumínio estrutural",
-        "Portões de correr automatizados de alto ciclo operacional",
-        "Estruturas de fechamento envidraçado e pergolados robustos",
-        "Componentes termoacústicos sob especificação de arquitetura premium"
+        "Decapagem por jato abrasivo (granalha/areia)",
+        "Pintura industrial com especificações anticorrosivas",
+        "Preparação e limpeza mecânica de superfícies de aço",
+        "Prolongamento da vida útil de ativos industriais"
       ],
-      "iconName": "Home",
-      "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200",
+      "iconName": "Shield",
+      "image": "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&q=80&w=1200",
       "category": "engenharia"
     },
     {
-      "id": "construcao-civil",
-      "title": "Construção Civil Industrial Pesada",
-      "description": "Bases de máquinas de grande rotação, fundações complexas de concreto e construções prediais corporativas integradas às fábricas.",
-      "detailedDescription": "Executamos fundações profundas e bases de concreto armado de alta estabilidade mecânica em ambientes fabris consolidados. Dominamos métodos modernos de controle de vibrações estruturais para instalação de compressores, turbinas e prensas industriais de alto torque.",
+      "id": "instalacoes-ti",
+      "title": "Instalações de TI e Infraestruturas de Comunicação",
+      "description": "Técnicos para implantação de redes estruturadas, fibra ótica, sistemas de videovigilância e controle de acessos.",
+      "detailedDescription": "Implementação de infraestruturas tecnológicas para fábricas, portos e edifícios corporativos. Oferecemos especialistas em cabeamento estruturado, fusão de fibra ótica, redes de comunicação industrial, sistemas de CFTV IP inteligentes e controle eletrónico de acessos.",
       "features": [
-        "Fundações de alta precisão para fornos e turbogeradores",
-        "Pisos industriais de alta resistência a cargas de empilhadores",
-        "Obras prediais de suporte (refeitórios, vestiários e prédios administrativos)",
-        "Intervenções civis estruturadas sem interrupção de processos fabris"
-      ],
-      "iconName": "Hammer",
-      "image": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200",
-      "category": "engenharia"
-    },
-    {
-      "id": "seguranca-eletronica",
-      "title": "Segurança Eletrônica",
-      "description": "Projetamos e implementamos soluções completas de segurança eletrônica para empresas, indústrias e empreendimentos de grande porte.",
-      "detailedDescription": "Oferecemos projetos e integração de sistemas de vigilância e segurança sob medida para grandes ativos industriais e corporativos. Focamos em soluções robustas de alta disponibilidade, com tecnologias de inteligência artificial aplicadas à detecção de intrusão, segurança perimetral e monitoramento centralizado.",
-      "features": [
-        "Câmeras HD e IP",
-        "Sistemas de monitoramento remoto",
-        "Vigilância por vídeo",
-        "Gravação e armazenamento seguro",
-        "Integração com sistemas de segurança"
-      ],
-      "iconName": "Video",
-      "image": "/assets/images/seguranca-eletronica.webp",
-      "category": "tecnologia"
-    },
-    {
-      "id": "controle-acesso",
-      "title": "Controle de Acesso",
-      "description": "Soluções modernas para controle e gerenciamento de acesso de pessoas e colaboradores.",
-      "detailedDescription": "Implementação de sistemas avançados para a gestão e restrição de tráfego de pessoas e veículos em ambientes corporativos e industriais restritos. Soluções integradas com softwares de gerenciamento de presença, controle de ponto e identificação biométrica avançada.",
-      "features": [
-        "Biometria",
-        "Cartões RFID",
-        "Controle de presença",
-        "Gestão de acessos",
-        "Integração com sistemas corporativos"
-      ],
-      "iconName": "Fingerprint",
-      "image": "/assets/images/controle-acesso.webp",
-      "category": "tecnologia"
-    },
-    {
-      "id": "sistema-incendio",
-      "title": "Sistema Eletrônico de Incêndio",
-      "description": "Projetos e implantação de sistemas inteligentes de prevenção e combate a incêndios.",
-      "detailedDescription": "Soluções inteligentes voltadas para a detecção precoce de focos de incêndio, sinalização acústica e visual e acionamento de sistemas de combate automáticos. Alinhado integralmente com as normas nacionais e internacionais de segurança e as exigências do corpo de bombeiros.",
-      "features": [
-        "Alarmes de incêndio",
-        "Sensores de fumaça",
-        "Sensores de calor",
-        "Monitoramento contínuo",
-        "Conformidade com normas de segurança"
-      ],
-      "iconName": "Flame",
-      "image": "/assets/images/sistema-incendio.webp",
-      "category": "tecnologia"
-    },
-    {
-      "id": "redes-computadores",
-      "title": "Redes de Computadores",
-      "description": "Implantação, manutenção e monitoramento de redes corporativas para ambientes empresariais e industriais.",
-      "detailedDescription": "Engenharia de infraestrutura de rede corporativa e industrial estruturada para assegurar alta performance, redundância física, conectividade de baixa latência e segurança de dados contra invasões ou instabilidades operacionais em ambientes críticos.",
-      "features": [
-        "Redes LAN",
-        "Redes WAN",
-        "Cabeamento estruturado",
-        "Configuração de equipamentos",
-        "Monitoramento e suporte técnico"
+        "Cabeamento estruturado e redes de fibra ótica",
+        "Instalação de CFTV IP e controlo de acessos corporativos",
+        "Sistemas de alarme e segurança perimetral",
+        "Comunicação integrada para automação fabril"
       ],
       "iconName": "Network",
-      "image": "/assets/images/redes-computadores.webp",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200",
       "category": "tecnologia"
+    },
+    {
+      "id": "construcao-reparacao-naval",
+      "title": "Construção e Reparação Naval",
+      "description": "Mão de obra qualificada para reparos estruturais de convés, caldeiraria naval pesada e tubagens marítimas.",
+      "detailedDescription": "Fornecemos equipas experientes para atuar em estaleiros de reparação naval e navios offshore. Soldadores e caldeireiros certificados pelas sociedades de classificação internacional para execução de reparação de chapeamento de casco, cavernas, ramais de tubagem e estruturas marítimas.",
+      "features": [
+        "Reparações estruturais de chapeamento de cascos",
+        "Soldadura certificada sob registro de classe naval",
+        "Caldeiraria naval pesada e manutenção offshore",
+        "Montagem de sistemas de tubagem marítima"
+      ],
+      "iconName": "Anchor",
+      "image": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200",
+      "category": "engenharia"
     }
   ],
   "projects": [
     {
       "id": "p1",
       "title": "Superestrutura Logística & Pipe Racks Portuários",
-      "category": "Estruturas Metálicas",
-      "description": "Projeto integral de engenharia para fabricação e montagem de 1200 metros lineares de galpões e pipe-racks treliçados de transporte de minério de alta tonelagem. Montagem realizada com suporte a ventos de até 150 km/h.",
-      "client": "TransOcean Logística S.A.",
-      "service": "Fabricação e montagem de pipe racks metálicos integrados",
-      "location": "Porto de Pecém - CE",
+      "category": "Montagem Industrial",
+      "description": "Fornecimento e coordenação de equipas técnicas qualificadas para a montagem de 1200 metros lineares de galpões e pipe-racks treliçados de transporte de minério de alta tonelagem.",
+      "client": "EuroLogistics S.A.",
+      "service": "Equipas de montagem e soldadura homologada",
+      "location": "Porto de Sines - Portugal",
       "year": "2025",
       "gallery": [
         "/assets/images/pipe-racks-portuarios.webp",
@@ -192,11 +128,11 @@
     {
       "id": "p2",
       "title": "Manutenção Estrutural e Reforma de Deck de Plataforma",
-      "category": "Naval",
-      "description": "Corte e substituição ultrarrápida de 120 toneladas de chapeamento estrutural desgastado em embarcação petroleira e convés sob exigibilidade máxima da marinha e registro Lloyds.",
-      "client": "Atlantic Drilling Corp.",
-      "service": "Reparação Naval Pesada e Substituição Pluvial",
-      "location": "Estaleiro Almirante - RJ",
+      "category": "Construção Naval",
+      "description": "Mobilização urgente de 35 soldadores e caldeireiros certificados para substituição de chapeamento estrutural e cavernas em navio petroleiro em tempo recorde.",
+      "client": "Iberian Drilling Corp.",
+      "service": "Fornecimento de soldadores de classe naval",
+      "location": "Estaleiro Naval de Vigo - Espanha",
       "year": "2025",
       "gallery": [
         "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200",
@@ -206,12 +142,12 @@
     },
     {
       "id": "p3",
-      "title": "Ramais de Vapor e Alta Pressão Complexo C-45",
-      "category": "Tubagem",
-      "description": "Implantação completa de tubulação industrial para transporte de óleos combustíveis e linhas de vapor de alta pressão em aço cromo-molibdênio. Radiografia total de soldas realizada com índice zero de retrabalho.",
-      "client": "Indústria Química Nordesca",
-      "service": "Montagem de linhas de processo a alta pressão",
-      "location": "Polo Industrial Camaçari - BA",
+      "title": "Ramais de Vapor e Alta Pressão Complexo Químico",
+      "category": "Soldadura",
+      "description": "Fornecimento de equipas de soldadores TIG e inspetores para implantação de redes de fluidos sob pressão em aço cromo-molibdênio e aço inoxidável.",
+      "client": "Química del Sur S.A.",
+      "service": "Soldadura certificada em linhas de processo",
+      "location": "Polo Industrial de Tarragona - Espanha",
       "year": "2024",
       "gallery": [
         "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
@@ -221,79 +157,79 @@
     },
     {
       "id": "p4",
-      "title": "Bases de concreto anti-vibração para Turbina de Geração",
-      "category": "Civil",
-      "description": "Projeto estrutural desafiador de fundações de blocos de altíssima rigidez sobre estacas escavadas com inserção amortecedora especial, reduzindo ressonâncias no solo fabril a próximo de zero.",
-      "client": "TermoPower Energia",
-      "service": "Fundações Pesadas e Base Anti-vibração de Equipamentos",
-      "location": "Polo Industrial de Betim - MG",
+      "title": "Instalação de Redes e Sistemas de Comunicação em Fábrica",
+      "category": "Instalações de TI",
+      "description": "Mobilização de técnicos de TI para lançamento de cabeamento estruturado e fibra ótica para conexão de sistemas de automação e CFTV IP em grande ativo industrial.",
+      "client": "Iberia Auto Parts",
+      "service": "Técnicos de redes de comunicação industrial",
+      "location": "Polo Industrial de Aveiro - Portugal",
       "year": "2024",
       "gallery": [
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200"
+        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200",
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
       ],
-      "keySpec": "850m³ Concreto Especial"
+      "keySpec": "12.000m Cabeamento Ótico"
     },
     {
       "id": "p5",
-      "title": "Serralharia Técnica de Proteção de Elevado Fluxo",
-      "category": "Serralheria",
-      "description": "Implementação de sistemas de acessos modulares, gradis zincados a fogo em caracol de alta resistência e guarda-corpos normatizados para escoamento de reatores petroquímicos.",
-      "client": "BioFuel Sementes Grupo",
-      "service": "Serralheria em Aço de Alta Resistência à Corrosão",
-      "location": "Cubatão - SP",
+      "title": "Serralharia Técnica de Escadas e Guarda-Corpos de Segurança",
+      "category": "Serralharia",
+      "description": "Equipas de serralheiros para fabricação no local e montagem de escadas marinheiro, guarda-corpos normatizados e plataformas metálicas de acesso em silos.",
+      "client": "AgroAliança Silos S.A.",
+      "service": "Serralheiros de montagem industrial",
+      "location": "Terminal Logístico de Sevilha - Espanha",
       "year": "2023",
       "gallery": [
         "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
+        "https://images.unsplash.com/photo-1513828742140-ccaa2ecf32e9?auto=format&fit=crop&q=80&w=1200"
       ],
       "keySpec": "42 Escadas de Segurança"
     },
     {
       "id": "p6",
-      "title": "Terminal Logístico de Embarque com Perfis Esbeltos",
-      "category": "Estruturas Metálicas",
-      "description": "Modelagem paramétrica e montagem rápida de cobertura de alta claridade para silos agrícolas com alta durabilidade sob poluição de pó abrasivo de soja.",
-      "client": "Agrícola Global Trading",
-      "service": "Estruturas Metálicas de Grande Vão Livre",
-      "location": "Rondonópolis - MT",
+      "title": "Tratamento Anticorrosivo por Decapagem em Estrutura Metálica",
+      "category": "Decapagem",
+      "description": "Mobilização de equipa especializada em decapagem a jato abrasivo e aplicação de pintura de proteção anticorrosiva em grandes coberturas treliçadas expostas.",
+      "client": "Portos do Norte S.A.",
+      "service": "Técnicos de decapagem e pintura industrial",
+      "location": "Terminal de Cargas do Porto - Portugal",
       "year": "2023",
       "gallery": [
-        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200",
-        "https://images.unsplash.com/photo-1513828742140-ccaa2ecf32e9?auto=format&fit=crop&q=80&w=1200"
+        "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&q=80&w=1200",
+        "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200"
       ],
-      "keySpec": "18.000 m² de Cobertura"
+      "keySpec": "18.000 m² de Tratamento"
     }
   ],
   "timeline": [
     {
       "year": "2011",
       "title": "Fundação da Metaloworld",
-      "description": "Nascemos em um modesto pavilhão focado em caldeiraria e serralheria de precisão, prestando serviços mecânicos de apoio à indústria naval local.",
+      "description": "Nascimento da empresa com foco em caldeiraria e soldadura de alta precisão, prestando serviços técnicos de apoio a indústrias locais.",
       "milestone": true
     },
     {
       "year": "2015",
-      "title": "Primeiros Projetos Estrutuais Pesados",
-      "description": "Homologação e expansão para estruturas metálicas completas e pipe racks industriais de média porte. Conquistamos os primeiros contratos com o setor portuário.",
+      "title": "Expansão de Serviços Técnicos",
+      "description": "Início da estruturação de equipas dedicadas a montagens industriais complexas, soldadura estrutural de grandes dimensões e reparação naval.",
       "milestone": false
     },
     {
       "year": "2019",
-      "title": "Certificação ISO e Divisão Naval Especializada",
-      "description": "Consolidação de processos executivos, contratação de inspetores qualificados AWS/SNQC e grande aporte tecnológico em maquinário pesado de usinagem e dobra automática.",
+      "title": "Mobilização na Península Ibérica",
+      "description": "Consolidação de processos de seleção, homologação de soldadores por normas EN/ASME e início de mobilizações operacionais rápidas para paradas de fábrica em Espanha e Portugal.",
       "milestone": false
     },
     {
       "year": "2022",
-      "title": "Expansão Nacional e Atuação Turn-key/EPC",
-      "description": "Estruturação do departamento civil para assumir obras completas integradas, permitindo a entrega de contratos EPC globais (engenharia, compras e construção civis integradas).",
+      "title": "Atuação Europeia Alargada",
+      "description": "Desenvolvimento de uma sólida rede de profissionais qualificados na Europa, permitindo atender projetos industriais complexos com equipas estruturadas.",
       "milestone": true
     },
     {
       "year": "2026",
-      "title": "Liderança Tecnológica em Engenharia de Precisão",
-      "description": "Hoje, a Metaloworld executa projetos para as maiores empresas industriais do Brasil, reconhecida pela excelência em prazos, segurança do trabalho impecável e acabamento industrial primoroso.",
+      "title": "Referência em Parcerias Operacionais",
+      "description": "Reconhecimento como parceira estratégica europeia no fornecimento de equipas qualificadas e soluções técnicas, focando em segurança, produtividade e qualidade técnica.",
       "milestone": true
     }
   ],
@@ -302,29 +238,29 @@
       "id": "s1",
       "value": 500,
       "suffix": "+",
-      "label": "Projetos Entregues",
-      "subLabel": "Complexos industriais e marítimos"
+      "label": "Projetos Apoiados",
+      "subLabel": "Complexos industriais, navais e portuários"
     },
     {
       "id": "s2",
       "value": 15,
       "suffix": "+",
-      "label": "Anos de Atuação Rígida",
-      "subLabel": "Sem acidentes de trabalho graves"
+      "label": "Anos de Atuação no Setor",
+      "subLabel": "Com rigor técnico e segurança máxima"
     },
     {
       "id": "s3",
       "value": 100,
       "suffix": "+",
       "label": "Clientes Corporativos Atendidos",
-      "subLabel": "Relações comerciais de longo prazo"
+      "subLabel": "Parcerias comerciais de longo prazo"
     },
     {
       "id": "s4",
       "value": 100,
       "suffix": "%",
-      "label": "Qualidade Homologada",
-      "subLabel": "De acordo com normas classificadoras"
+      "label": "Profissionais Certificados",
+      "subLabel": "Alinhamento completo às normas europeias"
     }
   ],
   "testimonials": [
@@ -332,8 +268,8 @@
       "id": "t1",
       "name": "Eng. Roberto Vasconcelos",
       "role": "Diretor de Expansão e Infraestrutura",
-      "company": "TransOcean Logística S.A.",
-      "feedback": "O prazo para montagem dos Pipe Racks do porto era curtíssimo, e a tolerância a atrasos, zero. A equipe da Metaloworld instalou 1.200 metros de infraestrutura de aço pesada com precisão cirúrgica, cumprindo o cronograma dois dias antes do programado. Absolutamente recomendados por sua competência técnica irrepreensível.",
+      "company": "EuroLogistics S.A. (Portugal)",
+      "feedback": "O prazo para montagem dos Pipe Racks do porto era muito curto. A METALOWORLD forneceu equipas qualificadas que realizaram o trabalho de montagem e soldadura com precisão cirúrgica, concluindo o cronograma dois dias antes do previsto. Parceiro estratégico indispensável.",
       "avatarUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=120&h=120",
       "rating": 5
     },
@@ -341,8 +277,8 @@
       "id": "t2",
       "name": "Dra. Sandra de Medeiros",
       "role": "Coordenadora Geral de Engenharia de Fábricas",
-      "company": "Indústria Química Nordesca",
-      "feedback": "Fomos surpreendidos positivamente pelo nível de documentação e controle de qualidade apresentado na manutenção das linhas de vapor e alta pressão. Inspetores da Metaloworld forneceram ensaios NDT digitais em tempo real. Essa transparência nos permitiu reportar com precisão ao nosso compliance global.",
+      "company": "Química del Sur S.A. (Espanha)",
+      "feedback": "O nível de qualificação dos soldadores e mecânicos fornecidos para a nossa parada de fábrica foi excelente. Toda a documentação técnica e certificados de ensaios foram fornecidos de forma ágil, permitindo cumprir as exigências de auditoria do nosso compliance global.",
       "avatarUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120",
       "rating": 5
     },
@@ -350,8 +286,8 @@
       "id": "t3",
       "name": "Comandante Heitor S. Peixoto",
       "role": "Gerente Executivo de Frotas Offshore",
-      "company": "Star Ocean Shipping Group",
-      "feedback": "A engenharia naval da Metaloworld resolveu uma quebra crítica estrutural no Deck de um navio petroleiro offshore. O navio corria o risco de estadia ociosa onerosa, mas com a mobilização imediata e o profissionalismo insuperável da equipe de soldadura certificada da Metaloworld, o navio reestabeleceu sua operation em tempo recorde.",
+      "company": "Iberian Shipping Group (Vigo)",
+      "feedback": "Tivemos uma quebra crítica estrutural num navio cargueiro e precisávamos de soldadores certificados com mobilização imediata. A METALOWORLD estruturou a equipa em poucas horas, e o navio voltou a operar em tempo recorde, minimizando o nosso prejuízo por inatividade.",
       "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=120&h=120",
       "rating": 5
     }

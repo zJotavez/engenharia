@@ -22,10 +22,10 @@ export const Hero: React.FC<HeroProps> = ({ settings }) => {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
 
   const checkmarks = [
-    { label: 'Segurança Absoluta', sub: 'Certificação Rígida' },
-    { label: 'Soberania de Qualidade', sub: 'Normas ASME / AWS' },
-    { label: 'Compromisso com Prazos', sub: 'Multa em Contrato' },
-    { label: 'Engenharia Especializada', sub: 'Equipe de Mestres BIM' },
+    { label: 'Segurança Absoluta', sub: 'Normas Europeias' },
+    { label: 'Equipas Certificadas', sub: 'Soldadura EN/ASME' },
+    { label: 'Flexibilidade Ágil', sub: 'Paradas & Projetos' },
+    { label: 'Foco em Resultados', sub: 'Eficiência Operacional' },
   ];
 
   return (
@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ settings }) => {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/30 text-xs font-mono font-bold text-[#B8C4D0] tracking-wider uppercase mb-2"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>Infraestrutura &amp; Obras Corporativas</span>
+              <span>Soluções Técnicas &amp; Equipas na Europa</span>
             </motion.div>
 
             {/* H1 */}
@@ -133,7 +133,7 @@ export const Hero: React.FC<HeroProps> = ({ settings }) => {
                 <div className="p-6 text-left">
                   <div className="h-12 border-l-2 border-[#2563EB] pl-4 flex flex-col justify-center">
                     <span className="text-[10px] text-[#7B8EA3] uppercase tracking-wider font-mono">Status Operacional</span>
-                    <span className="text-xs font-mono text-emerald-400">ENGINE_LIVE_PORTFOLIO</span>
+                    <span className="text-xs font-mono text-emerald-400">TECHNICAL_SOLUTIONS_LIVE</span>
                   </div>
                   <div className="mt-8 space-y-3">
                     <div className="h-1 w-full bg-white/5" />
