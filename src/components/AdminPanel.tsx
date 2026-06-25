@@ -270,12 +270,12 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
     const newProj: Project = {
       id: `p-${Date.now()}`,
       title: 'Novo Projeto Industrial',
-      category: 'Estruturas Metálicas',
+      category: 'Soldadura',
       description: 'Resumo executivo do projeto.',
       client: 'Nome do Cliente S.A.',
       service: 'Serviço Prestado',
-      location: 'Cidade - Estado',
-      year: new Date().getFullYear().toString(),
+      location: 'Lisboa - Portugal',
+      year: 'Apto para Execução',
       gallery: ['https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200'],
       keySpec: 'Especificação Chave (Ex: 500 Toneladas)'
     };
@@ -296,16 +296,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
 
   const addTimeline = () => {
     const newItem: TimelineItem = {
-      year: new Date().getFullYear().toString(),
-      title: 'Novo Marco da Empresa',
-      description: 'Descreva a conquista da empresa neste ano.',
+      year: `Fase ${timeline.length + 1}`,
+      title: 'Nova Fase Estrutural',
+      description: 'Descreva as metas e conquistas desta fase.',
       milestone: false
     };
     setTimeline([...timeline, newItem]);
   };
 
   const deleteTimeline = (index: number) => {
-    if (confirm('Tem certeza de que deseja excluir este marco temporal?')) {
+    if (confirm('Tem certeza de que deseja excluir esta fase?')) {
       setTimeline(timeline.filter((_, i) => i !== index));
     }
   };
@@ -469,7 +469,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${activeTab === 'timeline' ? 'bg-blue-600/15 border border-blue-500/35 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'}`}
           >
             <Clock size={16} />
-            Linha do Tempo ({timeline.length})
+            Fases de Estruturação ({timeline.length})
           </button>
           <button
             onClick={() => setActiveTab('stats')}
@@ -642,26 +642,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
               <div className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
                 <h4 className="font-mono text-xs tracking-wider text-blue-500 font-bold uppercase border-b border-blue-500/5 pb-2">4. Identificação &amp; Redes Sociais</h4>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Registro CREA</label>
-                    <input
-                      type="text"
-                      value={general.crea || ''}
-                      onChange={(e) => updateGeneralField('crea', e.target.value)}
-                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">CNPJ da Empresa</label>
-                    <input
-                      type="text"
-                      value={general.cnpj || ''}
-                      onChange={(e) => updateGeneralField('cnpj', e.target.value)}
-                      className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-mono"
-                    />
-                  </div>
-                </div>
+                {/* Removido CREA e CNPJ para alinhar à estrutura europeia da METALOWORLD */}
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
@@ -811,8 +792,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-blue-500/10 pb-4 mb-6">
                 <div>
-                  <h3 className="font-extrabold text-lg uppercase">Gerenciar Portfólio de Obras</h3>
-                  <p className="text-xs text-gray-400">Edite as obras realizadas pela MV Engenharia no painel principal.</p>
+                  <h3 className="font-extrabold text-lg uppercase">Gerenciar Projetos / Capacidade Operacional</h3>
+                  <p className="text-xs text-gray-400">Edite os projetos e soluções que a METALOWORLD está apta a assumir no painel principal.</p>
                 </div>
                 <button
                   onClick={addProject}
@@ -827,11 +808,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                 {projects.map((proj, index) => (
                   <div key={proj.id} className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
                     <div className="flex items-center justify-between border-b border-blue-500/5 pb-3">
-                      <span className="font-mono text-[10px] tracking-wider text-blue-500 font-bold uppercase">Obra #{index + 1}</span>
+                      <span className="font-mono text-[10px] tracking-wider text-blue-500 font-bold uppercase">Projeto #{index + 1}</span>
                       <button
                         onClick={() => deleteProject(index)}
                         className="text-rose-500 hover:text-rose-400 hover:bg-rose-500/15 p-1.5 rounded-lg transition-colors cursor-pointer"
-                        title="Excluir obra"
+                        title="Excluir projeto"
                       >
                         <Trash2 size={16} />
                       </button>
@@ -839,7 +820,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Título da Obra</label>
+                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Título do Projeto / Solução</label>
                         <input
                           type="text"
                           value={proj.title}
@@ -853,7 +834,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                           type="text"
                           value={proj.category}
                           onChange={(e) => updateProject(index, 'category', e.target.value)}
-                          placeholder="Estruturas Metálicas, Naval, Tubagem, Civil, Serralheria"
+                          placeholder="Ex: Soldadura, Montagem Industrial, Serralharia, Naval, etc."
                           className="w-full bg-[#0a1e3c]/60 border border-blue-500/10 rounded px-3 py-2 text-xs focus:outline-none focus:border-blue-500/40 text-white font-sans"
                         />
                       </div>
@@ -879,7 +860,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Ano</label>
+                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Status / Ano (Ex: Apto para Execução)</label>
                         <input
                           type="text"
                           value={proj.year}
@@ -920,7 +901,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
 
                     <div className="space-y-3">
                       <ImageUploader
-                        label="Imagem Principal da Obra (Capa)"
+                        label="Imagem Principal do Projeto (Capa)"
                         currentValue={proj.gallery[0] || ''}
                         onUploadSuccess={(url) => {
                           const updatedGallery = [...proj.gallery];
@@ -951,8 +932,8 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-blue-500/10 pb-4 mb-6">
                 <div>
-                  <h3 className="font-extrabold text-lg uppercase">Linha do Tempo e História</h3>
-                  <p className="text-xs text-gray-400">Edite as etapas da história da empresa mostradas na seção "Sobre".</p>
+                  <h3 className="font-extrabold text-lg uppercase">Estruturação Operacional (Fases)</h3>
+                  <p className="text-xs text-gray-400">Edite as etapas de estruturação e fases operacionais mostradas na seção "Sobre".</p>
                 </div>
                 <button
                   onClick={addTimeline}
@@ -967,7 +948,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                 {timeline.map((item, index) => (
                   <div key={index} className="glass-panel p-6 rounded-xl border border-blue-500/10 space-y-4">
                     <div className="flex items-center justify-between border-b border-blue-500/5 pb-3">
-                      <span className="font-mono text-[10px] tracking-wider text-blue-500 font-bold uppercase">Histórico #{index + 1}</span>
+                      <span className="font-mono text-[10px] tracking-wider text-blue-500 font-bold uppercase">Fase #{index + 1}</span>
                       <button
                         onClick={() => deleteTimeline(index)}
                         className="text-rose-500 hover:text-rose-400 hover:bg-rose-500/15 p-1.5 rounded-lg transition-colors cursor-pointer"
@@ -979,7 +960,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Ano</label>
+                        <label className="block text-[10px] font-mono font-bold uppercase tracking-wider text-gray-400 mb-1">Fase (Ex: Fase 1 - Máx. 6 caract.)</label>
                         <input
                           type="text"
                           value={item.year}
@@ -1017,7 +998,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
                         className="rounded border-blue-500/20 bg-[#0a1e3c]/60 text-blue-500 focus:ring-0 focus:ring-offset-0 cursor-pointer"
                       />
                       <label htmlFor={`milestone-${index}`} className="text-xs text-gray-300 font-medium select-none cursor-pointer">
-                        Destacar como "Marco Histórico"
+                        Destacar como "Fase Estrutural"
                       </label>
                     </div>
                   </div>
