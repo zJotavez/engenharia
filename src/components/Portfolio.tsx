@@ -93,7 +93,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSel
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-3 py-1 bg-[#2563EB]/10 rounded-full border border-[#2563EB]/35 text-xs font-mono font-bold text-[#B8C4D0] tracking-wider uppercase mb-4"
           >
-            <span>Obras Entregues</span>
+            <span>Áreas de Execução</span>
           </motion.div>
 
           <motion.h2
@@ -103,7 +103,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSel
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none uppercase"
           >
-            Portfólio de <span className="text-[#2563EB]">Grandes Contratos</span>
+            Projetos que <span className="text-[#2563EB]">Podemos Assumir</span>
           </motion.h2>
           <div className="w-16 h-1 bg-gradient-to-r from-[#1A5296] to-[#3B82F6] mx-auto mt-6 rounded-full" />
         </div>
@@ -238,7 +238,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSel
                     <div>
                       <div className="flex justify-between items-center mb-6">
                         <span className="px-2.5 py-0.5 text-[10px] font-mono font-bold text-[#F59E0B] border border-[#F59E0B]/20 bg-[#F59E0B]/10 rounded uppercase tracking-wider">
-                          Construção Homologada
+                          Serviço Incrível Garantido
                         </span>
                         <button
                           onClick={() => setSelectedProject(null)}
@@ -285,7 +285,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSel
                         className="w-full sm:w-auto px-5 py-3 bg-[#1A5296] hover:bg-[#2563EB] text-white font-sans font-bold text-xs tracking-wider rounded-md transition-all uppercase flex items-center justify-center gap-2"
                       >
                         <IconRenderer name="Speech" size={13} />
-                        <span>Solicitar Projeto Similar</span>
+                        <span>Solicitar Esta Solução</span>
                       </button>
                       <button
                         onClick={() => setSelectedProject(null)}

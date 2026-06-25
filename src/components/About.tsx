@@ -138,7 +138,7 @@ export const About: React.FC<AboutProps> = ({ timeline = TIMELINE_ITEMS }) => {
         {/* Timeline block */}
         <div className="mt-16 border-t border-brand-metallic/10 pt-16">
           <div className="text-center mb-12">
-            <h4 className="font-mono text-xs font-bold text-brand-silver/60 uppercase tracking-widest">Nossa Jornada de Evolução</h4>
+            <h4 className="font-mono text-xs font-bold text-brand-silver/60 uppercase tracking-widest">A Nossa Estruturação Operacional</h4>
           </div>
 
           {/* Stepper Timeline Navigation */}

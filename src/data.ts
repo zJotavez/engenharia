@@ -38,7 +38,7 @@ export const SERVICES: Service[] = [
     detailedDescription: 'Soluções de serralharia para suporte de processos industriais ou construção. Disponibilizamos serralheiros experientes na leitura de desenho técnico, corte, dobra e montagem de tubagens, escadas marinheiro, guarda-corpos e estruturas de proteção.',
     features: [
       'Leitura avançada de esquemas e desenhos técnicos',
-      'Montagem de escadas, guarda-corpos e acessos de segurança',
+      'Montagem de escadas, guarda-corpos and acessos de segurança',
       'Trabalhos em aço carbono, inox e alumínio',
       'Apoio especializado a canteiros de obra'
     ],
@@ -96,13 +96,13 @@ export const SERVICES: Service[] = [
 export const PROJECTS: Project[] = [
   {
     id: 'p1',
-    title: 'Superestrutura Logística & Pipe Racks Portuários',
+    title: 'Montagem de Pipe Racks e Superestruturas Portuárias',
     category: 'Montagem Industrial',
-    description: 'Fornecimento e coordenação de equipas técnicas qualificadas para a montagem de 1200 metros lineares de galpões e pipe-racks treliçados de transporte de minério de alta tonelagem.',
+    description: 'Capacitação completa para mobilização de equipas especializadas na montagem de galpões e pipe-racks treliçados de transporte de minério. Garantimos precisão geométrica e um serviço incrível sob condições climáticas exigentes.',
     client: 'EuroLogistics S.A.',
-    service: 'Equipas de montagem e soldadura homologada',
+    service: 'Prontos para assumir montagens e soldadura homologada',
     location: 'Porto de Sines - Portugal',
-    year: '2025',
+    year: 'Apto para Execução',
     gallery: [
       '/assets/images/pipe-racks-portuarios.webp',
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
@@ -111,13 +111,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p2',
-    title: 'Manutenção Estrutural e Reforma de Deck de Plataforma',
+    title: 'Manutenção Estrutural e Reforma de Deck de Plataformas',
     category: 'Construção Naval',
-    description: 'Mobilização urgente de 35 soldadores e caldeireiros certificados para substituição de chapeamento estrutural e cavernas em navio petroleiro em tempo recorde.',
+    description: 'Prontos para fornecer caldeireiros e soldadores certificados para reparação estrutural de chapeamento de convés e cascos sob rígido controlo de sociedades classificadoras.',
     client: 'Iberian Drilling Corp.',
-    service: 'Fornecimento de soldadores de classe naval',
+    service: 'Capazes de mobilizar soldadores de classe naval',
     location: 'Estaleiro Naval de Vigo - Espanha',
-    year: '2025',
+    year: 'Apto para Execução',
     gallery: [
       'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200'
@@ -126,13 +126,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p3',
-    title: 'Ramais de Vapor e Alta Pressão Complexo Químico',
+    title: 'Ramais de Vapor e Alta Pressão para Linhas de Processo',
     category: 'Soldadura',
-    description: 'Fornecimento de equipas de soldadores TIG e inspetores para implantação de redes de fluidos sob pressão em aço cromo-molibdênio e aço inoxidável.',
+    description: 'Capacidade técnica para mobilizar soldadores TIG qualificados em aço carbono, inox e cromo-molibdênio para a execução de linhas de processo a alta pressão com índice zero de falhas.',
     client: 'Química del Sur S.A.',
-    service: 'Soldadura certificada em linhas de processo',
+    service: 'Solução em soldadura em tubagens sob pressão',
     location: 'Polo Industrial de Tarragona - Espanha',
-    year: '2024',
+    year: 'Apto para Execução',
     gallery: [
       'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
@@ -141,13 +141,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p4',
-    title: 'Instalação de Redes e Sistemas de Comunicação em Fábrica',
+    title: 'Lançamento de Redes e Comunicação Industrial em Fábrica',
     category: 'Instalações de TI',
-    description: 'Mobilização de técnicos de TI para lançamento de cabeamento estruturado e fibra ótica para conexão de sistemas de automação e CFTV IP em grande ativo industrial.',
+    description: 'Prontos para direcionar técnicos especializados no lançamento de redes estruturadas, fusão de fibra ótica e CFTV IP para ambientes industriais exigentes de alta segurança.',
     client: 'Iberia Auto Parts',
-    service: 'Técnicos de redes de comunicação industrial',
+    service: 'Fornecimento de técnicos de infraestrutura de TI',
     location: 'Polo Industrial de Aveiro - Portugal',
-    year: '2024',
+    year: 'Apto para Execução',
     gallery: [
       'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200'
@@ -156,13 +156,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p5',
-    title: 'Serralharia Técnica de Escadas e Guarda-Corpos de Segurança',
+    title: 'Serralharia Técnica de Acessos e Proteções de Segurança',
     category: 'Serralharia',
-    description: 'Equipas de serralheiros para fabricação no local e montagem de escadas marinheiro, guarda-corpos normatizados e plataformas metálicas de acesso em silos.',
+    description: 'Capacidade de fornecimento de serralheiros industriais para fabricação local e montagem de acessos de segurança, escadas marinheiro e guarda-corpos normatizados.',
     client: 'AgroAliança Silos S.A.',
-    service: 'Serralheiros de montagem industrial',
+    service: 'Solução sob medida em serralharia industrial',
     location: 'Terminal Logístico de Sevilha - Espanha',
-    year: '2023',
+    year: 'Apto para Execução',
     gallery: [
       'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1513828742140-ccaa2ecf32e9?auto=format&fit=crop&q=80&w=1200'
@@ -171,13 +171,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'p6',
-    title: 'Tratamento Anticorrosivo por Decapagem em Estrutura Metálica',
+    title: 'Decapagem Abrasiva e Pintura Anticorrosiva em Estruturas',
     category: 'Decapagem',
-    description: 'Mobilização de equipa especializada em decapagem a jato abrasivo e aplicação de pintura de proteção anticorrosiva em grandes coberturas treliçadas expostas.',
+    description: 'Prontos para fornecer equipas especializadas em decapagem abrasiva por jato e aplicação de revestimentos de pintura industrial anticorrosiva de alta performance.',
     client: 'Portos do Norte S.A.',
-    service: 'Técnicos de decapagem e pintura industrial',
+    service: 'Fornecimento de técnicos de decapagem e jateamento',
     location: 'Terminal de Cargas do Porto - Portugal',
-    year: '2023',
+    year: 'Apto para Execução',
     gallery: [
       'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&q=80&w=1200',
       'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200'
@@ -188,33 +188,33 @@ export const PROJECTS: Project[] = [
 
 export const TIMELINE_ITEMS: TimelineItem[] = [
   {
-    year: '2011',
-    title: 'Fundação da Metaloworld',
-    description: 'Nascimento da empresa com foco em caldeiraria e soldadura de alta precisão, prestando serviços técnicos de apoio a indústrias locais.',
+    year: 'Fase 1',
+    title: 'Fundação e Propósito',
+    description: 'Criação da METALOWORLD em 2026 com a missão de colmatar a escassez de profissionais qualificados no setor industrial da Europa, oferecendo soluções com precisão técnica.',
     milestone: true
   },
   {
-    year: '2015',
-    title: 'Expansão de Serviços Técnicos',
-    description: 'Início da estruturação de equipas dedicadas a montagens industriais complexas, soldadura estrutural de grandes dimensões e reparação naval.',
+    year: 'Fase 2',
+    title: 'Homologação e Rigor',
+    description: 'Desenvolvimento de uma rigorosa rede de triagem, avaliação e homologação dos melhores soldadores, montadores e técnicos da indústria sob padrões europeus.',
     milestone: false
   },
   {
-    year: '2019',
-    title: 'Mobilização na Península Ibérica',
-    description: 'Consolidação de processos de seleção, homologação de soldadores por normas EN/ASME e início de mobilizações operacionais rápidas para paradas de fábrica em Espanha e Portugal.',
+    year: 'Fase 3',
+    title: 'Lançamento Operacional',
+    description: 'Início das mobilizações ágeis de equipas técnicas em Portugal e Espanha, atendendo paradas industriais e projetos com eficiência imediata e serviço incrível.',
     milestone: false
   },
   {
-    year: '2022',
-    title: 'Atuação Europeia Alargada',
-    description: 'Desenvolvimento de uma sólida rede de profissionais qualificados na Europa, permitindo atender projetos industriais complexos com equipas estruturadas.',
+    year: 'Fase 4',
+    title: 'Expansão na Europa',
+    description: 'Alargamento da logística de mobilização para toda a União Europeia, conectando grandes empresas aos profissionais ideais para cada desafio industrial.',
     milestone: true
   },
   {
-    year: '2026',
-    title: 'Referência em Parcerias Operacionais',
-    description: 'Reconhecimento como parceira estratégica europeia no fornecimento de equipas qualificadas e soluções técnicas, focando em segurança, produtividade e qualidade técnica.',
+    year: 'Fase 5',
+    title: 'Liderança e Visão',
+    description: 'Consolidação como a maior referência em rede de soluções técnicas industriais da Europa, pautada por acidentes zero, qualidade absoluta e parcerias sólidas.',
     milestone: true
   }
 ];
@@ -249,24 +249,24 @@ export const DIFFERENTIALS: Differential[] = [
 export const STATS: StatItem[] = [
   {
     id: 's1',
-    value: 500,
-    suffix: '+',
-    label: 'Projetos Apoiados',
-    subLabel: 'Complexos industriais, navais e portuários'
+    value: 100,
+    suffix: '%',
+    label: 'Projetos Prontos para Atender',
+    subLabel: 'Grande flexibilidade de mobilização'
   },
   {
     id: 's2',
-    value: 15,
-    suffix: '+',
-    label: 'Anos de Atuação no Setor',
+    value: 2026,
+    suffix: '',
+    label: 'Ano de Fundação',
     subLabel: 'Com rigor técnico e segurança máxima'
   },
   {
     id: 's3',
     value: 100,
-    suffix: '+',
-    label: 'Clientes Corporativos Atendidos',
-    subLabel: 'Parcerias comerciais de longo prazo'
+    suffix: '%',
+    label: 'Serviço Incrível Garantido',
+    subLabel: 'Execução de alta performance'
   },
   {
     id: 's4',

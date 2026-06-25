@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
 
   const navItems = [
     { id: 'home', label: 'Home', href: '#home' },
-    { id: 'sobre', label: 'Sobre Nós', href: '#sobre' },
+    { id: 'sobre', label: 'Sobre', href: '#sobre' },
     { id: 'servicos', label: 'Serviços', href: '#servicos' },
     { id: 'como-funciona', label: 'Como Funciona', href: '#como-funciona' },
     { id: 'projetos', label: 'Projetos', href: '#projetos' },
@@ -65,26 +65,26 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
           : 'py-6 bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 xl:px-6 flex items-center justify-between gap-3">
         {/* Brand Logo */}
-        <a href="#home" id="nav-brand-logo" className="flex items-center gap-3 group select-none">
+        <a href="#home" id="nav-brand-logo" className="flex items-center gap-2 xl:gap-3 group select-none shrink-0">
           <img 
             src="/assets/images/logo-icon.webp" 
             alt="Metaloworld Logo" 
             className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105" 
           />
           <div className="flex flex-col">
-            <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-xl tracking-tight leading-none text-white">
+            <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-xl tracking-tight leading-none text-white whitespace-nowrap">
               METALOWORLD
             </span>
-            <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-[#B8C4D0]/70 mt-1">
+            <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-[#B8C4D0]/70 mt-1 whitespace-nowrap">
               Soluções Industriais
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
-        <nav id="desktop-navbar" className="hidden lg:flex items-center gap-1">
+        <nav id="desktop-navbar" className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 shrink min-w-0">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -92,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
                 key={item.id}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`relative px-4 py-2 font-sans font-semibold text-xs uppercase tracking-widest transition-colors duration-300 rounded-md ${
+                className={`relative px-2 xl:px-3 py-1.5 font-sans font-semibold text-[11px] xl:text-xs uppercase tracking-wider transition-colors duration-300 rounded-md whitespace-nowrap ${
                   isActive ? 'text-[#2563EB]' : 'text-[#B8C4D0] hover:text-white'
                 }`}
               >
@@ -100,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
                 {isActive && (
                   <motion.div
                     layoutId="activeUnderline"
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-[#2563EB] rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#2563EB] rounded-full"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -110,26 +110,26 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
         </nav>
 
         {/* Action Button & Contact Info */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-5 shrink-0">
           <div className="flex flex-col text-right">
             <a
               href={`tel:${phoneRaw}`}
-              className="font-mono text-xs text-[#B8C4D0] hover:text-[#2563EB] transition-colors flex items-center gap-1.5 justify-end"
+              className="font-mono text-[11px] xl:text-xs text-[#B8C4D0] hover:text-[#2563EB] transition-colors flex items-center gap-1.5 justify-end whitespace-nowrap"
             >
               <IconRenderer name="Phone" size={11} className="text-[#2563EB]" />
               {phone}
             </a>
-            <span className="text-[10px] text-[#7B8EA3] uppercase tracking-wider">Atendimento na Europa</span>
+            <span className="text-[9px] text-[#7B8EA3] uppercase tracking-wider whitespace-nowrap">Atendimento na Europa</span>
           </div>
 
           <a
             href="#contato"
             onClick={(e) => handleNavClick(e, 'contato')}
             id="nav-cta-button"
-            className="px-6 py-2.5 border border-[#2563EB] text-white bg-[#2563EB]/10 hover:bg-[#2563EB] text-[12px] font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-2"
+            className="px-2.5 xl:px-4 py-2 border border-[#2563EB] text-white bg-[#2563EB]/10 hover:bg-[#2563EB] text-[10px] xl:text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center gap-1 shrink-0 whitespace-nowrap"
           >
             <span>Orçamento</span>
-            <IconRenderer name="ArrowRight" size={12} />
+            <IconRenderer name="ArrowRight" size={12} className="shrink-0" />
           </a>
         </div>
 
