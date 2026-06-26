@@ -43,18 +43,18 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
         
         {/* Brand Information Column */}
         <div className="lg:col-span-4 space-y-6">
-          <a href="#home" className="flex items-center gap-2.5 xl:gap-3.5 group select-none">
+          <a href="#home" className="flex items-center gap-3 xl:gap-4 group select-none">
             <img 
               src="/assets/images/logo-icon.webp" 
               alt="Metaloworld Logo" 
               title="METALOWORLD"
-              className="w-[50px] h-[50px] lg:w-12 lg:h-12 object-contain transition-transform duration-300 group-hover:scale-105" 
+              className="w-[74px] h-[74px] lg:w-[86px] lg:h-[86px] object-contain transition-transform duration-300 group-hover:scale-105" 
             />
             <div className="flex flex-col">
-              <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-[22px] lg:text-[23px] tracking-tight leading-none text-white">
+              <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-[25px] lg:text-[28px] tracking-tight leading-none text-white">
                 METALOWORLD
               </span>
-              <span className="text-[10.5px] uppercase tracking-[0.3em] font-bold text-[#C4CCD4]/70 mt-1">
+              <span className="text-[11px] lg:text-[12.5px] uppercase tracking-[0.3em] font-bold text-[#C4CCD4]/70 mt-1">
                 Soluções Industriais
               </span>
             </div>
