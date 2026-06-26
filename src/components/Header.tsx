@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
       const element = document.getElementById(targetId);
       if (element) {
         const isLargeScreen = window.innerWidth >= 1024;
-        const calculatedHeaderHeight = isLargeScreen ? 104 : 90;
+        const calculatedHeaderHeight = isLargeScreen ? 88 : 76;
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - calculatedHeaderHeight;
 
@@ -69,24 +69,24 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
       id="main-nav-header"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? 'py-2 bg-[#050f1e]/92 backdrop-blur-md shadow-lg border-b border-[#1A5296]/15'
-          : 'py-5 bg-transparent'
+          ? 'py-1.5 bg-[#050f1e]/92 backdrop-blur-md shadow-lg border-b border-[#1A5296]/15'
+          : 'py-3.5 bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 xl:px-6 flex items-center justify-between gap-3">
         {/* Brand Logo */}
-        <a href="#home" onClick={(e) => handleNavClick(e, 'home')} id="nav-brand-logo" className="flex items-center gap-3 xl:gap-4 group select-none shrink-0">
+        <a href="#home" onClick={(e) => handleNavClick(e, 'home')} id="nav-brand-logo" className="flex items-center gap-2.5 xl:gap-3.5 group select-none shrink-0">
           <img 
             src="/assets/images/logo-icon.webp" 
             alt="Metaloworld Logo" 
             title="METALOWORLD — Soluções Industriais"
-            className="w-[74px] h-[74px] lg:w-[86px] lg:h-[86px] object-contain transition-transform duration-300 group-hover:scale-105" 
+            className="w-[56px] h-[56px] lg:w-[64px] lg:h-[64px] object-contain transition-transform duration-300 group-hover:scale-105" 
           />
           <div className="flex flex-col">
-            <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-[25px] lg:text-[28px] tracking-tight leading-none text-white whitespace-nowrap">
+            <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-[21px] lg:text-[23px] tracking-tight leading-none text-white whitespace-nowrap">
               METALOWORLD
             </span>
-            <span className="text-[11px] lg:text-[12.5px] uppercase tracking-[0.3em] font-bold text-[#B8C4D0]/70 mt-1 whitespace-nowrap">
+            <span className="text-[9.5px] lg:text-[10px] uppercase tracking-[0.3em] font-bold text-[#B8C4D0]/70 mt-1 whitespace-nowrap">
               Soluções Industriais
             </span>
           </div>
@@ -120,17 +120,6 @@ export const Header: React.FC<HeaderProps> = ({ activeSection, phone, phoneRaw }
 
         {/* Action Button & Contact Info */}
         <div className="hidden lg:flex items-center gap-3 xl:gap-4 shrink-0">
-          <div className="flex flex-col text-right">
-            <a
-              href={`tel:${phoneRaw}`}
-              className="font-mono text-[11px] xl:text-xs text-[#B8C4D0] hover:text-[#2563EB] transition-colors flex items-center gap-1.5 justify-end whitespace-nowrap"
-            >
-              <IconRenderer name="Phone" size={11} className="text-[#2563EB]" />
-              {phone}
-            </a>
-            <span className="text-[9px] text-[#7B8EA3] uppercase tracking-wider whitespace-nowrap font-sans">Atendimento na Europa</span>
-          </div>
-
           <a
             href="#contato"
             onClick={(e) => handleNavClick(e, 'contato')}

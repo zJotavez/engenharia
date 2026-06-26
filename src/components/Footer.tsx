@@ -48,13 +48,13 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
               src="/assets/images/logo-icon.webp" 
               alt="Metaloworld Logo" 
               title="METALOWORLD"
-              className="w-[74px] h-[74px] lg:w-[86px] lg:h-[86px] object-contain transition-transform duration-300 group-hover:scale-105" 
+              className="w-[56px] h-[56px] lg:w-[64px] lg:h-[64px] object-contain transition-transform duration-300 group-hover:scale-105" 
             />
             <div className="flex flex-col">
-              <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-[25px] lg:text-[28px] tracking-tight leading-none text-white">
+              <span className="font-['Helvetica_Neue',_sans-serif] font-extrabold text-[21px] lg:text-[23px] tracking-tight leading-none text-white">
                 METALOWORLD
               </span>
-              <span className="text-[11px] lg:text-[12.5px] uppercase tracking-[0.3em] font-bold text-[#C4CCD4]/70 mt-1">
+              <span className="text-[9.5px] lg:text-[10px] uppercase tracking-[0.3em] font-bold text-[#C4CCD4]/70 mt-1">
                 Soluções Industriais
               </span>
             </div>
