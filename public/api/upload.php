@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 header("Content-Type: application/json");
 
 // A senha configurada para o painel (deve ser a mesma do save.php)
-$config_password = "#admiguel1817A"; 
+$config_password = "#Metal2026A"; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar a senha (passada via POST)

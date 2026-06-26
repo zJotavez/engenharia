@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
 // A senha configurada para o painel (pode ser alterada pelo usuário)
-$config_password = "#admiguel1817A"; 
+$config_password = "#Metal2026A"; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);

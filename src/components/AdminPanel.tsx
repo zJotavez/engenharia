@@ -171,7 +171,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === '#admiguel1817A') {
+    if (password === '#Metal2026A') {
       setIsAuthenticated(true);
       setLoginError('');
       localStorage.setItem('mv_admin_pass', password);
