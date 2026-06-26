@@ -144,6 +144,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSel
                 <img
                   src={project.gallery[0]}
                   alt={project.title}
+                  title={project.title}
                   loading="lazy"
                   className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.07] filter brightness-[0.5] group-hover:brightness-[0.35]"
                   referrerPolicy="no-referrer"
@@ -210,6 +211,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ projects = PROJECTS, onSel
                     <img
                       src={selectedProject.gallery[0]}
                       alt={selectedProject.title}
+                      title={selectedProject.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                       onClick={() => setLightboxImg({ src: selectedProject.gallery[0], alt: selectedProject.title })}

@@ -139,7 +139,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, generalSettings
 
   // Load data from server or use static fallback
   useEffect(() => {
-    fetch('/data.json')
+    fetch('/data.json?t=' + Date.now())
       .then(res => {
         if (res.ok) return res.json();
         throw new Error('Using local fallback data');

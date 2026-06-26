@@ -65,7 +65,9 @@ export const About: React.FC<AboutProps> = ({ timeline = TIMELINE_ITEMS }) => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 glow-industrial-blue group">
               <img
                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200"
-                alt="Metaloworld Corporativo"
+                alt="Estruturas metálicas em projeto industrial"
+                title="Montagem de estruturas metálicas em Portugal da METALOWORLD"
+                loading="lazy"
                 className="w-full h-[350px] sm:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />

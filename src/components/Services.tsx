@@ -151,6 +151,7 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                   <img
                     src={service.image}
                     alt={service.title}
+                    title={service.title}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter brightness-[0.75] group-hover:brightness-[0.7]"
                     referrerPolicy="no-referrer"
@@ -209,6 +210,8 @@ export const Services: React.FC<ServicesProps> = ({ services = SERVICES, onSelec
                   <img
                     src={selectedService.image}
                     alt={selectedService.title}
+                    title={selectedService.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />

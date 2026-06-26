@@ -1,13 +1,13 @@
 {
-  "name": "MV Engenharia & Construções Industriais",
-  "short_name": "MV Engenharia",
-  "description": "Especialistas em estruturas metálicas, construção naval, tubagem industrial e soluções industriais de alto padrão.",
+  "name": "METALOWORLD",
+  "short_name": "METALOWORLD",
+  "description": "Conectamos empresas a soluções industriais com profissionais qualificados nas áreas de soldadura, montagem, metalomecânica e construção naval em Portugal e toda a Europa.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#071B35",
   "theme_color": "#071B35",
   "orientation": "portrait-primary",
-  "lang": "pt-BR",
+  "lang": "pt-PT",
   "scope": "/",
   "categories": ["business", "productivity"],
   "icons": [
@@ -29,7 +29,7 @@
       "src": "/og-image.png",
       "sizes": "1200x630",
       "type": "image/png",
-      "label": "MV Engenharia — Website"
+      "label": "METALOWORLD — Website"
     }
   ]
 }

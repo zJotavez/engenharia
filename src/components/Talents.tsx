@@ -144,7 +144,7 @@ ${formData.name}`;
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-3 py-1 bg-[#2563EB]/10 rounded-full border border-[#2563EB]/30 text-xs font-mono font-bold text-[#B8C4D0] tracking-wider uppercase mb-4"
           >
-            <span>Trabalhe Connosco</span>
+            <span>Trabalhe Conosco</span>
           </motion.div>
           
           <motion.h2

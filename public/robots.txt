@@ -1,5 +1,5 @@
-# MV Engenharia & Construções Industriais — robots.txt
-# https://mvengenharia.com
+# METALOWORLD — robots.txt
+# https://metaloworld.pt
 
 User-agent: *
 Allow: /
@@ -12,7 +12,7 @@ Disallow: /package.json
 Disallow: /vite.config.ts
 
 # Sitemap
-Sitemap: https://mvengenharia.com/sitemap.xml
+Sitemap: https://metaloworld.pt/sitemap.xml
 
 # Crawl-delay para bots menos prioritários
 User-agent: AhrefsBot

@@ -3,12 +3,12 @@ import { Service, Project, TimelineItem, Testimonial, Differential, StatItem, Ge
 export const SERVICES: Service[] = [
   {
     id: 'soldadura',
-    title: 'Soldadura Industrial e Homologada',
-    description: 'Profissionais certificados em processos MIG/MAG, TIG e Elétrodo para projetos de elevada exigência mecânica.',
-    detailedDescription: 'Disponibilizamos soldadores altamente experientes e certificados pelas normas EN e ASME. A nossa equipa executa trabalhos de soldadura em tubagens de alta pressão, estruturas metálicas pesadas e componentes navais, com garantia de controlo de qualidade rigoroso (ensaios não destrutivos).',
+    title: 'Soldadura em Portugal e Equipas Homologadas',
+    description: 'Soldadores qualificados certificados em processos MIG/MAG, TIG e Elétrodo para projetos de elevada exigência mecânica em Portugal e toda a Europa.',
+    detailedDescription: 'Disponibilizamos soldadores qualificados e altamente experientes certificados pelas normas EN e ASME. A nossa equipa executa trabalhos de soldadura em tubagens de alta pressão, estruturas metálicas pesadas e componentes navais, com garantia de controlo de qualidade rigoroso.',
     features: [
-      'Soldadura TIG, MIG/MAG e Elétrodo Revestido',
-      'Profissionais homologados sob normas EN/ASME',
+      'Soldadura TIG, MIG/MAG e Elétrodo Revestido em Portugal',
+      'Soldadores qualificados e homologados sob normas EN/ASME',
       'Soldadura de ligas especiais, inox e aço carbono',
       'Ensaios não destrutivos (NDT) e controlo de qualidade'
     ],
@@ -18,14 +18,14 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'montagem-industrial',
-    title: 'Montagem Industrial e Mecânica',
-    description: 'Equipas especializadas para montagem de linhas de produção, equipamentos pesados e estruturas industriais.',
-    detailedDescription: 'Fornecemos mecânicos de montagem e técnicos qualificados para montagem de equipamentos industriais, pipe racks, condutas e sistemas de processo. Atuação focada no cumprimento ágil de cronogramas e paradas de manutenção industrial.',
+    title: 'Montagem Industrial e Estruturas Metálicas',
+    description: 'Equipas técnicas especializadas para montagem de linhas de produção, equipamentos pesados e estruturas industriais em Portugal.',
+    detailedDescription: 'Fornecemos mecânicos de montagem e profissionais industriais para montagem de equipamentos industriais, pipe racks, condutas e sistemas de processo. Atuação focada em paradas de manutenção industrial com máxima agilidade.',
     features: [
-      'Montagem de equipamentos de processo e máquinas',
-      'Equipas ágeis para paradas de fábrica',
-      'Montagem de estruturas metálicas e tubagem',
-      'Segurança operacional rigorosa nas intervenções'
+      'Montagem industrial de equipamentos e linhas de produção',
+      'Equipas técnicas para paradas de manutenção industrial',
+      'Montagem de estruturas metálicas e tubagem em Portugal',
+      'Segurança operacional rigorosa nas intervenções industriais'
     ],
     iconName: 'Layers',
     image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200',
@@ -33,14 +33,14 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'serralharia',
-    title: 'Serralharia Mecânica e Civil',
-    description: 'Profissionais para fabricação e montagem de componentes metálicos, acessos e estruturas sob medida.',
-    detailedDescription: 'Soluções de serralharia para suporte de processos industriais ou construção. Disponibilizamos serralheiros experientes na leitura de desenho técnico, corte, dobra e montagem de tubagens, escadas marinheiro, guarda-corpos e estruturas de proteção.',
+    title: 'Serralharia Industrial e Metalomecânica',
+    description: 'Profissionais de serralharia mecânica e civil para fabricação e montagem de componentes metálicos e estruturas sob medida.',
+    detailedDescription: 'Soluções de serralharia industrial e metalomecânica de suporte a processos ou construção. Disponibilizamos serralheiros experientes em leitura de desenho técnico, corte, dobra e montagem de tubagens e acessos de segurança.',
     features: [
-      'Leitura avançada de esquemas e desenhos técnicos',
-      'Montagem de escadas, guarda-corpos and acessos de segurança',
-      'Trabalhos em aço carbono, inox e alumínio',
-      'Apoio especializado a canteiros de obra'
+      'Leitura de esquemas técnicos e metalomecânica',
+      'Montagem de acessos, escadas e guarda-corpos de segurança',
+      'Serralharia industrial em aço carbono, inox e alumínio',
+      'Apoio técnico especializado a canteiros de obra'
     ],
     iconName: 'Hammer',
     image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200',
@@ -48,14 +48,14 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'decapagem',
-    title: 'Decapagem e Tratamento de Superfícies',
-    description: 'Especialistas em decapagem a jato abrasivo e aplicação de revestimentos anticorrosivos industriais.',
-    detailedDescription: 'Equipas técnicas focadas na preparação de superfícies de aço para pintura e tratamentos de proteção. Executamos decapagem por jato de areia ou granalha, limpeza química e pintura industrial de alta espessura para estruturas sujeitas a intempéries ou corrosão severa.',
+    title: 'Decapagem Industrial e Pintura',
+    description: 'Especialistas em decapagem a jato abrasivo e aplicação de revestimentos anticorrosivos industriais de alta performance.',
+    detailedDescription: 'Serviços de decapagem industrial e pintura anticorrosiva de superfícies de aço. Executamos decapagem por jato de areia ou granalha, limpeza química e pintura industrial de alta espessura para estruturas industriais.',
     features: [
-      'Decapagem por jato abrasivo (granalha/areia)',
+      'Decapagem industrial por jato abrasivo (granalha/areia)',
       'Pintura industrial com especificações anticorrosivas',
-      'Preparação e limpeza mecânica de superfícies de aço',
-      'Prolongamento da vida útil de ativos industriais'
+      'Preparação mecânica de superfícies metálicas',
+      'Proteção anticorrosiva para prolongar a vida útil de ativos'
     ],
     iconName: 'Shield',
     image: 'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&q=80&w=1200',
@@ -63,14 +63,14 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'instalacoes-ti',
-    title: 'Instalações de TI e Infraestruturas de Comunicação',
-    description: 'Técnicos para implantação de redes estruturadas, fibra ótica, sistemas de videovigilância e controle de acessos.',
-    detailedDescription: 'Implementação de infraestruturas tecnológicas para fábricas, portos e edifícios corporativos. Oferecemos especialistas em cabeamento estruturado, fusão de fibra ótica, redes de comunicação industrial, sistemas de CFTV IP inteligentes e controle eletrónico de acessos.',
+    title: 'Instalações Técnicas e Redes Industriais',
+    description: 'Técnicos para implantação de redes estruturadas, fibra ótica, sistemas de videovigilância e segurança eletrónica.',
+    detailedDescription: 'Redes de comunicação industrial e instalações técnicas para portos, fábricas e edifícios corporativos. Especialistas em fusão de fibra ótica, cabeamento estruturado, CFTV IP inteligente e segurança eletrónica.',
     features: [
-      'Cabeamento estruturado e redes de fibra ótica',
-      'Instalação de CFTV IP e controlo de acessos corporativos',
-      'Sistemas de alarme e segurança perimetral',
-      'Comunicação integrada para automação fabril'
+      'Redes industriais, cabeamento estruturado e fibra ótica',
+      'Segurança eletrónica, CFTV IP e controlo de acessos',
+      'Sistemas de alarme e proteção perimetral para indústrias',
+      'Integração de comunicação para automação fabril'
     ],
     iconName: 'Network',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200',
@@ -78,14 +78,14 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'construcao-reparacao-naval',
-    title: 'Construção e Reparação Naval',
-    description: 'Mão de obra qualificada para reparos estruturais de convés, caldeiraria naval pesada e tubagens marítimas.',
-    detailedDescription: 'Fornecemos equipas experientes para atuar em estaleiros de reparação naval e navios offshore. Soldadores e caldeireiros certificados pelas sociedades de classificação internacional para execução de reparação de chapeamento de casco, cavernas, ramais de tubagem e estruturas marítimas.',
+    title: 'Construção Naval e Reparação Marítima',
+    description: 'Mão de obra especializada e soldadores certificados para reparos estruturais de convés, caldeiraria pesada e tubagens.',
+    detailedDescription: 'Fornecemos equipas especializadas para estaleiros de construção naval, reparação marítima e plataformas offshore. Soldadores e caldeireiros certificados pelas sociedades de classificação internacional para chaparia e tubagens.',
     features: [
-      'Reparações estruturais de chapeamento de cascos',
-      'Soldadura certificada sob registro de classe naval',
-      'Caldeiraria naval pesada e manutenção offshore',
-      'Montagem de sistemas de tubagem marítima'
+      'Reparações estruturais de chapeamento de cascos e convés',
+      'Construção naval com soldadura certificada por classe',
+      'Caldeiraria naval pesada e manutenção em navios',
+      'Instalação e montagem de redes de tubagem marítima'
     ],
     iconName: 'Anchor',
     image: 'https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200',
@@ -313,8 +313,8 @@ export const GENERAL_SETTINGS: GeneralSettings = {
   heroSubtitle: 'Conectamos a sua empresa aos profissionais certos para execução de projetos industriais, metalomecânicos, construção e naval em toda a Europa. Foco em precisão, segurança e produtividade.',
   heroCtaText: 'Falar com um Especialista',
   heroImage: '/assets/images/hero-industrial-team.png',
-  phone: '+351 912 345 678',
-  phoneRaw: '+351912345678',
+  phone: '+351 923 352 934',
+  phoneRaw: '+351923352934',
   email: 'suporte@metaloworld.pt',
   emailComercial: 'suporte@metaloworld.pt',
   address: 'Atendimento Comercial e Mobilização Técnica',
