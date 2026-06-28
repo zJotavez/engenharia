@@ -104,7 +104,7 @@ Fico à inteira disposição para prestar esclarecimentos adicionais e participa
 Atenciosamente,
 ${formData.name}`;
 
-      const mailtoUrl = `mailto:${settings.email || 'suporte@metaloworld.pt'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoUrl = `mailto:${settings.email || 'suporte@metaloworld.com'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       
       // Abre o cliente de e-mail padrão do usuário de forma direta e sem atrasos
       window.location.href = mailtoUrl;

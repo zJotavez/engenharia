@@ -1,5 +1,5 @@
 # METALOWORLD — robots.txt
-# https://metaloworld.pt
+# https://metaloworld.com
 
 User-agent: *
 Allow: /
@@ -12,7 +12,7 @@ Disallow: /package.json
 Disallow: /vite.config.ts
 
 # Sitemap
-Sitemap: https://metaloworld.pt/sitemap.xml
+Sitemap: https://metaloworld.com/sitemap.xml
 
 # Crawl-delay para bots menos prioritários
 User-agent: AhrefsBot
