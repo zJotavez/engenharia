@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { IconRenderer } from './IconRenderer.tsx';
 import { GeneralSettings } from '../types.ts';
 
@@ -6,8 +6,355 @@ interface FooterProps {
   settings: GeneralSettings;
 }
 
+/* ─────────────────────────────────────────────────
+   Privacy Policy Modal Component
+   ───────────────────────────────────────────────── */
+const PrivacyPolicyModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  // Close on ESC key
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6"
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      style={{ animation: 'fadeIn 0.25s ease-out' }}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" />
+
+      {/* Modal Container */}
+      <div
+        ref={modalRef}
+        className="relative z-10 w-full max-w-3xl max-h-[90vh] rounded-2xl border border-white/10 bg-gradient-to-b from-[#0a1628] to-[#050f1e] shadow-2xl shadow-black/50 flex flex-col"
+        style={{ animation: 'slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1)' }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-white/10 shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-[#2563EB]/20 border border-[#2563EB]/30 flex items-center justify-center">
+              <IconRenderer name="Shield" size={16} className="text-[#2563EB]" />
+            </div>
+            <div>
+              <h2 className="font-display font-bold text-base sm:text-lg text-white tracking-tight">
+                Política de Privacidade
+              </h2>
+              <p className="text-[10px] sm:text-xs text-brand-silver/50 mt-0.5">
+                Última atualização: 04 de agosto de 2026
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-200 group"
+            aria-label="Fechar Política de Privacidade"
+          >
+            <IconRenderer name="X" size={16} className="text-brand-silver/60 group-hover:text-white transition-colors" />
+          </button>
+        </div>
+
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto flex-1 px-6 sm:px-8 py-6 space-y-6 privacy-scroll">
+
+          <p className="text-sm text-brand-silver/80 leading-relaxed">
+            A Metaloworld respeita a privacidade dos seus utilizadores e compromete-se a proteger os seus dados pessoais, em conformidade com o Regulamento (UE) 2016/679 (RGPD) e a legislação portuguesa aplicável.
+          </p>
+
+          {/* Section 1 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">1</span>
+              Responsável pelo tratamento dos dados
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              A Metaloworld é responsável pelo tratamento dos dados pessoais recolhidos através do website, formulários de contacto, campanhas publicitárias e outros meios de comunicação.
+            </p>
+            <div className="pl-8 space-y-1">
+              <p className="text-sm text-brand-silver/70"><span className="text-brand-silver/90 font-medium">Website:</span> <a href="https://www.metaloworld.com" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] hover:underline">https://www.metaloworld.com</a></p>
+              <p className="text-sm text-brand-silver/70"><span className="text-brand-silver/90 font-medium">E-mail:</span> <a href="mailto:suporte@metaloworld.com" className="text-[#2563EB] hover:underline">suporte@metaloworld.com</a></p>
+            </div>
+          </section>
+
+          {/* Section 2 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">2</span>
+              Que dados recolhemos?
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">Podemos recolher os seguintes dados pessoais:</p>
+            <ul className="pl-12 space-y-1.5 text-sm text-brand-silver/70 list-none">
+              {['Nome', 'Empresa', 'Endereço de e-mail', 'Número de telefone', 'Informações fornecidas em pedidos de orçamento', 'Serviço pretendido', 'Endereço IP', 'Dados de navegação no website', 'Informações recolhidas através de cookies'].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Section 3 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">3</span>
+              Finalidade da recolha dos dados
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">Os dados pessoais são utilizados para:</p>
+            <ul className="pl-12 space-y-1.5 text-sm text-brand-silver/70 list-none">
+              {[
+                'Responder a pedidos de orçamento;',
+                'Entrar em contacto com potenciais clientes;',
+                'Prestar informações sobre os nossos serviços;',
+                'Elaborar propostas comerciais;',
+                'Melhorar os nossos serviços;',
+                'Cumprir obrigações legais;',
+                'Efetuar ações de marketing, mediante consentimento quando exigido por lei.'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Section 4 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">4</span>
+              Base legal
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">O tratamento dos dados é realizado com base em:</p>
+            <ul className="pl-12 space-y-1.5 text-sm text-brand-silver/70 list-none">
+              {[
+                'Consentimento do titular dos dados;',
+                'Execução de diligências pré-contratuais;',
+                'Cumprimento de obrigações legais;',
+                'Interesse legítimo da Metaloworld.'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Section 5 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">5</span>
+              Meta (Facebook e Instagram)
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              Quando preenche um formulário através dos anúncios da Meta (Facebook ou Instagram), os seus dados são enviados à Metaloworld para que possamos responder ao seu pedido de contacto ou orçamento.
+            </p>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              Os dados recolhidos serão utilizados exclusivamente para esse fim.
+            </p>
+          </section>
+
+          {/* Section 6 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">6</span>
+              WhatsApp
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              Ao contactar a Metaloworld através do WhatsApp, os seus dados serão tratados apenas para responder ao seu pedido de informação, orçamento ou assistência.
+            </p>
+          </section>
+
+          {/* Section 7 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">7</span>
+              Google Analytics
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              O nosso website pode utilizar o Google Analytics para compreender a forma como os visitantes utilizam o website e melhorar continuamente a experiência do utilizador.
+            </p>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              Estas informações são recolhidas de forma agregada e não identificam diretamente o utilizador.
+            </p>
+          </section>
+
+          {/* Section 8 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">8</span>
+              Meta Pixel
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              O website poderá utilizar o Meta Pixel para medir o desempenho das campanhas publicitárias e apresentar anúncios mais relevantes aos utilizadores.
+            </p>
+          </section>
+
+          {/* Section 9 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">9</span>
+              Cookies
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">O website utiliza cookies para:</p>
+            <ul className="pl-12 space-y-1.5 text-sm text-brand-silver/70 list-none">
+              {[
+                'Melhorar a experiência de navegação;',
+                'Medir estatísticas de utilização;',
+                'Personalizar conteúdos;',
+                'Avaliar o desempenho das campanhas publicitárias.'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              O utilizador pode gerir ou desativar os cookies através das definições do navegador.
+            </p>
+          </section>
+
+          {/* Section 10 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">10</span>
+              Partilha de dados
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              A Metaloworld não vende nem cede os seus dados pessoais a terceiros.
+            </p>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">Os dados apenas poderão ser partilhados quando necessário com:</p>
+            <ul className="pl-12 space-y-1.5 text-sm text-brand-silver/70 list-none">
+              {[
+                'Prestadores de serviços tecnológicos;',
+                'Plataformas publicitárias (Meta);',
+                'Serviços de alojamento do website;',
+                'Autoridades competentes quando exigido por lei.'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Section 11 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">11</span>
+              Conservação dos dados
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              Os dados pessoais serão conservados apenas pelo período necessário para cumprir as finalidades para as quais foram recolhidos ou enquanto existir obrigação legal.
+            </p>
+          </section>
+
+          {/* Section 12 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">12</span>
+              Direitos do titular dos dados
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">Nos termos do RGPD, o titular dos dados pode, a qualquer momento:</p>
+            <ul className="pl-12 space-y-1.5 text-sm text-brand-silver/70 list-none">
+              {[
+                'Solicitar acesso aos seus dados;',
+                'Solicitar a retificação dos dados;',
+                'Solicitar o apagamento dos dados;',
+                'Solicitar a limitação do tratamento;',
+                'Opor-se ao tratamento;',
+                'Solicitar a portabilidade dos dados;',
+                'Retirar o consentimento anteriormente concedido.'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Section 13 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">13</span>
+              Segurança
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              A Metaloworld adota medidas técnicas e organizativas adequadas para proteger os dados pessoais contra acessos não autorizados, perda, destruição ou divulgação.
+            </p>
+          </section>
+
+          {/* Section 14 */}
+          <section className="space-y-3">
+            <h3 className="text-sm font-bold text-white flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-[#2563EB]/15 text-[#2563EB] text-[11px] font-mono font-bold border border-[#2563EB]/20">14</span>
+              Contacto
+            </h3>
+            <p className="text-sm text-brand-silver/70 leading-relaxed pl-8">
+              Para qualquer questão relacionada com esta Política de Privacidade ou com o tratamento dos seus dados pessoais, poderá contactar-nos através de:
+            </p>
+            <div className="pl-8 mt-3 p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-2">
+              <p className="text-sm font-bold text-white">Metaloworld</p>
+              <p className="text-sm text-brand-silver/70 flex items-center gap-2">
+                <span>📧</span>
+                <a href="mailto:suporte@metaloworld.com" className="text-[#2563EB] hover:underline">suporte@metaloworld.com</a>
+              </p>
+              <p className="text-sm text-brand-silver/70 flex items-center gap-2">
+                <span>🌐</span>
+                <a href="https://www.metaloworld.com" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] hover:underline">https://www.metaloworld.com</a>
+              </p>
+            </div>
+          </section>
+
+        </div>
+
+        {/* Footer of Modal */}
+        <div className="flex items-center justify-between px-6 sm:px-8 py-4 border-t border-white/10 shrink-0">
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-mono font-bold text-emerald-400 tracking-widest uppercase">
+              RGPD Compliant
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono font-bold text-brand-silver tracking-widest uppercase">
+              UE 2016/679
+            </span>
+          </div>
+          <button
+            onClick={onClose}
+            className="px-4 py-2 rounded-lg bg-[#2563EB]/15 border border-[#2563EB]/25 text-xs font-semibold text-[#2563EB] hover:bg-[#2563EB]/25 hover:border-[#2563EB]/40 transition-all duration-200"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 export const Footer: React.FC<FooterProps> = ({ settings }) => {
   const currentYear = new Date().getFullYear();
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
 
   const links = {
     empresa: [
@@ -28,7 +375,7 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
     legal: [
       { label: 'Parcerias Estratégicas', href: '#contato' },
       { label: 'Compliance & Segurança', href: '#contato' },
-      { label: 'Política de Privacidade', href: '#' },
+      { label: 'Política de Privacidade', href: '#', isPrivacy: true },
       { label: 'Código de Conduta', href: '#' },
     ],
   };
@@ -130,9 +477,19 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
           <ul className="space-y-2.5">
             {links.legal.map((link, i) => (
               <li key={i}>
-                <a href={link.href} className="font-sans text-xs sm:text-sm text-brand-silver/80 hover:text-white transition-colors">
-                  {link.label}
-                </a>
+                {'isPrivacy' in link && link.isPrivacy ? (
+                  <button
+                    onClick={() => setIsPrivacyOpen(true)}
+                    className="font-sans text-xs sm:text-sm text-brand-silver/80 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 text-left"
+                    id="privacy-policy-trigger"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <a href={link.href} className="font-sans text-xs sm:text-sm text-brand-silver/80 hover:text-white transition-colors">
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -167,6 +524,9 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
           </p>
         </div>
       </div>
+
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal isOpen={isPrivacyOpen} onClose={() => setIsPrivacyOpen(false)} />
     </footer>
   );
 };
