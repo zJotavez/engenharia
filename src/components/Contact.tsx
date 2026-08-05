@@ -6,9 +6,10 @@ import { GeneralSettings } from '../types.ts';
 interface ContactProps {
   settings: GeneralSettings;
   selectedServicePreset: string;
+  onPrivacyToggle?: (isOpen: boolean) => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ settings, selectedServicePreset }) => {
+export const Contact: React.FC<ContactProps> = ({ settings, selectedServicePreset, onPrivacyToggle }) => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -413,6 +414,18 @@ export const Contact: React.FC<ContactProps> = ({ settings, selectedServicePrese
                   </a>
                 </div>
               </div>
+
+              {/* Privacy Policy Link Note */}
+              <p className="text-[11px] text-brand-silver/60 font-sans mt-3 text-center sm:text-right">
+                Os seus dados estão protegidos de acordo com a nossa{' '}
+                <button
+                  type="button"
+                  onClick={() => onPrivacyToggle?.(true)}
+                  className="text-[#2563EB] hover:underline font-semibold bg-transparent border-none p-0 inline cursor-pointer"
+                >
+                  Política de Privacidade
+                </button>.
+              </p>
 
             </form>
           </motion.div>

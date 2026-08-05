@@ -352,9 +352,24 @@ const PrivacyPolicyModal: React.FC<{ isOpen: boolean; onClose: () => void }> = (
 };
 
 
-export const Footer: React.FC<FooterProps> = ({ settings }) => {
+interface FooterProps {
+  settings: GeneralSettings;
+  isPrivacyOpen?: boolean;
+  onPrivacyToggle?: (isOpen: boolean) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ settings, isPrivacyOpen: externalIsPrivacyOpen, onPrivacyToggle }) => {
   const currentYear = new Date().getFullYear();
-  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [internalIsPrivacyOpen, setInternalIsPrivacyOpen] = useState(false);
+
+  const isPrivacyOpen = externalIsPrivacyOpen !== undefined ? externalIsPrivacyOpen : internalIsPrivacyOpen;
+  const setIsPrivacyOpen = (isOpen: boolean) => {
+    if (onPrivacyToggle) {
+      onPrivacyToggle(isOpen);
+    } else {
+      setInternalIsPrivacyOpen(isOpen);
+    }
+  };
 
   const links = {
     empresa: [

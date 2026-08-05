@@ -5,9 +5,10 @@ import { GeneralSettings } from '../types.ts';
 
 interface TalentsProps {
   settings: GeneralSettings;
+  onPrivacyToggle?: (isOpen: boolean) => void;
 }
 
-export const Talents: React.FC<TalentsProps> = ({ settings }) => {
+export const Talents: React.FC<TalentsProps> = ({ settings, onPrivacyToggle }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -349,7 +350,18 @@ ${formData.name}`;
                   className="mt-0.5 w-4.5 h-4.5 rounded border-white/10 bg-[#030a14] text-[#2563EB] focus:ring-[#2563EB]/40 focus:ring-offset-0 focus:ring-1"
                 />
                 <span className="text-xs text-[#B8C4D0]/80 group-hover:text-white transition-colors leading-snug select-none">
-                  Confirmo que pretendo registar os meus dados profissionais no Banco de Talentos da METALOWORLD.
+                  Confirmo que pretendo registar os meus dados profissionais no Banco de Talentos e aceito a{' '}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onPrivacyToggle?.(true);
+                    }}
+                    className="text-[#2563EB] hover:underline font-semibold bg-transparent border-none p-0 inline cursor-pointer"
+                  >
+                    Política de Privacidade
+                  </button>.
                 </span>
               </label>
               {errors.isHuman && <p className="text-[10px] text-red-400 font-medium mt-1 pl-1">{errors.isHuman}</p>}

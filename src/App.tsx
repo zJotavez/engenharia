@@ -13,10 +13,29 @@ import { Footer } from './components/Footer.tsx';
 import { AdminPanel } from './components/AdminPanel.tsx';
 import { HowItWorks } from './components/HowItWorks.tsx';
 import { Talents } from './components/Talents.tsx';
+import { PrivacyPage } from './components/PrivacyPage.tsx';
 
 // Data types and defaults
 import { Service, Project, TimelineItem, StatItem, Testimonial, GeneralSettings } from './types.ts';
 import { SERVICES, PROJECTS, TIMELINE_ITEMS, STATS, TESTIMONIALS, GENERAL_SETTINGS } from './data.ts';
+
+const checkPrivacyRoute = () => {
+  const path = window.location.pathname.replace(/^\//, '');
+  const hash = window.location.hash.replace(/^#/, '');
+  const params = new URLSearchParams(window.location.search);
+  return (
+    path === 'politica' ||
+    path === 'politica-de-privacidade' ||
+    path === 'politica-privacidade' ||
+    path === 'privacy' ||
+    hash === 'politica' ||
+    hash === 'politica-de-privacidade' ||
+    hash === 'privacy' ||
+    params.has('politica') ||
+    params.has('politica-de-privacidade') ||
+    params.has('privacy')
+  );
+};
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -25,6 +44,9 @@ export default function App() {
   // Admin view toggle
   const [isAdminView, setIsAdminView] = useState(window.location.hash === '#admin');
 
+  // Dedicated Privacy Policy Page view
+  const [isPrivacyPage, setIsPrivacyPage] = useState<boolean>(checkPrivacyRoute());
+
   // Dynamic states
   const [services, setServices] = useState<Service[]>(SERVICES);
   const [projects, setProjects] = useState<Project[]>(PROJECTS);
@@ -32,6 +54,32 @@ export default function App() {
   const [stats, setStats] = useState<StatItem[]>(STATS);
   const [testimonials, setTestimonials] = useState<Testimonial[]>(TESTIMONIALS);
   const [generalSettings, setGeneralSettings] = useState<GeneralSettings>(GENERAL_SETTINGS);
+
+  // Check URL route & hash for privacy policy on mount, popstate and hashchange
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setIsPrivacyPage(checkPrivacyRoute());
+      setIsAdminView(window.location.hash === '#admin');
+    };
+    handleLocationChange();
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
+
+  // Navigate to privacy page
+  const navigateToPrivacy = (open: boolean = true) => {
+    if (open) {
+      window.history.pushState(null, '', '/#politica');
+      setIsPrivacyPage(true);
+    } else {
+      window.history.pushState(null, '', '/');
+      setIsPrivacyPage(false);
+    }
+  };
 
   // Fetch dynamic content on mount
   useEffect(() => {
@@ -145,6 +193,15 @@ export default function App() {
     );
   }
 
+  if (isPrivacyPage) {
+    return (
+      <PrivacyPage
+        settings={generalSettings}
+        onBackToHome={() => navigateToPrivacy(false)}
+      />
+    );
+  }
+
   return (
     <div className="relative min-h-screen bg-[#050f1e] text-white selection:bg-[#2563EB]/40 selection:text-white overflow-x-hidden">
       {/* ── Antigravity Ambient Background System ── */}
@@ -189,16 +246,19 @@ export default function App() {
       <Testimonials testimonials={testimonials} />
 
       {/* Talent Pool Section */}
-      <Talents settings={generalSettings} />
+      <Talents settings={generalSettings} onPrivacyToggle={() => navigateToPrivacy(true)} />
 
       {/* Final Call to Action Section */}
       <CtaSection />
 
       {/* Contact Form Section */}
-      <Contact settings={generalSettings} selectedServicePreset={selectedServicePreset} />
+      <Contact settings={generalSettings} selectedServicePreset={selectedServicePreset} onPrivacyToggle={() => navigateToPrivacy(true)} />
 
       {/* Footer Section */}
-      <Footer settings={generalSettings} />
+      <Footer 
+        settings={generalSettings} 
+        onPrivacyToggle={() => navigateToPrivacy(true)} 
+      />
 
       {/* Botão Flutuante do WhatsApp */}
       <a
